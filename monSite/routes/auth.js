@@ -22,5 +22,23 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Route POST pour la connexion
+router.post('/login', async (req, res) => {
+  try {
+    // Vérifier si l'utilisateur existe dans la base de données
+    const { username, password } = req.body;
+    console.log('Données reçues dans le corps de la requête :', { username, password });
+    const user = await User.findOne({ username, password });
+    console.log(user)
+    if (user) {
+      res.status(200).send('Connexion réussie');
+    } else {
+      res.status(401).send('Nom d\'utilisateur ou mot de passe incorrect');
+    }
+  } catch (error) {
+    console.error('Erreur lors de la connexion de l\'utilisateur :', error);
+    res.status(500).send('Erreur lors de la connexion');
+  }
+});
 
 module.exports = router;

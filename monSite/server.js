@@ -17,7 +17,8 @@ mongoose.connect('mongodb://localhost:27017/monSiteDB', { useNewUrlParser: true,
   .catch(err => console.error('Error connecting to database:', err));
 
 app.use(express.json());
-app.use('/auth', authRoutes);
+app.use('/auth', authRoutes);-
+
 
 // Ajouter une route pour la racine
 app.get('/', (req, res) => {
@@ -26,3 +27,12 @@ app.get('/', (req, res) => {
 
 // Configurer Express pour servir les fichiers statiques
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'register.html'));
+});
+
+// Configurer Express pour servir les fichiers statiques du répertoire "views"
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
