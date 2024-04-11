@@ -1,13 +1,13 @@
-// auth.js
 const express = require('express');
 const User = require('../models/user');
 
 const router = express.Router();
 
+//----------- Commande Register -----------//
 router.post('/register', async (req, res) => {
   try {
     const { username, password } = req.body;
-    console.log('Données reçues dans le corps de la requête :', { username, password }); // Ajoutez cette ligne pour afficher les données reçues
+    console.log('Données reçues dans le corps de la requête :', { username, password });
     const newUser = new User({
       username: req.body.username,
       password: req.body.password
@@ -22,10 +22,9 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Route POST pour la connexion
+//----------- Commande Login -----------//
 router.post('/login', async (req, res) => {
   try {
-    // Vérifier si l'utilisateur existe dans la base de données
     const { username, password } = req.body;
     console.log('Données reçues dans le corps de la requête :', { username, password });
     const user = await User.findOne({ username, password });
