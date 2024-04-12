@@ -6,10 +6,16 @@ const router = express.Router();
 //----------- Commande Register -----------//
 router.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    console.log('Données reçues dans le corps de la requête :', { username, password });
+    const { email, password } = req.body;
+    console.log('Données reçues dans le corps de la requête :', { email, password });
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).send("Un utilisateur avec cette adresse e-mail existe déjà.");
+    }
+
     const newUser = new User({
-      username: req.body.username,
+      email: req.body.email,
       password: req.body.password
     });
     
@@ -25,9 +31,9 @@ router.post('/register', async (req, res) => {
 //----------- Commande Login -----------//
 router.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    console.log('Données reçues dans le corps de la requête :', { username, password });
-    const user = await User.findOne({ username, password });
+    const { email, password } = req.body;
+    console.log('Données reçues dans le corps de la requête :', { email, password });
+    const user = await User.findOne({ email, password });
     console.log(user)
     if (user) {
       res.status(200).send('Connexion réussie');
