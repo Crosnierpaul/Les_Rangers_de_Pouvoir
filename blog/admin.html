@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Mon Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin - Mon Blog</h1>
+    </header>
+
+    <section id="ajouter-section">
+        <h2>Ajouter une Section</h2>
+        <!-- Formulaire pour ajouter une section -->
+        <form id="ajout-section-form">
+            <label for="titre-section">Titre de la section:</label><br>
+            <input type="text" id="titre-section" name="titre-section" required><br>
+            <label for="texte-section">Texte de la section:</label><br>
+            <textarea id="texte-section" name="texte-section" required></textarea><br>
+            <label for="image-section">Image de la section:</label><br>
+            <input type="file" id="image-section" name="image-section" accept="image/*" required><br>
+            <button type="submit">Ajouter la section</button>
+        </form>
+        
+    </section>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
