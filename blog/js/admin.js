@@ -1,12 +1,55 @@
-var articles = JSON.parse(localStorage.getItem('articles')) || [];
-var articlesList = document.getElementById('articlesList');
+document.getElementById('articleForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-articles.forEach(function(article) {
-    var articleDiv = document.createElement('div');
-    articleDiv.innerHTML = '<h3>' + article.title + '</h3>' +
-                           '<p>' + article.content + '</p>' +
-                           (article.image ? '<img src="' + article.image + '" alt="Image de l\'article">' : '') + // Vérifie s'il y a une image dans l'article
-                           '<hr>';
-    articlesList.appendChild(articleDiv);
+    var title = document.getElementById('title').value;
+    var content = document.getElementById('content').value;
+    var imageFile = document.getElementById('image').files[0];
+
+    if (imageFile) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var imageData = event.target.result;
+
+            var article = {
+                title: title,
+                content: content,
+                image: imageData
+            };
+
+            var articles = JSON.parse(localStorage.getItem('articles')) || [];
+            articles.push(article);
+            localStorage.setItem('articles', JSON.stringify(articles));
+
+            alert('Article enregistré avec succès !');
+
+            // Rediriger vers la page principale après enregistrement
+            window.location.href = '../public/index.html';
+        };
+
+        reader.readAsDataURL(imageFile);
+    } else {
+        // Si aucune image n'a été sélectionnée, enregistrer l'article sans image
+        var article = {
+            title: title,
+            content: content
+        };
+
+        var articles = JSON.parse(localStorage.getItem('articles')) || [];
+        articles.push(article);
+        localStorage.setItem('articles', JSON.stringify(articles));
+
+        alert('Article enregistré avec succès !');
+
+        // Rediriger vers la page principale après enregistrement
+        window.location.href = '../public/index.html';
+    }
 });
 
+// Gérer le clic sur le bouton "Vider les articles"
+document.getElementById('clearArticles').addEventListener('click', function() {
+    // Supprimer les articles du localStorage
+    localStorage.removeItem('articles');
+    // Supprimer les images téléchargées du localStorage
+    localStorage.removeItem('images');
+    alert('Les articles et les images ont été supprimés avec succès !');
+});
