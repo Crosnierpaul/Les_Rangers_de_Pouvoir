@@ -53,3 +53,18 @@ document.getElementById('clearArticles').addEventListener('click', function() {
     localStorage.removeItem('images');
     alert('Les articles et les images ont été supprimés avec succès !');
 });
+
+// Gérer le clic sur le bouton "Supprimer le dernier article"
+document.getElementById('deleteLastArticle').addEventListener('click', function() {
+    var articles = JSON.parse(localStorage.getItem('articles')) || [];
+
+    if (articles.length > 0) {
+        console.log("yo")
+        articles.pop(); // Supprimer le dernier article
+        localStorage.setItem('articles', JSON.stringify(articles));
+        alert('Le dernier article a été supprimé avec succès !');
+    } else {
+        console.log("yo")
+        alert('Il n\'y a aucun article à supprimer !');
+    }
+});

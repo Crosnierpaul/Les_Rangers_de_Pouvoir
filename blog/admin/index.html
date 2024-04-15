@@ -11,19 +11,20 @@
 
     <form id="articleForm">
         <label for="title">Titre :</label><br>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" required><br> <!-- Champ obligatoire -->
         <label for="content">Contenu :</label><br>
-        <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br> <!-- Champ obligatoire -->
         <label for="image">Image :</label><br>
-        <input type="file" id="image" name="image"><br> <!-- Champ de téléchargement d'image -->
+        <input type="file" id="image" name="image"><br> <!-- Champ facultatif -->
         <input type="submit" value="Enregistrer">
     </form>
-    
 
     <!-- Bouton pour vider les articles -->
     <button id="clearArticles">Vider les articles</button>
 
+    <!-- Bouton pour supprimer le dernier article -->
+    <button id="deleteLastArticle">Supprimer le dernier article</button>
+
     <script src="../js/admin.js"></script>
 </body>
 </html>
-
