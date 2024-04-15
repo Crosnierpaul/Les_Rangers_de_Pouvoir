@@ -9,6 +9,9 @@ document.getElementById('articleForm').addEventListener('submit', function(event
         content: content
     };
 
+    // Supprimer l'article du localStorage
+    localStorage.removeItem('articles');
+
     var articles = JSON.parse(localStorage.getItem('articles')) || [];
     articles.push(article);
     localStorage.setItem('articles', JSON.stringify(articles));
