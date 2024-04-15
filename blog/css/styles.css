@@ -1,45 +1,32 @@
-Reset CSS
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Styles de base */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #e7acd4;
     color: #333;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+#title, #articleTitle {
+    width: 80%; /* Vous pouvez ajuster la valeur en fonction de la largeur souhaitée */
+    max-width: 400px; /* Limitez la largeur maximale pour éviter qu'il ne devienne trop grand */
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-header, footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-header h1 {
-    font-size: 2.5rem;
-}
-
-main {
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h1, h2 {
+    text-align: center;
     margin-bottom: 20px;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 label {
@@ -48,61 +35,78 @@ label {
 }
 
 input[type="text"],
-input[type="file"],
-textarea {
+textarea,
+input[type="file"] {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-button,
-input[type="submit"] {
-    background: #333;
-    color: #fff;
-    border: none;
+input[type="submit"],
+button {
+    background-color: #ff69b4; /* Rose */
+    color: white;
     padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover,
-input[type="submit"]:hover {
-    background: #555;
+input[type="submit"]:hover,
+button:hover {
+    background-color: #d34693; /* Rose plus foncé au survol */
 }
 
-.articles-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
-
-.article {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.article h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.article p {
-    margin-bottom: 15px;
-}
-
-.article img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
+/* Démarcation entre les deux fonctionnalités */
 hr {
     border: none;
     border-top: 1px solid #ccc;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
-img {
-    height: 10em;
-    width: 10em;
+/* Style du champ pour saisir le titre de l'article à supprimer */
+#articleTitle {
+    width: calc(100% - 120px); /* Réduire la largeur pour faire de la place pour le bouton */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style des boutons pour vider les articles, supprimer un article et supprimer le dernier article */
+#clearArticles,
+#deleteArticle,
+#deleteLastArticle {
+    display: inline-block; /* Afficher en ligne pour occuper seulement l'espace nécessaire */
+    background-color: #ff69b4; /* Rose */
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Ajouter un peu d'espace entre les boutons */
+#clearArticles,
+#deleteArticle {
+    margin-right: 10px;
+}
+
+/* Style des boutons pour supprimer un article (ajustement pour les mobiles) */
+@media (max-width: 480px) {
+    #deleteArticle,
+    #deleteLastArticle {
+        width: 100%;
+        display: block; /* Afficher en bloc pour remplir la largeur sur les petits écrans */
+        margin-right: 0;
+    }
+
+    #articleTitle {
+        width: 100%;
+    }
 }

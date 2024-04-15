@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+    <h1>Interface Administrateur</h1>
     <h2>Ecrire un nouvel article</h2>
 
     <form id="articleForm">
@@ -19,6 +20,11 @@
         <input type="submit" value="Enregistrer">
     </form>
 
+    <h2>Supprimer un article</h2>
+    
+    <!-- Bouton pour supprimer le dernier article -->
+    <button id="deleteLastArticle">Supprimer le dernier article</button>
+
     <!-- Bouton pour vider les articles -->
     <button id="clearArticles">Vider les articles</button>
 
@@ -27,8 +33,6 @@
     <input type="text" id="articleTitle">
     <button id="deleteArticle">Supprimer l'article</button>
 
-    <!-- Bouton pour supprimer le dernier article -->
-    <button id="deleteLastArticle">Supprimer le dernier article</button>
 
     <script src="../js/admin.js"></script>
 </body>
