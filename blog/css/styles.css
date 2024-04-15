@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e7acd4;
+    background-color: #b56ae0;
     color: #333;
-    margin: 0;
+    margin: 20px;
     padding: 0;
 }
 
@@ -11,10 +11,10 @@ body {
     max-width: 400px; /* Limitez la largeur maximale pour éviter qu'il ne devienne trop grand */
 }
 
+
 .container {
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -45,28 +45,6 @@ input[type="file"] {
     box-sizing: border-box;
 }
 
-input[type="submit"],
-button {
-    background-color: #ff69b4; /* Rose */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover,
-button:hover {
-    background-color: #d34693; /* Rose plus foncé au survol */
-}
-
-/* Démarcation entre les deux fonctionnalités */
-hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 30px 0;
-}
-
 /* Style du champ pour saisir le titre de l'article à supprimer */
 #articleTitle {
     width: calc(100% - 120px); /* Réduire la largeur pour faire de la place pour le bouton */
@@ -80,9 +58,10 @@ hr {
 /* Style des boutons pour vider les articles, supprimer un article et supprimer le dernier article */
 #clearArticles,
 #deleteArticle,
-#deleteLastArticle {
+#deleteLastArticle,
+input[type="submit"] {
     display: inline-block; /* Afficher en ligne pour occuper seulement l'espace nécessaire */
-    background-color: #ff69b4; /* Rose */
+    background-color: #8A2BE2; /* Rose */
     color: white;
     padding: 10px 20px;
     margin-bottom: 10px;
@@ -90,6 +69,13 @@ hr {
     border-radius: 4px;
     cursor: pointer;
 }
+
+input[type="submit"]:hover,
+#clearArticles:hover,
+#deleteArticle:hover,
+#deleteLastArticle:hover {
+    background-color: #6A2075; /* Rose plus foncé au survol */
+}   
 
 /* Ajouter un peu d'espace entre les boutons */
 #clearArticles,
@@ -109,4 +95,18 @@ hr {
     #articleTitle {
         width: 100%;
     }
+}
+
+label {
+    display: block; /* Affiche les labels en bloc pour qu'ils prennent toute la largeur disponible */
+    margin-bottom: 8px; /* Marge en bas pour séparer les labels des champs de saisie */
+    font-weight: bold; /* Police en gras pour les labels */
+    color: #555; /* Couleur du texte des labels */
+}
+
+img {
+    max-width: 20em;
+    min-width: 10em;
+    max-height: 20em;
+    min-height: 10em;
 }
