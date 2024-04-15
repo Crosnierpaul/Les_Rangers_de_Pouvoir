@@ -36,5 +36,3 @@ document.getElementById('clearArticles').addEventListener('click', function() {
     localStorage.removeItem('images');
     alert('Les articles et les images ont été supprimés avec succès !');
 });
-
-
