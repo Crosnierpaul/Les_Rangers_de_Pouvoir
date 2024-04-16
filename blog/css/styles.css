@@ -1,28 +1,23 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #b56ae0;
-    color: #333;
+    background-color: #333; /* Couleur de fond foncée */
+    color: #eee; /* Couleur du texte claire */
     margin: 20px;
     padding: 0;
 }
 
-#title, #articleTitle {
-    width: 80%; /* Vous pouvez ajuster la valeur en fonction de la largeur souhaitée */
-    max-width: 400px; /* Limitez la largeur maximale pour éviter qu'il ne devienne trop grand */
-}
-
-
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: #444; /* Couleur de fond du conteneur légèrement plus foncée */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Ombre légère avec une couleur de fond claire */
 }
 
 h1, h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #eee; /* Couleur de texte claire pour les titres */
 }
 
 form {
@@ -32,6 +27,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    color: #ccc; /* Couleur de texte légèrement plus claire pour les labels */
 }
 
 input[type="text"],
@@ -40,9 +36,11 @@ input[type="file"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #666; /* Bordure légèrement plus foncée */
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #555; /* Couleur de fond légèrement plus foncée */
+    color: #eee; /* Couleur du texte claire */
 }
 
 /* Style du champ pour saisir le titre de l'article à supprimer */
@@ -50,19 +48,22 @@ input[type="file"] {
     width: calc(100% - 120px); /* Réduire la largeur pour faire de la place pour le bouton */
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #666; /* Bordure légèrement plus foncée */
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #555; /* Couleur de fond légèrement plus foncée */
+    color: #eee; /* Couleur du texte claire */
 }
 
 /* Style des boutons pour vider les articles, supprimer un article et supprimer le dernier article */
 #clearArticles,
 #deleteArticle,
 #deleteLastArticle,
+#searchArticle,
 input[type="submit"] {
-    display: inline-block; /* Afficher en ligne pour occuper seulement l'espace nécessaire */
-    background-color: #8A2BE2; /* Rose */
-    color: white;
+    display: inline-block;
+    background-color: #999; /* Gris clair */
+    color: #fff; /* Texte gris foncé */
     padding: 10px 20px;
     margin-bottom: 10px;
     border: none;
@@ -71,11 +72,15 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover,
+#searchArticle:hover,
 #clearArticles:hover,
 #deleteArticle:hover,
 #deleteLastArticle:hover {
-    background-color: #6A2075; /* Rose plus foncé au survol */
+    background-color: #ccc; /* Gris foncé au survol */
+    color: #333; /* Texte blanc au survol */
 }   
+ 
+  
 
 /* Ajouter un peu d'espace entre les boutons */
 #clearArticles,
@@ -88,7 +93,7 @@ input[type="submit"]:hover,
     #deleteArticle,
     #deleteLastArticle {
         width: 100%;
-        display: block; /* Afficher en bloc pour remplir la largeur sur les petits écrans */
+        display: block;
         margin-right: 0;
     }
 
@@ -97,16 +102,20 @@ input[type="submit"]:hover,
     }
 }
 
-label {
-    display: block; /* Affiche les labels en bloc pour qu'ils prennent toute la largeur disponible */
-    margin-bottom: 8px; /* Marge en bas pour séparer les labels des champs de saisie */
-    font-weight: bold; /* Police en gras pour les labels */
-    color: #555; /* Couleur du texte des labels */
-}
-
 img {
     max-width: 20em;
     min-width: 10em;
     max-height: 20em;
     min-height: 10em;
+    border: 2px solid #aaa; /* Bordure légèrement plus claire */
+    background-color: #666; /* Couleur de fond légèrement plus foncée */
 }
+
+#editTitle,
+#title,
+#articleTitle,
+#searchTitle {
+    width: 60%; /* Réduire la largeur des champs de saisie des titres */
+    max-width: 300px; /* Limiter la largeur maximale pour éviter qu'ils ne deviennent trop larges */
+}
+
