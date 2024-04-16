@@ -1,0 +1,8 @@
+@startgantt
+[Conception du prototype] requires 11 days
+[Test du prototype] requires 111 days
+
+Project starts 2024-04-08
+[Conception du prototype] starts 2024-04-08
+[Test du prototype] starts 2024-05-20
+@endgantt

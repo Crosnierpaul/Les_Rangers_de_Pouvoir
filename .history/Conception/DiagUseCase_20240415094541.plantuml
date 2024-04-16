@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+actor Utilisateur as U
+actor Marie as M
+
+rectangle "Site Web" {
+  U --> (Accueil)
+  U --> (Informations)
+  U --> (Réservation Entretien)
+  U --> (Réservation Hebdomadaire)
+  U --> (Blog) : Consulte
+  U --> (Blog +) 
+  (Réservation Entretien) --> M 
+  (Réservation Hebdomadaire) --> M
+  M --> (Blog) : Modifie/Ajoute
+}
+@enduml

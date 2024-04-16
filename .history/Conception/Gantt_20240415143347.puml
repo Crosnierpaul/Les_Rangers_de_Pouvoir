@@ -1,0 +1,13 @@
+@startgantt
+[Conception du prototype] requires 12 days
+[Maquettage] requires 12 days
+[Devellopement Accueil Reservation] requires 12 days
+[Test du prototype] requires 12 days
+
+
+Project starts 2024-04-08
+[Conception du prototype] starts 2024-04-08
+[Maquettage] starts 2024-04-08
+[Devellopement Accueil Reservation] starts 2024-04-22
+[Test du prototype] starts 2024-05-20
+@endgantt

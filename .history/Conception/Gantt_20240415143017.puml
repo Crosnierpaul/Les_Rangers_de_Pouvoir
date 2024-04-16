@@ -1,0 +1,9 @@
+@startgantt
+[Conception du prototype] requires 12 days
+[Test du prototype] requires 12 days
+[Développement de l'application mobile] depends on [Conception du prototype] and finishes no later than 30 days after 
+
+Project starts 2024-04-08
+[Conception du prototype] starts 2024-04-08
+[Test du prototype] starts 2024-05-20
+@endgantt

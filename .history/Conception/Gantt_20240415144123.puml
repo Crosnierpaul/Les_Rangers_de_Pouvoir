@@ -1,0 +1,19 @@
+@startgantt
+[Conception du prototype] requires 12 days
+[Maquettage] requires 12 days
+[Devellopement Accueil Reservation] requires 12 days
+[Dev Blog] requires 12 days
+[Dev Admin] requires 12 days
+[Test prototype] requires 6 days
+[Finalisation] requires 12 days
+
+
+Project starts 2024-04-08
+[Conception du prototype] starts 2024-04-08
+[Maquettage] starts 2024-04-08
+[Devellopement Accueil Reservation] starts 2024-04-22
+[Dev Blog] starts 2024-05-06
+[Dev Admin] starts 2024-05-06
+[Test prototype] starts 2024-05-20
+[Finalisation] starts 2024-05-20
+@endgantt

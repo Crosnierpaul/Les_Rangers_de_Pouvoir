@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+rectangle "Navigation du site" {
+  (Accueil) --> (Réservation Entretien)
+  (Accueil) --> (Blog)
+  (Réservation Entretien) --> (Réservation Hebdomadaire)
+  (Réservation Hebdomadaire) --> (Blog +)
+}
+@enduml

@@ -1,0 +1,5 @@
+@startgantt
+title Diagramme de Gantt du Projet
+[Tâche] starts 2024-01-01
+[Tâche] lasts 10 days
+@endgantt

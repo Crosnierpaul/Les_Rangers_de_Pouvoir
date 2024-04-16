@@ -1,0 +1,13 @@
+@startgantt
+title Diagramme de Gantt du Projet
+[Initiation] starts 2024/01/01
+[Initiation] lasts 0 days
+[Conception] starts at after [Initiation]
+[Conception] lasts 10 days
+[Developpement] starts at after [Conception]
+[Developpement] lasts 20 days
+[Test] starts at after [Developpement]
+[Test] lasts 7 days
+[Deploiement] starts at after [Test]
+[Deploiement] lasts 3 days
+@endgantt

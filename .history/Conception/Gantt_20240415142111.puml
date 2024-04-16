@@ -1,0 +1,18 @@
+@startgantt
+title Diagramme de Gantt du Projet
+
+[Projet] starts 2024-01-01
+[Projet] lasts 0 days
+
+[Tâche 1] starts at after [Projet]
+[Tâche 1] lasts 10 days
+
+[Tâche 2] starts at after [Tâche 1]
+[Tâche 2] lasts 20 days
+
+[Tâche 3] starts at after [Tâche 2]
+[Tâche 3] lasts 7 days
+
+[Tâche 4] starts at after [Tâche 3]
+[Tâche 4] lasts 3 days
+@endgantt

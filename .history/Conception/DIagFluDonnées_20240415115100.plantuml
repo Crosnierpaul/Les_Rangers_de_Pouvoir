@@ -1,0 +1,15 @@
+@startuml
+start
+:Utilisateur remplit formulaire réservation;
+if (Disponibilité de Marie ?) then (Oui)
+  :Vérifier disponibilités;
+  if (Marie disponible ?) then (Oui)
+    :Confirmer réservation;
+  else (Non)
+    :Proposer autres créneaux;
+  endif
+else (Non)
+  :Demander de revoir disponibilités plus tard;
+endif
+stop
+@enduml

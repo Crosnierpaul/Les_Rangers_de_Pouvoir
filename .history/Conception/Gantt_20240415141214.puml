@@ -1,0 +1,13 @@
+@startgantt
+[Conception] as C starts at 2024-04-15
+[Developpement] as D
+[Test] as T
+[Deploiement] as DP
+[Conception] lasts 10 days
+[Developpement] starts at after C ends
+[Developpement] lasts 20 days
+[Test] starts at after D ends
+[Test] lasts 7 days
+[Deploiement] starts at after T ends
+[Deploiement] lasts 3 days
+@endgantt

@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+rectangle "Plateforme Bien-être" {
+  (Accueil) --> (Informations)
+  (Accueil) --> (Réservation Entretien)
+  (Informations) --> (Réservation Entretien)
+  (Informations) --> (Réservation Hebdomadaire)
+  (Informations) --> (Blog)
+  (Réservation Entretien) --> (Réservation Hebdomadaire)
+  (Réservation Hebdomadaire) --> (Blog)
+  (Blog) --> (Blog +)
+}
+@enduml

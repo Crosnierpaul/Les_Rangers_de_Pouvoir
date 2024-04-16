@@ -1,0 +1,10 @@
+@startuml
+actor Utilisateur as U
+participant Plateforme as P
+participant base de donnée as M
+
+U -> P: Accéder à la page de réservation
+P -> M: Voir disponibilités de Marie
+M --> P: Renvoyer disponibilités
+P --> U: Afficher disponibilités
+@enduml
