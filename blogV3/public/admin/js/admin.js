@@ -66,3 +66,39 @@ document.getElementById('articleForm').addEventListener('submit', function(event
         });
     }
 });
+
+
+// Supprimer un article
+document.getElementById('deleteArticleForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var articleTitleToDelete = document.getElementById('articleTitleToDelete').value.trim();
+
+    // Vérifier si un titre d'article a été saisi
+    if (articleTitleToDelete === '') {
+        alert('Veuillez saisir un titre d\'article.');
+        return;
+    }
+
+    // Confirmation de la suppression de l'article
+    if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
+        // Envoyer une requête DELETE à votre backend pour supprimer l'article
+        fetch('/articles/Delete/' + encodeURIComponent(articleTitleToDelete), {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Article supprimé avec succès !');
+                alert('Article supprimé avec succès !');
+                // Actualiser la page ou effectuer d'autres actions si nécessaire
+            } else {
+                console.error('Erreur lors de la suppression de l\'article :', response.statusText);
+                alert('Une erreur est survenue lors de la suppression de l\'article.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la suppression de l\'article :', error);
+            alert('Une erreur est survenue lors de la suppression de l\'article.');
+        });
+    }
+});

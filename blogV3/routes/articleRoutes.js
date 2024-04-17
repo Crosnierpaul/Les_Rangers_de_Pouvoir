@@ -31,6 +31,24 @@ router.post('/Create', async (req, res) => {
     }
 });
 
+// Supprimer un article en fonction de son titre
+router.delete('/Delete/:title', async (req, res) => {
+    const articleTitle = req.params.title;
+
+    try {
+        // Supprimer l'article de la base de données en fonction de son titre
+        const deletedArticle = await Article.findOneAndDelete({ title: articleTitle });
+
+        if (!deletedArticle) {
+            return res.status(404).json({ message: 'Aucun article trouvé avec ce titre.' });
+        }
+
+        res.json({ message: 'Article supprimé avec succès !' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // ... Other routes for updating, deleting articles, etc.
 
 module.exports = router;

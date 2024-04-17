@@ -33,3 +33,21 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin', 'index.html'));
 });
+
+// Supprimer un article en fonction de son titre
+app.delete('/articles/Delete/:title', async (req, res) => {
+    const articleTitle = req.params.title;
+
+    try {
+        // Supprimer l'article de la base de données en fonction de son titre
+        const deletedArticle = await Article.findOneAndDelete({ title: articleTitle });
+
+        if (!deletedArticle) {
+            return res.status(404).json({ message: 'Aucun article trouvé avec ce titre.' });
+        }
+
+        res.json({ message: 'Article supprimé avec succès !' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
