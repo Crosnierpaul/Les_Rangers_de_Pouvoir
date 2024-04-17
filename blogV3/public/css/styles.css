@@ -1,0 +1,94 @@
+/* CSS pour les deux pages HTML */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #eee; /* Couleur de texte claire pour les titres */
+}
+
+p {
+    color: #eee;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc; /* Couleur de texte légèrement plus claire pour les labels */
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #666; /* Bordure légèrement plus foncée */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #555; /* Couleur de fond légèrement plus foncée */
+    color: #eee; /* Couleur du texte claire */
+}
+
+input[type="submit"] {
+    display: inline-block;
+    background-color: #999; /* Gris clair */
+    color: #fff; /* Texte gris foncé */
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #ccc; /* Gris foncé au survol */
+    color: #333; /* Texte blanc au survol */
+}
+
+/* Ajouter un peu d'espace entre les boutons */
+#clearArticles,
+#deleteArticle {
+    margin-right: 10px;
+}
+
+/* Style des boutons pour supprimer un article (ajustement pour les mobiles) */
+@media (max-width: 480px) {
+    #deleteArticle,
+    #deleteLastArticle {
+        width: 100%;
+        display: block;
+        margin-right: 0;
+    }
+}
+
+/* Styles spécifiques à la page "Mon Blog" */
+#articlesList {
+    background-color: #333; /* Couleur de fond foncée */
+}
+
+img {
+    max-width: 10%;
+    max-height: 10%;
+    min-width: 10%;
+    min-width: 10%;
+}
+
+/* Styles spécifiques à la page "Interface Administrateur" */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #444; /* Couleur de fond du conteneur légèrement plus foncée */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Ombre légère avec une couleur de fond claire */
+}
