@@ -1,4 +1,4 @@
-// models/Article.js
+//----------- Model Article -----------//
 
 const mongoose = require('mongoose');
 

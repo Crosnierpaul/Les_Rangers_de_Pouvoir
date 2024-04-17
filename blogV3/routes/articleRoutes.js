@@ -1,5 +1,3 @@
-// routes/articleRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const Article = require('../models/Article');
@@ -14,7 +12,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-//----------- POST create a new article -----------//
 //----------- Commande Create Article -----------//
 router.post('/Create', async (req, res) => {
     const article = new Article({
@@ -31,7 +28,7 @@ router.post('/Create', async (req, res) => {
     }
 });
 
-// Supprimer un article en fonction de son titre
+//----------- Commande Delete Article -----------//
 router.delete('/Delete/:title', async (req, res) => {
     const articleTitle = req.params.title;
 

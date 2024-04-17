@@ -1,7 +1,7 @@
 // Récupérer la référence à l'élément qui contiendra les articles
 const articlesList = document.getElementById('articlesList');
 
-// Fonction pour charger les articles depuis le serveur
+//----------- Chargement Articles -----------//
 async function loadArticles() {
     try {
         // Récupérer les articles depuis le serveur
@@ -24,5 +24,4 @@ async function loadArticles() {
     }
 }
 
-// Appeler la fonction pour charger les articles au chargement de la page
 document.addEventListener('DOMContentLoaded', loadArticles);

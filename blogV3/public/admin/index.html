@@ -4,33 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interface Administrateur</title>
-    <!-- Lien vers votre fichier CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <h1>Interface Administrateur</h1>
-    <h2>Ecrire un nouvel article</h2>
 
+    <h2>Ecrire un nouvel article</h2>
     <form id="articleForm">
         <label for="title">Titre :</label><br>
-        <input type="text" id="title" name="title" required><br> <!-- Champ obligatoire -->
+        <input type="text" id="title" name="title" required><br>
         <label for="content">Contenu :</label><br>
-        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br> <!-- Champ obligatoire -->
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
         <label for="image">Image :</label><br>
-        <input type="file" id="image" name="image"><br> <!-- Champ facultatif -->
+        <input type="file" id="image" name="image"><br> 
         <input type="submit" value="Enregistrer">
     </form>
 
     <h2>Supprimer un article</h2>
-     <!-- Formulaire pour supprimer un article -->
      <form id="deleteArticleForm">
         <label for="articleTitleToDelete">Titre de l'article à supprimer :</label>
         <input type="text" id="articleTitleToDelete" name="articleTitleToDelete">
         <button type="submit">Supprimer l'article</button>
     </form>
 
-
-    <!-- Lien vers votre fichier JavaScript -->
     <script src="js/admin.js"></script>
 </body>
 </html>

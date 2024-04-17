@@ -1,3 +1,4 @@
+//----------- Requête Create  -----------//
 document.getElementById('articleForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -16,8 +17,6 @@ document.getElementById('articleForm').addEventListener('submit', function(event
                 image: imageData
             };
 
-            // Envoyer l'article à votre backend pour enregistrement dans la base de données
-            // Exemple d'envoi avec fetch :
             fetch('/articles/Create', {
                 method: 'POST',
                 headers: {
@@ -39,14 +38,11 @@ document.getElementById('articleForm').addEventListener('submit', function(event
 
         reader.readAsDataURL(imageFile);
     } else {
-        // Si aucune image n'a été sélectionnée, enregistrer l'article sans image
         var article = {
             title: title,
             content: content
         };
 
-        // Envoyer l'article à votre backend pour enregistrement dans la base de données
-        // Exemple d'envoi avec fetch :
         fetch('/articles/Create', {
             method: 'POST',
             headers: {
@@ -68,21 +64,18 @@ document.getElementById('articleForm').addEventListener('submit', function(event
 });
 
 
-// Supprimer un article
+//----------- Requête Delete -----------//
 document.getElementById('deleteArticleForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     var articleTitleToDelete = document.getElementById('articleTitleToDelete').value.trim();
 
-    // Vérifier si un titre d'article a été saisi
     if (articleTitleToDelete === '') {
         alert('Veuillez saisir un titre d\'article.');
         return;
     }
 
-    // Confirmation de la suppression de l'article
     if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
-        // Envoyer une requête DELETE à votre backend pour supprimer l'article
         fetch('/articles/Delete/' + encodeURIComponent(articleTitleToDelete), {
             method: 'DELETE',
         })
