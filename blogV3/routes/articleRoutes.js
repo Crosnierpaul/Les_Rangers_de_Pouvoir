@@ -15,7 +15,8 @@ router.get('/', async (req, res) => {
 });
 
 // POST create a new article
-router.post('/', async (req, res) => {
+//----------- Commande Create Article -----------//
+router.post('/Create', async (req, res) => {
     const article = new Article({
         title: req.body.title,
         content: req.body.content,

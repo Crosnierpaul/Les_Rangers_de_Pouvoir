@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Administrateur</title>
+    <!-- Lien vers votre fichier CSS -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <h1>Interface Administrateur</h1>
+    <h2>Ecrire un nouvel article</h2>
+
+    <form id="articleForm">
+        <label for="title">Titre :</label><br>
+        <input type="text" id="title" name="title" required><br> <!-- Champ obligatoire -->
+        <label for="content">Contenu :</label><br>
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br> <!-- Champ obligatoire -->
+        <label for="image">Image :</label><br>
+        <input type="file" id="image" name="image"><br> <!-- Champ facultatif -->
+        <input type="submit" value="Enregistrer">
+    </form>
+
+    <!-- Lien vers votre fichier JavaScript -->
+    <script src="js/admin.js"></script>
+</body>
+</html>
