@@ -27,6 +27,24 @@
         <button type="submit">Supprimer l'article</button>
     </form>
 
+    <h2>Modifier un article</h2>
+
+    <form id="searchArticleForm">
+        <label for="searchTitle">Nom de l'article à modifier :</label><br>
+        <input type="text" id="searchTitle" name="searchTitle" required><br>
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <form id="editArticleForm">
+        <label for="editTitle">Titre :</label><br>
+        <input type="text" id="editTitle" name="editTitle" readonly required><br>
+        <label for="editContent">Nouveau contenu :</label><br>
+        <textarea id="editContent" name="editContent" rows="4" cols="50" required></textarea><br>
+        <label for="editImage">Nouvelle image :</label><br>
+        <input type="file" id="editImage" name="editImage"><br>
+        <input type="submit" value="Enregistrer les modifications" id="saveChanges">
+    </form>
+
     <script src="js/admin.js"></script>
 </body>
 </html>

@@ -56,12 +56,10 @@ button[type="submit"]:hover {
     color: #333; 
 }
 
-
 #clearArticles,
 #deleteArticle {
     margin-right: 10px;
 }
-
 
 @media (max-width: 480px) {
     #deleteArticle,
@@ -71,7 +69,6 @@ button[type="submit"]:hover {
         margin-right: 0;
     }
 }
-
 
 #articlesList {
     background-color: #333; 
@@ -83,7 +80,6 @@ img {
     min-width: 10%;
     min-width: 10%;
 }
-
 
 .container {
     max-width: 800px;

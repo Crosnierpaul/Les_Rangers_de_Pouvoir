@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Article = require('../models/Article');
 
-// GET all articles
+//----------- GET Commande Get All articles -----------//
 router.get('/', async (req, res) => {
     try {
         const articles = await Article.find();
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-//----------- Commande Create Article -----------//
+//----------- POST Commande Create Article -----------//
 router.post('/Create', async (req, res) => {
     const article = new Article({
         title: req.body.title,
@@ -28,7 +28,7 @@ router.post('/Create', async (req, res) => {
     }
 });
 
-//----------- Commande Delete Article -----------//
+//----------- DELETE Commande Delete Article -----------//
 router.delete('/Delete/:title', async (req, res) => {
     const articleTitle = req.params.title;
 
@@ -46,6 +46,39 @@ router.delete('/Delete/:title', async (req, res) => {
     }
 });
 
-// ... Other routes for updating, deleting articles, etc.
+//----------- GET Commande Get One Article ( by its title ) -----------//
+router.get('/:title', async (req, res) => {
+    const title = req.params.title;
+
+    try {
+        const article = await Article.findOne({ title: title });
+        if (!article) {
+            return res.status(404).json({ message: 'Aucun article trouvé avec ce titre.' });
+        }
+        res.json(article);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+//----------- PUT Commande Put Article Updated -----------//
+router.put('/:title', async (req, res) => {
+    const title = req.params.title;
+
+    try {
+        const article = await Article.findOne({ title: title });
+        if (!article) {
+            return res.status(404).json({ message: "Aucun article trouvé avec ce titre." });
+        }
+
+        article.content = req.body.content;
+        article.image = req.body.image;
+
+        const updatedArticle = await article.save();
+        res.json(updatedArticle);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 module.exports = router;

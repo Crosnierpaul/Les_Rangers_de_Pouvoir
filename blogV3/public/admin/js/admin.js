@@ -63,7 +63,6 @@ document.getElementById('articleForm').addEventListener('submit', function(event
     }
 });
 
-
 //----------- Requête Delete -----------//
 document.getElementById('deleteArticleForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -92,6 +91,98 @@ document.getElementById('deleteArticleForm').addEventListener('submit', function
         .catch(error => {
             console.error('Erreur lors de la suppression de l\'article :', error);
             alert('Une erreur est survenue lors de la suppression de l\'article.');
+        });
+    }
+});
+
+//----------- Requête Search -----------//
+document.getElementById('searchArticleForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var searchTitle = document.getElementById('searchTitle').value.trim();
+
+    fetch(`/articles/${searchTitle}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Aucun article trouvé avec ce nom.');
+            }
+            return response.json();
+        })
+        .then(article => {
+            document.getElementById('editTitle').value = article.title;
+            document.getElementById('editContent').value = article.content;
+
+            alert('Article trouvé avec succès !');
+        })
+        .catch(error => {
+            console.error('Erreur lors de la recherche de l\'article :', error);
+            alert('Aucun article trouvé avec ce nom.');
+        });
+});
+
+//----------- Requête Update -----------//
+document.getElementById('editArticleForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var title = document.getElementById('editTitle').value.trim();
+    var content = document.getElementById('editContent').value;
+    var imageFile = document.getElementById('editImage').files[0];
+
+    var article = {
+        content: content
+    };
+
+    if (imageFile) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var imageData = event.target.result;
+            article.image = imageData;
+
+            fetch(`/articles/${encodeURIComponent(title)}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(article)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Article modifié avec succès !');
+                    alert('Article modifié avec succès !');
+                    // Actualiser la page ou effectuer d'autres actions si nécessaire
+                } else {
+                    console.error('Erreur lors de la modification de l\'article :', response.statusText);
+                    alert('Une erreur est survenue lors de la modification de l\'article.');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la modification de l\'article :', error);
+                alert('Une erreur est survenue lors de la modification de l\'article.');
+            });
+        };
+
+        reader.readAsDataURL(imageFile);
+    } else {
+        fetch(`/articles/${encodeURIComponent(title)}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(article)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Article modifié avec succès !');
+                alert('Article modifié avec succès !');
+                // Actualiser la page ou effectuer d'autres actions si nécessaire
+            } else {
+                console.error('Erreur lors de la modification de l\'article :', response.statusText);
+                alert('Une erreur est survenue lors de la modification de l\'article.');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la modification de l\'article :', error);
+            alert('Une erreur est survenue lors de la modification de l\'article.');
         });
     }
 });
