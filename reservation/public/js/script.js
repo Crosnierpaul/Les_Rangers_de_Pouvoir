@@ -44,14 +44,16 @@ async function submitReservation(event) {
         });
 
         if (response.ok) {
-            console.log('Reservation successful');
-            // Réinitialiser le formulaire ou afficher un message de succès
+            // Afficher une alerte pour confirmer la réservation réussie
+            alert('Réservation réussie !');
+            // Réinitialiser le formulaire ou effectuer d'autres actions nécessaires
         } else {
-            console.error('Reservation failed');
-            // Afficher un message d'erreur
+            // Afficher une alerte pour indiquer que la réservation a échoué
+            alert('La réservation a échoué.');
         }
     } catch (error) {
         console.error('Error submitting reservation:', error);
-        // Afficher un message d'erreur
+        // Afficher une alerte pour indiquer une erreur lors de la soumission de la réservation
+        alert('Une erreur est survenue lors de la réservation.');
     }
 }
