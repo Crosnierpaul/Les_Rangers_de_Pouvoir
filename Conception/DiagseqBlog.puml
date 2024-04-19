@@ -1,0 +1,44 @@
+@startuml
+actor Administrateur
+actor Utilisateur
+
+title Ajout, Modification et Affichage d'Articles de Blog
+
+Administrateur -> SiteWeb : Se connecte en tant qu'admin
+activate SiteWeb
+
+alt Ajout d'un nouvel article
+    Administrateur -> SiteWeb : Crée un nouvel article
+    SiteWeb -> BaseDeDonnees : Enregistre l'article
+    BaseDeDonnees --> SiteWeb : Confirmation
+    SiteWeb -> Administrateur : Confirmation de création
+    Administrateur -> SiteWeb : Retourne à la page d'administration
+else Modification d'un article existant
+    Administrateur -> SiteWeb : Modifie un article existant
+    SiteWeb -> BaseDeDonnees : Met à jour l'article
+    BaseDeDonnees --> SiteWeb : Confirmation
+    SiteWeb -> Administrateur : Confirmation de modification
+    Administrateur -> SiteWeb : Retourne à la page d'administration
+else suppression d'un  article existant
+    Administrateur -> SiteWeb : Supprime un article
+    SiteWeb -> BaseDeDonnees : Supprime l'article
+    BaseDeDonnees --> SiteWeb : Confirmation
+    SiteWeb -> Administrateur : article supprimé
+end
+
+Utilisateur -> SiteWeb : Consulte le blog
+activate Utilisateur
+
+alt Lecture d'un article
+    Utilisateur -> SiteWeb : Sélectionne un article
+    SiteWeb -> BaseDeDonnees : Récupère l'article
+    BaseDeDonnees --> SiteWeb : Article récupéré
+    SiteWeb --> Utilisateur : Affiche l'article
+else Ajout d'un commentaire
+    Utilisateur -> SiteWeb : Ajoute un commentaire
+    SiteWeb -> BaseDeDonnees : Enregistre le commentaire
+    BaseDeDonnees --> SiteWeb : Confirmation
+    SiteWeb --> Utilisateur : Affiche le commentaire
+end
+
+@enduml
