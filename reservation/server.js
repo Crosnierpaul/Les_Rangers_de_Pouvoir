@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const semainesRoutes = require('./routes/semainesRoutes'); // Importer le fichier de routes semainesRoutes.js
+const semainesRoutes = require('./routes/semainesRoutes');
 const path = require('path');
 
 const app = express();

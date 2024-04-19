@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Route pour enregistrer une réservation
+//----------- POST Commande Reservation -----------//
 router.post('/reservation', async (req, res) => {
     try {
         const { name, week } = req.body;
@@ -30,10 +30,8 @@ router.post('/reservation', async (req, res) => {
         const newReservation = new Reservation({
             name,
             week,
-            // Ajoutez d'autres champs de réservation si nécessaire
         });
 
-        // Enregistrer la réservation dans la base de données
         await newReservation.save();
 
         res.status(201).json({ message: 'Reservation successful', reservation: newReservation });

@@ -1,8 +1,9 @@
 window.onload = () => {
-    fetchWeeks(); // Chargement des semaines au chargement de la page
+    fetchWeeks();
     document.getElementById('reservationForm').addEventListener('submit', submitReservation);
 };
 
+//----------- Requête Weeks  -----------//
 async function fetchWeeks() {
     try {
         const response = await fetch('/weeks');
@@ -25,10 +26,11 @@ function displayWeeks(weeks) {
     });
 }
 
+//----------- Requête Weeks Reservation  -----------//
 async function submitReservation(event) {
-    event.preventDefault(); // Empêcher le formulaire de soumettre de manière classique
+    event.preventDefault();
 
-    const formData = new FormData(event.target); // Obtenir les données du formulaire
+    const formData = new FormData(event.target); 
     const reservationData = {
         name: formData.get('name'),
         week: formData.get('week')
@@ -44,16 +46,12 @@ async function submitReservation(event) {
         });
 
         if (response.ok) {
-            // Afficher une alerte pour confirmer la réservation réussie
             alert('Réservation réussie !');
-            // Réinitialiser le formulaire ou effectuer d'autres actions nécessaires
         } else {
-            // Afficher une alerte pour indiquer que la réservation a échoué
             alert('La réservation a échoué.');
         }
     } catch (error) {
         console.error('Error submitting reservation:', error);
-        // Afficher une alerte pour indiquer une erreur lors de la soumission de la réservation
         alert('Une erreur est survenue lors de la réservation.');
     }
 }
