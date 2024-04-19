@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Semaines de Réservation</title>
+    <title>Réservation de semaine</title>
 </head>
 <body>
-    <h2>Liste des Semaines de Réservation</h2>
-    <select id="weekSelect"></select>
+    <h2>Réservation de semaine</h2>
+    <form id="reservationForm">
+        <label for="name">Votre nom :</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="week">Semaine :</label>
+        <select id="week" name="week"></select><br><br>
+
+        <button type="submit">Réserver</button>
+    </form>
 
     <script src="js/script.js"></script>
 </body>
 </html>
-
