@@ -1,6 +1,5 @@
 window.onload = fetchWeeks;
 
-//----------- Requête Get Weeks -----------//
 async function fetchWeeks() {
     try {
         const response = await fetch('/weeks');
@@ -11,23 +10,14 @@ async function fetchWeeks() {
     }
 }
 
-// Afficher les semaines dans le tableau HTML
 function displayWeeks(weeks) {
-    const weekList = document.getElementById('weekList');
-    weekList.innerHTML = '';
+    const weekSelect = document.getElementById('weekSelect');
+    weekSelect.innerHTML = '';
 
     weeks.forEach(week => {
-        const row = document.createElement('tr');
-        const startDateCell = document.createElement('td');
-        startDateCell.textContent = week.date_debut;
-        const endDateCell = document.createElement('td');
-        endDateCell.textContent = week.date_fin;
-
-        row.appendChild(startDateCell);
-        row.appendChild(endDateCell);
-
-        weekList.appendChild(row);
+        const option = document.createElement('option');
+        option.value = week._id;
+        option.textContent = `${week.date_debut} - ${week.date_fin}`;
+        weekSelect.appendChild(option);
     });
 }
-
-window.onload = fetchWeeks;

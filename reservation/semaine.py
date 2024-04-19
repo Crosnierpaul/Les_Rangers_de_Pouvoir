@@ -34,7 +34,7 @@ def inserer_semaines(semaines):
         print("Aucune semaine à insérer.")
 
 annee = 2024
-for _ in range(100):
+for _ in range(2):
     # Générer les semaines
     semaines_a_inserer = generer_semaines(annee)
 
