@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const Reservation = require('../models/Reservation');
 
-
 //----------- GET Commande Get Weeks -----------//
 router.get('/', async (req, res) => {
     try {
@@ -20,10 +19,10 @@ router.post('/reservation', async (req, res) => {
     try {
         const { name, week } = req.body;
 
-        // Vérifier si la semaine est déjà réservée
-        const existingReservation = await Reservation.findOne({ week });
-        if (existingReservation) {
-            return res.status(400).json({ message: 'Week already reserved' });
+        // Vérifier le nombre de réservations pour cette semaine
+        const reservationsCount = await Reservation.countDocuments({ week });
+        if (reservationsCount >= 3) {
+            return res.status(400).json({ message: 'Maximum reservations reached for this week' });
         }
 
         // Créer une nouvelle réservation
