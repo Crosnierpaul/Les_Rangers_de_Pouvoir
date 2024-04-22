@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 # Connexion à la base de données MongoDB
 client = MongoClient("mongodb://localhost:27017/")
-db = client["reservation"]
+db = client["siteDB"]
 collection = db["semaines"]
 
 # Fonction pour générer les semaines du samedi au samedi pour une année spécifique
