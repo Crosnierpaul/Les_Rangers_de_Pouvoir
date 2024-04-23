@@ -57,6 +57,7 @@ async function submitReservation(event) {
         if (response.status === 201) {
             const data = await response.json();
             console.log(data);
+            alert('Réservation réussie')
             // Afficher un message de réussite si nécessaire
         } else if (response.status === 400) {
             const data = await response.json();
