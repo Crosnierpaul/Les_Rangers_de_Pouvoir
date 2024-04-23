@@ -1,4 +1,3 @@
-//----------- Model Reservation  -----------//
 const mongoose = require('mongoose');
 
 const reservationSchema = new mongoose.Schema({
@@ -6,13 +5,17 @@ const reservationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    week: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Week',
+    startDate: {
+        type: String,
         required: true
     },
+    endDate: {
+        type: String,
+        required: true
+    }
 });
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
 module.exports = Reservation;
+

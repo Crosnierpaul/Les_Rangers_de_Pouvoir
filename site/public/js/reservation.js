@@ -6,7 +6,7 @@ window.onload = () => {
 //----------- Requête Weeks  -----------//
 async function fetchWeeks() {
     try {
-        const response = await fetch('/weeks');
+        const response = await fetch('/semaines');
         const weeks = await response.json();
         displayWeeks(weeks);
     } catch (error) {
@@ -30,28 +30,64 @@ function displayWeeks(weeks) {
 async function submitReservation(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target); 
-    const reservationData = {
-        name: formData.get('name'),
-        week: formData.get('week')
-    };
+    const form = event.target;
+    const name = form.elements['name'].value;
+    const weekId = form.elements['week'].value;
+
+    // Récupérer les informations de la semaine sélectionnée
+    const selectedWeek = findWeekById(weekId);
+
+    if (!selectedWeek) {
+        console.error('Week not found');
+        return;
+    }
+
+    const startDate = selectedWeek.date_debut;
+    const endDate = selectedWeek.date_fin;
 
     try {
-        const response = await fetch('/weeks/reservation', {
+        const response = await fetch('/reservations/reserver', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(reservationData)
+            body: JSON.stringify({ name, startDate, endDate })
         });
 
-        if (response.ok) {
-            alert('Réservation réussie !');
+        if (response.status === 201) {
+            const data = await response.json();
+            console.log(data);
+            // Afficher un message de réussite si nécessaire
+        } else if (response.status === 400) {
+            const data = await response.json();
+            alert(data.message); // Afficher le message d'erreur
         } else {
-            alert('La réservation a échoué.');
+            console.error('Unexpected error:', response.statusText);
         }
     } catch (error) {
         console.error('Error submitting reservation:', error);
-        alert('Une erreur est survenue lors de la réservation.');
     }
 }
+
+
+// Fonction pour trouver la semaine par son identifiant
+function findWeekById(weekId) {
+    const weekSelect = document.getElementById('week');
+    const weeks = weekSelect.getElementsByTagName('option');
+
+    for (const week of weeks) {
+        if (week.value === weekId) {
+            return {
+                date_debut: week.textContent.split(' - ')[0],
+                date_fin: week.textContent.split(' - ')[1]
+            };
+        }
+    }
+
+    return null;
+}
+
+
+
+
+

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const semainesRoutes = require('./routes/semainesRoutes');
 const articleRoutes = require('./routes/articleRoutes');
+const reservationsRoutes = require('./routes/reservationsRoutes');
 const path = require('path');
 
 const app = express();
@@ -23,7 +24,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //----------- Routes -----------//
-app.use('/weeks', semainesRoutes);
+app.use('/semaines', semainesRoutes);
+
+app.use('/reservations', reservationsRoutes);
 
 app.use('/articles', articleRoutes);
 

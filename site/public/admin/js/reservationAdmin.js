@@ -1,36 +1,32 @@
-// admin.js
-
 window.onload = () => {
-    fetchReservations();
+    // Fonction pour charger les réservations depuis le serveur
+    const loadReservations = async () => {
+        try {
+            const response = await fetch('/reservations'); // Endpoint à adapter selon votre route
+            const data = await response.json();
+            console.log(response)
+            // Sélectionner le corps du tableau
+            const reservationsBody = document.getElementById('reservationsBody');
+            
+            // Vider le corps du tableau
+            reservationsBody.innerHTML = '';
+
+            // Ajouter chaque réservation au tableau
+            data.forEach(reservation => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${reservation.name}</td>
+                    <td>${reservation.startDate}</td>
+                    <td>${reservation.endDate}</td>
+                `;
+                reservationsBody.appendChild(row);
+            });
+        } catch (error) {
+            console.error('Erreur lors du chargement des réservations :', error);
+        }
+    };
+
+    // Appeler la fonction pour charger les réservations au chargement de la page
+    loadReservations();
 };
 
-async function fetchReservations() {
-    try {
-        const response = await fetch('/weeks/reservations');
-        const reservations = await response.json();
-        displayReservations(reservations);
-    } catch (error) {
-        console.error('Error fetching reservations:', error);
-        // Gérer l'erreur de manière appropriée, par exemple afficher un message à l'utilisateur
-    }
-}
-
-function displayReservations(reservations) {
-    const reservationContainer = document.getElementById('reservationContainer');
-    reservationContainer.innerHTML = ''; // Effacer le contenu précédent
-
-    reservations.forEach(reservation => {
-        const reservationElement = document.createElement('div');
-        reservationElement.classList.add('reservation');
-
-        const nameElement = document.createElement('p');
-        nameElement.textContent = `Nom : ${reservation.name}`;
-        reservationElement.appendChild(nameElement);
-
-        const weekElement = document.createElement('p');
-        weekElement.textContent = `Semaine : ${reservation.week}`;
-        reservationElement.appendChild(weekElement);
-
-        reservationContainer.appendChild(reservationElement);
-    });
-}
