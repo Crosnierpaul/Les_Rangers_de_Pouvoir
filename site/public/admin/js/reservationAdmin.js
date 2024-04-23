@@ -1,8 +1,8 @@
 window.onload = () => {
-    // Fonction pour charger les réservations depuis le serveur
+//----------- Requête Reservations  -----------//
     const loadReservations = async () => {
         try {
-            const response = await fetch('/reservations'); // Endpoint à adapter selon votre route
+            const response = await fetch('/reservations');
             const data = await response.json();
             console.log(response)
             // Sélectionner le corps du tableau
@@ -26,7 +26,6 @@ window.onload = () => {
         }
     };
 
-    // Appeler la fonction pour charger les réservations au chargement de la page
     loadReservations();
 };
 

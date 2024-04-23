@@ -3,17 +3,6 @@ window.onload = () => {
     document.getElementById('reservationForm').addEventListener('submit', submitReservation);
 };
 
-//----------- Requête Weeks  -----------//
-async function fetchWeeks() {
-    try {
-        const response = await fetch('/semaines');
-        const weeks = await response.json();
-        displayWeeks(weeks);
-    } catch (error) {
-        console.error('Error fetching weeks:', error);
-    }
-}
-
 function displayWeeks(weeks) {
     const weekSelect = document.getElementById('week');
     weekSelect.innerHTML = '';
@@ -26,7 +15,34 @@ function displayWeeks(weeks) {
     });
 }
 
-//----------- Requête Weeks Reservation  -----------//
+function findWeekById(weekId) {
+    const weekSelect = document.getElementById('week');
+    const weeks = weekSelect.getElementsByTagName('option');
+
+    for (const week of weeks) {
+        if (week.value === weekId) {
+            return {
+                date_debut: week.textContent.split(' - ')[0],
+                date_fin: week.textContent.split(' - ')[1]
+            };
+        }
+    }
+
+    return null;
+}
+
+//----------- Requête Semaines -----------//
+async function fetchWeeks() {
+    try {
+        const response = await fetch('/semaines');
+        const weeks = await response.json();
+        displayWeeks(weeks);
+    } catch (error) {
+        console.error('Error fetching weeks:', error);
+    }
+}
+
+//----------- Requête Reservatinons -----------//
 async function submitReservation(event) {
     event.preventDefault();
 
@@ -69,26 +85,3 @@ async function submitReservation(event) {
         console.error('Error submitting reservation:', error);
     }
 }
-
-
-// Fonction pour trouver la semaine par son identifiant
-function findWeekById(weekId) {
-    const weekSelect = document.getElementById('week');
-    const weeks = weekSelect.getElementsByTagName('option');
-
-    for (const week of weeks) {
-        if (week.value === weekId) {
-            return {
-                date_debut: week.textContent.split(' - ')[0],
-                date_fin: week.textContent.split(' - ')[1]
-            };
-        }
-    }
-
-    return null;
-}
-
-
-
-
-
