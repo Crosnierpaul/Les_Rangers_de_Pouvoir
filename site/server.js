@@ -23,33 +23,38 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//----------- View engine setup -----------//
+// Utilisez le chemin absolu pour spécifier le dossier "views"
+app.set('views', path.join(__dirname, 'public', 'views')); 
+
+// Définissez EJS comme moteur de vue
+app.set('view engine', 'ejs');
+
 //----------- Routes -----------//
 app.use('/semaines', semainesRoutes);
-
 app.use('/reservations', reservationsRoutes);
-
 app.use('/articles', articleRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.render('index'); // Rend le fichier "index.ejs" dans le dossier "views"
 });
 
 app.get('/blog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'pages', 'blog.html'));
+    res.render('blog'); // Rend le fichier "blog.ejs" dans le dossier "views"
 });
 
 app.get('/reservation', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'pages', 'reservation.html'));
+    res.render('reservation'); // Rend le fichier "reservation.ejs" dans le dossier "views"
 });
 
 app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin', 'admin.html'));
+    res.render('admin'); // Rend le fichier "admin.ejs" dans le dossier "views"
 });
 
 app.get('/adminBlog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin', 'pages', 'blogAdmin.html'));
+    res.render('blogAdmin'); // Rend le fichier "blogAdmin.ejs" dans le dossier "views"
 });
 
 app.get('/adminReservation', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'admin', 'pages', 'reservationAdmin.html'));
+    res.render('reservationAdmin'); // Rend le fichier "reservationAdmin.ejs" dans le dossier "views"
 });
