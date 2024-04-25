@@ -7,8 +7,60 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Page d'accueil</h1>
-    <button onclick="window.location.href = '/reservation';">Reserver</button>
-    <button onclick="window.location.href = '/blog';">Blog</button>
+    <%- include('navbar') %> 
+
+
+    <div class="navbarHori">
+        <a href="#accueil" data-section="Accueil"><span></span></a>
+        <a href="#presSej" data-section="Présentation du séjour"><span></span></a>
+        <a href="#presMarie" data-section="Présentation de Marie"><span></span></a>
+        <a href="#alim" data-section="Alimentation"><span></span></a>
+        <a href="#sport" data-section="Activité physique"><span></span></a>
+        <a href="#stress" data-section="Stress"><span></span></a>
+        <a href="#plaisir" data-section="Plaisir"><span></span></a>
+        <a href="#social" data-section="Social"><span></span></a>
+    </div>
+
+    <div id="accueil" class="section">
+        <h1>Accueil</h1>
+        <p>Contenu de la section 1...</p>
+    </div>
+
+    <div id="presSej" class="section">
+        <h1>Présentation du séjour</h1>
+        <p>Contenu de la section 2...</p>
+    </div>
+
+    <div id="presMarie" class="section">
+        <h1>Présentation de Marie</h1>
+        <p>Contenu de la section 3...</p>
+    </div>
+
+    <div id="alim" class="section">
+        <h1>Alimentation</h1>
+        <p>Contenu de la section 1...</p>
+    </div>
+
+    <div id="sport" class="section">
+        <h1>Activité physique</h1>
+        <p>Contenu de la section 2...</p>
+    </div>
+
+    <div id="stress" class="section">
+        <h1>Stress</h1>
+        <p>Contenu de la section 3...</p>
+    </div>
+
+    <div id="plaisir" class="section">
+        <h1>Plaisir</h1>
+        <p>Contenu de la section 2...</p>
+    </div>
+
+    <div id="social" class="section">
+        <h1>Social</h1>
+        <p>Contenu de la section 3...</p>
+    </div>
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
