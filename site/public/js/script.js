@@ -1,9 +1,5 @@
 // Smooth scroll to section
-<<<<<<< Updated upstream
 document.querySelectorAll('.navbarHori a').forEach(anchor => {
-=======
-document.querySelectorAll('.navbar a').forEach(anchor => {
->>>>>>> Stashed changes
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -16,7 +12,6 @@ document.querySelectorAll('.navbar a').forEach(anchor => {
         });
     });
 });
-<<<<<<< Updated upstream
 
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section'); // Sélectionne toutes les sections
@@ -58,5 +53,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Écoute les événements de défilement pour mettre à jour la surbrillance en temps réel
     window.addEventListener('scroll', highlightNavbarLink);
 });
-=======
->>>>>>> Stashed changes
