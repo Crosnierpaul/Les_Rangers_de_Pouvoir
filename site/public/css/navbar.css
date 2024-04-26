@@ -95,7 +95,7 @@
 }
 
 .nav-item.active .nav-link{
-	color: #8167a9 !important;
+	color: #7439cc  !important;
 }
 
 /* LIGNE SOUS LIEN APRES SOURIS DESSUS */
@@ -113,7 +113,7 @@
 	width: 100%;
 	height: 2px;
 	content: '';
-	background-color: #8167a9;
+	background-color: #7439cc ;
 	opacity: 0;
     transition: all 200ms linear;
 }
@@ -165,7 +165,7 @@
 }
 
 .navbar-nav .nav-item:hover .nav-link {
-    color: #8167a9 !important;
+    color: #7439cc !important;
 }
 
 /* Modifiez les styles des liens de navigation pour ressembler à du texte normal */
@@ -180,10 +180,15 @@
 .container {
     margin: 0px;
 	max-width: max-content;
+	background-color: rgb(156, 255, 164);
 }
 
 #logo {
 	width: 33%;
+	border: 4px solid #7439cc;
+	border-radius: 15px;
+	margin-left:  20px;
+	background-color: transparent;
 }
 
 #liLogo {
@@ -197,7 +202,7 @@
 	width: 100%;
 	height: 2px;
 	content: '';
-	background-color: #8167a9;
+	background-color: #7439cc ;
 	opacity: 1;
 }
 
