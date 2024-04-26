@@ -94,14 +94,22 @@ body {
     overflow-x: hidden; /* Empêche le défilement horizontal d'apparaître */
 }
 
+<<<<<<< Updated upstream
 .navbarHori {
+=======
+.navbar {
+>>>>>>> Stashed changes
     position: fixed;
     top: 50%; /* Positionne la barre de navigation à 50% du haut de la fenêtre */
     transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
     right: 10px; /* Ajoute un espace à droite pour éviter le chevauchement avec la barre de défilement */
     width: 20px; /* Largeur réduite de la barre de navigation */
     height: calc(100vh - 50vh); /* Hauteur de la barre de navigation (100% de la hauteur moins 50% de la hauteur) */
+<<<<<<< Updated upstream
     background-color: rgb(156, 255, 164);
+=======
+    background-color: #333;
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,6 +119,7 @@ body {
     transition: opacity 0.3s ease; /* Ajoute une transition sur l'opacité */
 }
 
+<<<<<<< Updated upstream
 .navbarHori:hover {
     opacity: 1; /* Rend la barre de navigation visible au survol */
 }
@@ -118,6 +127,15 @@ body {
 .navbarHori a {
     text-decoration: none;
     margin-bottom: 18px; /* Réduit légèrement l'espacement entre les points */
+=======
+.navbar:hover {
+    opacity: 1; /* Rend la barre de navigation visible au survol */
+}
+
+.navbar a {
+    text-decoration: none;
+    margin-bottom: 10px; /* Réduit légèrement l'espacement entre les points */
+>>>>>>> Stashed changes
     width: 10px; /* Largeur réduite du point */
     height: 10px; /* Hauteur réduite du point */
     border-radius: 50%; /* Pour rendre le point rond */
@@ -128,11 +146,19 @@ body {
     transition: transform 0.2s ease; /* Ajoute une transition sur la propriété transform */
 }
 
+<<<<<<< Updated upstream
 .navbarHori a:hover {
     transform: scale(0.9); /* Réduit légèrement la taille du point au survol */
 }
 
 .navbarHori a:active {
+=======
+.navbar a:hover {
+    transform: scale(0.9); /* Réduit légèrement la taille du point au survol */
+}
+
+.navbar a:active {
+>>>>>>> Stashed changes
     transform: scale(0.8); /* Réduit davantage la taille du point lorsque pressé */
     /* background-color: #666; /* Change la couleur de fond du point lorsque pressé */
     opacity: 0;
@@ -150,10 +176,17 @@ body {
 }
 
 /* Affiche la section correspondante lorsqu'un point est survolé */
+<<<<<<< Updated upstream
 .navbarHori a:hover::before {
     content: attr(data-section); /* Affiche le nom de la section */
     position: absolute;
     right: 180%; /* Positionne le texte à gauche de la barre de navigation */
+=======
+.navbar a:hover::before {
+    content: attr(data-section); /* Affiche le nom de la section */
+    position: absolute;
+    left: -70px; /* Positionne le texte au-dessus de la barre de navigation */
+>>>>>>> Stashed changes
     background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond du texte */
     padding: 5px;
     border-radius: 5px;
