@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const semainesRoutes = require('./routes/semainesRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const reservationsRoutes = require('./routes/reservationsRoutes');
+const entretienRoutes = require('./routes/entretienRoutes');
 const path = require('path');
 
 const app = express();
@@ -34,6 +35,7 @@ app.set('view engine', 'ejs');
 app.use('/semaines', semainesRoutes);
 app.use('/reservations', reservationsRoutes);
 app.use('/articles', articleRoutes);
+app.use('/entretiens', entretienRoutes);
 
 app.get('/', (req, res) => {
     res.render('index'); // Rend le fichier "index.ejs" dans le dossier "views"
@@ -60,5 +62,9 @@ app.get('/adminReservation', (req, res) => {
 });
 
 app.get('/entretien', (req, res) => {
-    res.render('entretien');
+    res.render('entretien'); // Rend le fichier "reservationAdmin.ejs" dans le dossier "views"
+});
+
+app.get('/adminEntretien', (req, res) => {
+    res.render('entretienAdmin');
 });
