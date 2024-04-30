@@ -76,7 +76,7 @@
 	top: 8px;
 }
 
-/* .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
 	transform: rotate(45deg);
 }
 
@@ -86,7 +86,7 @@
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
-} */
+}
 
 .nav-link{
 	color: #212121 !important;
@@ -181,14 +181,16 @@
     margin: 0px;
 	max-width: max-content;
 	background-color: rgb(156, 255, 164);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 #logo {
 	width: 33%;
-	border: 4px solid #7439cc;
+	border: 3.5px solid #7439cc;
 	border-radius: 15px;
 	margin-left:  20px;
-	background-color: transparent;
+	background-color: #ba8cff;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 #liLogo {
@@ -207,7 +209,7 @@
 }
 
 .rs {
-	margin-left: 508px;
+	margin-left: calc(100vh - 40vh);
 	display: inherit;
 }
 
@@ -215,3 +217,49 @@
 	margin-left: 5px;
 	margin-right: 5px;
 }
+
+/* Styles pour les écrans plus petits que 768px */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    .navbar-toggler {
+        order: -1; /* Mettre le bouton de bascule en haut */
+        margin-bottom: 10px; /* Ajouter un espace entre le bouton de bascule et les liens */
+    }
+
+    .rs {
+        margin-left: 0; /* Réinitialiser la marge pour les icônes de réseaux sociaux */
+        text-align: center; /* Centrer les icônes de réseaux sociaux */
+    }
+}
+
+/*Styles pour les écrans plus petits que 576px */
+@media (max-width: 576px) {
+    .navbar-brand {
+        margin: 0; /* Réinitialiser la marge pour le logo */
+    }
+
+    #logo {
+        width: 100%; /* Faire en sorte que le logo occupe toute la largeur */
+        margin: 0; /* Réinitialiser la marge */
+        border-radius: 0; /* Supprimer le border-radius */
+    }
+
+    .rs {
+        display: flex; /* Afficher les icônes de réseaux sociaux en ligne */
+        justify-content: center; /* Centrer les icônes de réseaux sociaux */
+    }
+
+    .rs .nav-item {
+        margin: 0 5px; /* Ajouter un espacement horizontal entre les icônes de réseaux sociaux */
+    }
+}
+
