@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 do {
                     phoneNumber = prompt("Veuillez saisir votre numéro de téléphone (10 chiffres commençant par 0 sans espaces) :");
+                    // Vérifier si l'utilisateur a annulé
+                    if (phoneNumber === null) {
+                        // L'utilisateur a annulé, sortir de la fonction
+                        return;
+                    }
                 } while (!phoneNumberPattern.test(phoneNumber));
                 
                 // Envoyer les détails de la réservation et les informations de l'utilisateur au serveur
@@ -63,10 +68,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     // La réservation a été créée avec succès
                     console.log('Reservation created successfully');
                     // Vous pouvez ajouter ici des actions supplémentaires, comme mettre à jour l'interface utilisateur, etc.
+                    // Afficher le message de confirmation à l'utilisateur
+                    alert('Votre réservation a été effectuée avec succès!');
                 })
                 .catch(error => {
                     console.error('Error creating reservation:', error.message);
                     // Gérer l'erreur, par exemple, afficher un message à l'utilisateur
+                    alert('Erreur lors de la réservation');
                 });
             });
             row.appendChild(timeSlot);
