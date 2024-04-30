@@ -58,3 +58,7 @@ app.get('/adminBlog', (req, res) => {
 app.get('/adminReservation', (req, res) => {
     res.render('reservationAdmin'); // Rend le fichier "reservationAdmin.ejs" dans le dossier "views"
 });
+
+app.get('/entretien', (req, res) => {
+    res.render('entretien');
+});
