@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-image: url("../images/Back.jpg")
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #eee;
+}
+
+p {
+    color: #eee;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc; 
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #666; 
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #555; 
+    color: #eee; 
+}
+
+input[type="submit"],
+button[type="submit"] {
+    display: inline-block;
+    background-color: #999;
+    color: #fff; 
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #ccc; 
+    color: #333; 
+}
+
+#clearArticles,
+#deleteArticle {
+    margin-right: 10px;
+}
+
+@media (max-width: 480px) {
+    #deleteArticle,
+    #deleteLastArticle {
+        width: 100%;
+        display: block;
+        margin-right: 0;
+    }
+}
+
+#articlesList {
+    background-color: #333; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #444;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+
+/*------------------------- ONEPAGE ---------------------------------------------*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Empêche le défilement horizontal d'apparaître */
+}
+
+.navbarHori {
+    position: fixed;
+    top: 50%; /* Positionne la barre de navigation à 50% du haut de la fenêtre */
+    transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
+    right: 10px; /* Ajoute un espace à droite pour éviter le chevauchement avec la barre de défilement */
+    width: 20px; /* Largeur réduite de la barre de navigation */
+    height: calc(100vh - 50vh); /* Hauteur de la barre de navigation (100% de la hauteur moins 50% de la hauteur) */
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    opacity: 0.2; /* Définit l'opacité initiale à 0 (invisible) */
+    transition: opacity 0.3s ease; /* Ajoute une transition sur l'opacité */
+}
+
+.navbarHori:hover {
+    opacity: 1; /* Rend la barre de navigation visible au survol */
+}
+
+.navbarHori a {
+    text-decoration: none;
+    margin-bottom: 18px; /* Réduit légèrement l'espacement entre les points */
+    width: 10px; /* Largeur réduite du point */
+    height: 10px; /* Hauteur réduite du point */
+    border-radius: 50%; /* Pour rendre le point rond */
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease; /* Ajoute une transition sur la propriété transform */
+}
+
+.navbarHori a:hover {
+    transform: scale(0.9); /* Réduit légèrement la taille du point au survol */
+}
+
+.navbarHori a:active {
+    transform: scale(0.8); /* Réduit davantage la taille du point lorsque pressé */
+    /* background-color: #666; /* Change la couleur de fond du point lorsque pressé */
+    opacity: 0;
+}
+
+.section {
+    padding: 50px;
+    margin-top: 80px; /* Pour éviter que le contenu ne soit caché sous la barre de navigation */
+    background-color: #f9f9f9;
+    min-height: 100vh; /* Au moins 100% de la hauteur de la fenêtre */
+}
+
+.section h1 {
+    color: #333;
+}
+
+/* Affiche la section correspondante lorsqu'un point est survolé */
+.navbarHori a:hover::before {
+    content: attr(data-section); /* Affiche le nom de la section */
+    position: absolute;
+    right: 180%; /* Positionne le texte à gauche de la barre de navigation */
+    background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond du texte */
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+}
