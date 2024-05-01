@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionName = link.getAttribute('data-section');
 
             if (sectionName === currentSection) {
-                link.style.backgroundColor = '#8167a9'; // Couleur de surbrillance du point
+                link.style.backgroundColor = '#7439cc'; // Couleur de surbrillance du point
             }
         });
     }
