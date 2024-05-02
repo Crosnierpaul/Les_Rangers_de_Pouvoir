@@ -219,7 +219,7 @@
 }
 
 /* Styles pour les écrans plus petits que 768px */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .navbar {
         flex-direction: column; /* Afficher les éléments de la navbar en colonne */
         align-items: center; /* Centrer les éléments */
@@ -248,9 +248,8 @@
     }
 
     #logo {
-        width: 100%; /* Faire en sorte que le logo occupe toute la largeur */
+        width: 98.3%; /* Faire en sorte que le logo occupe toute la largeur */
         margin: 0; /* Réinitialiser la marge */
-        border-radius: 0; /* Supprimer le border-radius */
     }
 
     .rs {
