@@ -180,19 +180,22 @@
 .container {
 	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
     margin: 0px;
+	min-height: 15vh;
 	max-width: max-content;
 	background: var(--background);
 	border-radius: 1em;
 }
 
-
+.purple {
+	color: #7439cc;
+}
 
 #logo {
-	width: 33%;
+	width: 50%;
 	border: 3.5px solid #6600ff;
 	border-radius: 15px;
 	margin-left:  20px;
-	--background: linear-gradient(to right, #89e67d 0%, #23b114 100%);
+	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
 	background: var(--background);
 	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
 }
@@ -267,3 +270,6 @@
     }
 }
 
+.tel {
+	margin-top: 5px;
+}

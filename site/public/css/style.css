@@ -3,14 +3,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 0;
-    background-image: url("../images/Purple\ flowers.jpg");
-    background-size: scale;
+    /* background-image: url(https://static.vecteezy.com/system/resources/previews/005/662/024/original/botanic-seamless-pattern-with-simple-random-tulip-flowers-shapes-purple-pastel-background-with-splashes-vector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    background-color: #ededed;
+}
+
+.justifyleft {
+    justify-content: left;
 }
 
 h1, h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #ffffff;
+    margin-bottom: 5px;
+    color: #5800a5;
 }
 
 
@@ -78,8 +85,10 @@ button[type="submit"]:hover {
 .containerindex {
     display: flex;
     flex-direction: column;
+    min-width: 40em;
+    max-width: 120em;
     align-items: center;
-    background-color: rgb(51, 51, 51);
+    background-color: rgba(69, 1, 99, 0.601);
 	border-radius: 1em;
 }
 
@@ -90,7 +99,7 @@ button[type="submit"]:hover {
 }
 
 .card {
-    --background: linear-gradient(to left, #5f47e7 0%, #1ae42b 100%);
+    --background: linear-gradient(to left, #7439cc 0%, #1ae42b 100%);
     max-width: 100%;
     max-height: 100%;
     padding: 5px;
@@ -101,6 +110,7 @@ button[type="submit"]:hover {
     position: relative;
     z-index: 1;
     margin: 20px;
+    margin-top: 15px;
 }
 
 .card::after {
@@ -120,7 +130,7 @@ button[type="submit"]:hover {
 }
 
 .card-info {
-    --color: #181818;
+    --color: #f4f4f4;
     background: var(--color);
     color: var(--color);
     display: flex;
@@ -157,7 +167,15 @@ button[type="submit"]:hover {
     justify-content: center;
 }
 
-
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
 
 
 /*------------------------- ONEPAGE ---------------------------------------------*/
@@ -214,17 +232,40 @@ body {
     opacity: 0;
 }
 
+.baniere {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    margin: 20px;
+    background-image: url(https://www.barnes-international.com/images/titres_personnalises/-titre-lhYBl.jpg); 
+    /* --background: linear-gradient(to bottom, #ffffff 0%, #999999 100%);
+    background: var(--background); */
+    background-color: #eee;
+    height: 60vh;
+    border-radius: 1em;
+}
+
 .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 50px;
     margin-top: 80px;
-    background-color: #f9f9f9;
+    /* background-image: url(https://img.freepik.com/vecteurs-premium/fond-remplissage-motif-repetition-sans-soudure_74869-1234.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1713571200&semt=ais); */
+    /* --background: linear-gradient(to bottom, #ffffff 0%, #999999 100%);
+    background: var(--background); */
+    background-color: #eee;
+    max-height: 400vh;
     min-height: 100vh;
 }
 
 .section h1 {
     text-align: center;
+    margin-top: -20px;
     margin-bottom: 20px;
-    color :#181818;
+    color :#5800a5;
 }
 
 .section ul {
@@ -234,12 +275,14 @@ body {
 }
 
 .section ul li {
+    margin-right: 1em;
+    margin-left: 1em;
     position: relative;
     padding-left: 20px;
     margin-bottom: 8px;
     font-size: 18px; /* Taille de texte ajustée */
     line-height: 1.6;
-    color: #ffffff;
+    color: #5800a5;
     font-family: "Arial", sans-serif; /* Changement de police */
 }
 
