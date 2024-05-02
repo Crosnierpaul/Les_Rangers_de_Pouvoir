@@ -178,19 +178,26 @@
 }
 
 .container {
+	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
     margin: 0px;
+	min-height: 15vh;
 	max-width: max-content;
-	background-color: rgb(156, 255, 164);
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	background: var(--background);
+	border-radius: 1em;
+}
+
+.purple {
+	color: #7439cc;
 }
 
 #logo {
-	width: 33%;
-	border: 3.5px solid #7439cc;
+	width: 50%;
+	border: 3.5px solid #6600ff;
 	border-radius: 15px;
 	margin-left:  20px;
-	background-color: #ba8cff;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
+	background: var(--background);
+	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
 }
 
 #liLogo {
@@ -262,3 +269,6 @@
     }
 }
 
+.tel {
+	margin-top: 5px;
+}

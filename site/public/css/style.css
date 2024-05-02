@@ -1,20 +1,25 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 0;
-    background-image: url("../images/Purple\ flowers.jpg");
-    background-size: scale;
+    /* background-image: url(https://static.vecteezy.com/system/resources/previews/005/662/024/original/botanic-seamless-pattern-with-simple-random-tulip-flowers-shapes-purple-pastel-background-with-splashes-vector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    background-color: #ededed;
+}
+
+.justifyleft {
+    justify-content: left;
 }
 
 h1, h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #eee;
+    margin-bottom: 5px;
+    color: #5800a5;
 }
 
-p {
-    color: #eee;
-}
 
 form {
     margin-bottom: 30px;
@@ -75,12 +80,101 @@ button[type="submit"]:hover {
     background-color: #333; 
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #444;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+/*------------------------- CONTAINER ET INFOS INFOS ACCUEIL ---------------------------------------------*/
+
+.containerindex {
+    display: flex;
+    flex-direction: column;
+    min-width: 40em;
+    max-width: 120em;
+    align-items: center;
+    background-color: rgba(69, 1, 99, 0.601);
+	border-radius: 1em;
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* Espacement égal entre les éléments */
+    width: 100%;
+}
+
+.card {
+    --background: linear-gradient(to left, #7439cc 0%, #1ae42b 100%);
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: #f7ba2b;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+    margin-top: 15px;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: #f7ba2b;
+    background: var(--background);
+    transition: opacity .5s;
+}
+
+.card-info {
+    --color: #f4f4f4;
+    background: var(--color);
+    color: var(--color);
+    display: flex;
+    flex-direction: column; /* Affichage en colonnes */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: .7rem;
+}
+
+.card .title {
+    font-weight: bold;
+}
+
+/*Hover*/
+.card:hover::after {
+    opacity: 0;
+}
+
+.card:hover .card-info {
+    color: #f7ba2b;
+    transition: color 1s;
+}
+
+/* Ajouter un espace de 25px entre les deux cartes du haut */
+.row:first-child .col-6 {
+    margin-right: 25px;
+}
+
+/* Centrer la carte du bas */
+.row:last-child {
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
 }
 
 
@@ -138,15 +232,58 @@ body {
     opacity: 0;
 }
 
-.section {
+.baniere {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 50px;
-    margin-top: 80px; /* Pour éviter que le contenu ne soit caché sous la barre de navigation */
-    background-color: #f9f9f9;
-    min-height: 100vh; /* Au moins 100% de la hauteur de la fenêtre */
+    margin: 20px;
+    background-image: url(https://www.barnes-international.com/images/titres_personnalises/-titre-lhYBl.jpg); 
+    /* --background: linear-gradient(to bottom, #ffffff 0%, #999999 100%);
+    background: var(--background); */
+    background-color: #eee;
+    height: 60vh;
+    border-radius: 1em;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    margin-top: 80px;
+    /* background-image: url(https://img.freepik.com/vecteurs-premium/fond-remplissage-motif-repetition-sans-soudure_74869-1234.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1713571200&semt=ais); */
+    /* --background: linear-gradient(to bottom, #ffffff 0%, #999999 100%);
+    background: var(--background); */
+    background-color: #eee;
+    max-height: 400vh;
+    min-height: 100vh;
 }
 
 .section h1 {
-    color: #333;
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color :#5800a5;
+}
+
+.section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section ul li {
+    margin-right: 1em;
+    margin-left: 1em;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 18px; /* Taille de texte ajustée */
+    line-height: 1.6;
+    color: #5800a5;
+    font-family: "Arial", sans-serif; /* Changement de police */
 }
 
 /* Affiche la section correspondante lorsqu'un point est survolé */
@@ -159,27 +296,4 @@ body {
     border-radius: 5px;
     font-size: 14px;
     white-space: nowrap;
-}
-
-@media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
-    .navbarHori {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
-        height: auto;
-        transform: none; /* Supprime la transformation de translation */
-        opacity: 1; /* Rend la barre de navigation toujours visible */
-        background-color: rgb(156, 255, 164); /* Couleur de fond */
-    }
-    
-    .navbarHori:hover,
-    .navbarHori a:hover,
-    .navbarHori a:active {
-        transform: none; /* Supprime la transformation au survol ou à l'activation */
-        opacity: 1; /* Rend la barre de navigation toujours visible */
-    }
-
-    .navbarHori a::before {
-        display: none; /* Cache le texte de section avant le survol */
-    }
 }
