@@ -82,14 +82,15 @@ function selectCell(cell) {
     selectedContent.innerHTML = `<h2>Date sélectionnée :</h2><p>${selectedDate}</p>`;
 
     // Ajouter des champs de saisie pour le nom, prénom et numéro de téléphone
+    
     const inputFields = `
         <h2>Remplissez vos informations :</h2>
         <label for="firstName">Prénom :</label>
-        <input type="text" id="firstName" name="firstName"><br><br>
+        <input type="text" id="firstName" name="firstName" required><br><br>
         <label for="lastName">Nom :</label>
-        <input type="text" id="lastName" name="lastName"><br><br>
+        <input type="text" id="lastName" name="lastName" required><br><br>
         <label for="phoneNumber">Numéro de téléphone :</label>
-        <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>        
     `;
     selectedContent.innerHTML += inputFields;
 
@@ -100,6 +101,8 @@ function selectCell(cell) {
         <select id="timeSlot">
             ${timeSlotOptions}
         </select>
+        <button onclick="reserver()">Réserver</button>
+
     `;
     selectedContent.innerHTML += timeSlotSelector;
 }
@@ -143,6 +146,13 @@ function reserver() {
     const lastName = document.getElementById('lastName').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
 
+    // Vérifier que le numéro de téléphone commence par un zéro et comporte 10 chiffres
+    const phoneRegex = /^0\d{9}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        alert("Le numéro de téléphone doit commencer par 0 et comporter 10 chiffres");
+        return; // Arrêter l'exécution de la fonction si la validation échoue
+    }
+
     // Créer un objet contenant les données
     const reservationData = {
         day: `${selectedDay} ${months[currentMonth]} ${currentYear}`,
@@ -152,7 +162,6 @@ function reserver() {
         phoneNumber: phoneNumber
     };
 
-    // Effectuer une requête POST pour envoyer les données à la route de réservation
     fetch('/entretiens', {
         method: 'POST',
         headers: {
@@ -161,22 +170,23 @@ function reserver() {
         body: JSON.stringify(reservationData)
     })
     .then(response => {
-        if (!response.ok) {
+        if (response.status === 201) {
+            alert('Réservation effectuée avec succès');
+            // Réinitialiser les champs après la réservation réussie
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('phoneNumber').value = '';
+        } else if (response.status === 409) {
+            throw new Error('Il existe déjà une réservation pour cette heure');
+        } else {
             throw new Error('Erreur lors de la réservation');
         }
-        return response.json();
-    })
-    .then(data => {
-        alert('Réservation effectuée avec succès');
-        // Réinitialiser les champs après la réservation réussie
-        document.getElementById('firstName').value = '';
-        document.getElementById('lastName').value = '';
-        document.getElementById('phoneNumber').value = '';
     })
     .catch(error => {
-        console.error('Erreur :', error);
-        alert('Une erreur est survenue lors de la réservation');
+        console.error('Erreur :', error.message);
+        alert(error.message);
     });
+    
 }
 
 
