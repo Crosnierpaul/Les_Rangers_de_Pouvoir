@@ -14,7 +14,6 @@ async function loadArticles() {
                 <h2>${article.title}</h2>
                 <p>${article.content}</p>
                 ${article.image ? `<img src="${article.image}" alt="Image de l'article">` : ''}
-                <hr>
             `;
             articlesList.appendChild(articleDiv);
         });

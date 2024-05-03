@@ -1,25 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
 }
+
 .calendar {
     margin-bottom: 50px;
 }
+
 table {
     border-collapse: collapse;
     width: 100%;
 }
+
 th, td {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
 }
+
 th {
     background-color: #f2f2f2;
 }
+
 .btn-container {
     margin-top: 20px;
+    text-align: center;
 }
+
 .btn {
     margin: 0 5px;
     padding: 5px 10px;
@@ -34,4 +40,12 @@ td:hover {
 td.selected {
     background-color: #ccc; /* Couleur de fond grise pour les cellules sélectionnées */
     cursor: default; /* Désactiver le changement de curseur */
+}
+
+p {
+    text-align: center;
+}
+
+section {
+    margin: 2em;
 }

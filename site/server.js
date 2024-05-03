@@ -68,3 +68,7 @@ app.get('/entretien', (req, res) => {
 app.get('/adminEntretien', (req, res) => {
     res.render('entretienAdmin');
 });
+
+app.get('/adminAccueil', (req, res) => {
+    res.render('accueilAdmin');
+});
