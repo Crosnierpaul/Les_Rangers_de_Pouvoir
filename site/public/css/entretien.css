@@ -1,44 +1,37 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
 }
-
 .calendar {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-bottom: 50px;
 }
-
-.calendar-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.calendar-table {
-    width: 100%;
+table {
     border-collapse: collapse;
+    width: 100%;
 }
-
-.calendar-table th,
-.calendar-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
+th, td {
+    border: 1px solid #dddddd;
     text-align: center;
+    padding: 8px;
 }
-
-.day-header {
+th {
     background-color: #f2f2f2;
 }
-
-.time-slot {
+.btn-container {
+    margin-top: 20px;
+}
+.btn {
+    margin: 0 5px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
-.time-slot:hover {
-    background-color: #e0e0e0;
+td:hover {
+    background-color: #f0f0f0; /* Couleur de fond lors du survol */
+    cursor: pointer; /* Changement de curseur pour indiquer qu'il est cliquable */
 }
 
-.reserved {
-    background-color: #ffa07a; /* Couleur de marque pour les cases réservées */
+td.selected {
+    background-color: #ccc; /* Couleur de fond grise pour les cellules sélectionnées */
+    cursor: default; /* Désactiver le changement de curseur */
 }

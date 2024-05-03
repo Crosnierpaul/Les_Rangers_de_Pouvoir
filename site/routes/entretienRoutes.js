@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 const Entretien = require('../models/Entretien');
 
-// Créer une réservation avec nom et numéro de téléphone
+// Créer une réservation avec nom, prénom et numéro de téléphone
 router.post('/', async (req, res) => {
     console.log(req.body)
     try {
         // Récupérer les données de la réservation depuis le corps de la requête
-        const { day, hour, name, phoneNumber } = req.body;
+        const { day, hour, firstName, lastName, phoneNumber } = req.body;
 
-        // Créer une nouvelle instance de réservation avec nom et numéro de téléphone
+        // Créer une nouvelle instance de réservation avec nom, prénom et numéro de téléphone
         const nouvelleReservation = new Entretien({
             day,
             hour,
-            name,
+            firstName,
+            lastName,
             phoneNumber
-            // Vous pouvez ajouter d'autres champs d'entretien si nécessaire
         });
 
         // Sauvegarder la réservation dans la base de données

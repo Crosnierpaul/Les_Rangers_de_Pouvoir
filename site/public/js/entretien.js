@@ -1,85 +1,183 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-    const hours = ['13h00 - 13h30', '13h30 - 14h00'];
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+const timeSlots = ['13h - 13h30', '13h30 - 14h']; // Options d'horaires
 
-    const calendarBody = document.getElementById('calendarBody');
+function displayCalendar(month, year) {
+    const calendarContainer = document.getElementById('calendarContainer');
+    calendarContainer.innerHTML = '';
 
-    // Créer une grille pour suivre les réservations
-    const reservations = {};
-    hours.forEach(hour => {
-        reservations[hour] = {};
-        days.forEach(day => {
-            reservations[hour][day] = false; // initialiser toutes les cases comme non réservées
-        });
+    const firstDay = new Date(year, month, 1);
+    const monthName = months[firstDay.getMonth()];
+    const yearNum = firstDay.getFullYear();
+
+    // Correction pour obtenir le premier jour correct du mois
+    let firstDayOfWeek = firstDay.getDay(); // Renvoie 0 pour dimanche, 1 pour lundi, etc.
+
+    // Décaler le premier jour vers la gauche si nécessaire
+    if (firstDayOfWeek === 0) {
+        firstDayOfWeek = 6; // Si le premier jour est un dimanche, décaler vers la gauche d'une colonne
+    } else {
+        firstDayOfWeek--; // Décaler d'une colonne vers la gauche
+    }
+
+    const calendarDiv = document.createElement('div');
+    calendarDiv.classList.add('calendar');
+    calendarDiv.innerHTML = `<h2>${monthName} ${yearNum}</h2>`;
+
+    const table = document.createElement('table');
+    const headerRow = document.createElement('tr');
+    const daysOfWeek = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+    daysOfWeek.forEach(day => {
+        const th = document.createElement('th');
+        th.textContent = day;
+        headerRow.appendChild(th);
     });
 
-    // Générer les créneaux horaires
-    hours.forEach(hour => {
+    table.appendChild(headerRow);
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let currentDay = 1;
+    for (let i = 0; i < 6; i++) {
         const row = document.createElement('tr');
-        const hourCell = document.createElement('td');
-        hourCell.textContent = hour;
-        row.appendChild(hourCell);
+        for (let j = 0; j < 7; j++) {
+            const cell = document.createElement('td');
+            if (i === 0 && j < firstDayOfWeek) {
+                cell.innerHTML = '&nbsp;'; // Espaces vides pour les premiers jours
+            } else if (currentDay <= daysInMonth) {
+                cell.textContent = currentDay;
+                cell.id = `cell-${currentDay}`; // Ajout d'un ID unique à chaque cellule
+                cell.addEventListener('click', () => selectCell(cell)); // Ajout de l'événement de clic
+                currentDay++;
+            } else {
+                cell.innerHTML = '&nbsp;'; // Espaces vides pour les jours supplémentaires
+            }
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+    
 
-        days.forEach(day => {
-            const timeSlot = document.createElement('td');
-            timeSlot.classList.add('time-slot');
-            timeSlot.setAttribute('data-day', day);
-            timeSlot.setAttribute('data-hour', hour);
-            // Ajouter un gestionnaire d'événements pour la réservation au clic sur chaque créneau horaire
-            timeSlot.addEventListener('click', () => {
-                // Récupérer le jour et l'heure du créneau cliqué
-                const selectedDay = timeSlot.getAttribute('data-day');
-                const selectedHour = timeSlot.getAttribute('data-hour');
+    calendarDiv.appendChild(table);
+    calendarContainer.appendChild(calendarDiv);
+}
 
-                // Demander à l'utilisateur son nom et son numéro de téléphone
-                const name = prompt("Veuillez saisir votre nom :");
-                let phoneNumber;
-                
-                // Validation du numéro de téléphone avec une expression régulière
-                const phoneNumberPattern = /^0\d{9}$/; // Format : commençant par 0 suivi de 9 chiffres
-
-                do {
-                    phoneNumber = prompt("Veuillez saisir votre numéro de téléphone (10 chiffres commençant par 0 sans espaces) :");
-                    // Vérifier si l'utilisateur a annulé
-                    if (phoneNumber === null) {
-                        // L'utilisateur a annulé, sortir de la fonction
-                        return;
-                    }
-                } while (!phoneNumberPattern.test(phoneNumber));
-                
-                // Envoyer les détails de la réservation et les informations de l'utilisateur au serveur
-                const reservationDetails = {
-                    day: selectedDay,
-                    hour: selectedHour,
-                    name: name,
-                    phoneNumber: phoneNumber
-                };
-                fetch('/entretiens', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(reservationDetails),
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to create reservation');
-                    }
-                    // La réservation a été créée avec succès
-                    console.log('Reservation created successfully');
-                    // Vous pouvez ajouter ici des actions supplémentaires, comme mettre à jour l'interface utilisateur, etc.
-                    // Afficher le message de confirmation à l'utilisateur
-                    alert('Votre réservation a été effectuée avec succès!');
-                })
-                .catch(error => {
-                    console.error('Error creating reservation:', error.message);
-                    // Gérer l'erreur, par exemple, afficher un message à l'utilisateur
-                    alert('Erreur lors de la réservation');
-                });
-            });
-            row.appendChild(timeSlot);
-        });
-
-        calendarBody.appendChild(row);
+function selectCell(cell) {
+    // Supprimer toute sélection précédente
+    const selectedCells = document.querySelectorAll('.selected');
+    selectedCells.forEach(selectedCell => {
+        selectedCell.classList.remove('selected');
     });
-});
+
+    // Ajouter la classe de sélection à la cellule cliquée
+    cell.classList.add('selected');
+
+    // Récupérer la date sélectionnée
+    const selectedDate = `${cell.textContent} ${months[currentMonth]} ${currentYear}`;
+
+    // Afficher la date sélectionnée
+    const selectedContent = document.getElementById('selectedContent');
+    selectedContent.innerHTML = `<h2>Date sélectionnée :</h2><p>${selectedDate}</p>`;
+
+    // Ajouter des champs de saisie pour le nom, prénom et numéro de téléphone
+    const inputFields = `
+        <h2>Remplissez vos informations :</h2>
+        <label for="firstName">Prénom :</label>
+        <input type="text" id="firstName" name="firstName"><br><br>
+        <label for="lastName">Nom :</label>
+        <input type="text" id="lastName" name="lastName"><br><br>
+        <label for="phoneNumber">Numéro de téléphone :</label>
+        <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
+    `;
+    selectedContent.innerHTML += inputFields;
+
+    // Afficher les options d'horaires
+    const timeSlotOptions = timeSlots.map(slot => `<option>${slot}</option>`).join('');
+    const timeSlotSelector = `
+        <h2>Choisissez un horaire :</h2>
+        <select id="timeSlot">
+            ${timeSlotOptions}
+        </select>
+    `;
+    selectedContent.innerHTML += timeSlotSelector;
+}
+
+
+function prevMonth() {
+    if (currentMonth === 0) {
+        prevYear(); // Si c'est janvier, décrémentez l'année à la place
+    } else {
+        currentMonth--;
+        displayCalendar(currentMonth, currentYear);
+    }
+}
+
+function nextMonth() {
+    if (currentMonth === 11) {
+        nextYear();
+    } else {
+        currentMonth++;
+        displayCalendar(currentMonth, currentYear);
+    }
+}
+
+function prevYear() {
+    currentYear--;
+    currentMonth = 11;
+    displayCalendar(currentMonth, currentYear);
+}
+
+function nextYear() {
+    currentYear++;
+    currentMonth = 0;
+    displayCalendar(currentMonth, currentYear);
+}
+
+function reserver() {
+    // Récupérer les données sélectionnées
+    const selectedDay = document.querySelector('.selected').textContent;
+    const selectedHour = document.getElementById('timeSlot').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+
+    // Créer un objet contenant les données
+    const reservationData = {
+        day: `${selectedDay} ${months[currentMonth]} ${currentYear}`,
+        hour: selectedHour,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber
+    };
+
+    // Effectuer une requête POST pour envoyer les données à la route de réservation
+    fetch('/entretiens', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reservationData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur lors de la réservation');
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert('Réservation effectuée avec succès');
+        // Réinitialiser les champs après la réservation réussie
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('phoneNumber').value = '';
+    })
+    .catch(error => {
+        console.error('Erreur :', error);
+        alert('Une erreur est survenue lors de la réservation');
+    });
+}
+
+
+displayCalendar(currentMonth, currentYear);

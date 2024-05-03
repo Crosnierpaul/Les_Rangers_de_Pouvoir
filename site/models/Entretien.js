@@ -10,16 +10,18 @@ const entretienSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Nouveaux champs pour le nom et le numéro de téléphone
-    name: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
         type: String,
         required: true
     },
     phoneNumber: {
         type: String,
         required: true
-    },
-    // Autres champs d'entretien si nécessaire
+    }
 }, { timestamps: true });
 
 // Modèle d'entretien

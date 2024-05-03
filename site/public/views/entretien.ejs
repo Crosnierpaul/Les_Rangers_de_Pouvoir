@@ -3,38 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendrier Interactif</title>
-    <link rel="stylesheet" href="/css/entretien.css">
+    <link rel="stylesheet" href="css/entretien.css">
+    <title>Calendrier</title>
 </head>
 <body>
-    <%- include('navbar') %> 
-    
-    <div class="calendar">
-        <div class="calendar-header">
-            <h2>Calendrier Interactif</h2>
-        </div>
-        <table class="calendar-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Lundi</th>
-                    <th>Mardi</th>
-                    <th>Mercredi</th>
-                    <th>Jeudi</th>
-                    <th>Vendredi</th>
-                    <th>Samedi</th>
-                    <th>Dimanche</th>
-                </tr>
-            </thead>
-            <tbody id="calendarBody">
-                <!-- Les créneaux horaires seront générés dynamiquement ici -->
-            </tbody>
-        </table>
-        <div id="confirmationMessage" style="display: none;">
-            Votre réservation a été effectuée avec succès!
-        </div>
-    </div>
+    <%- include('navbar') %>
+    <h1>Calendrier</h1>
 
-    <script src="/js/entretien.js"></script>
+    <div class="btn-container">
+        <button class="btn" onclick="prevMonth()">Mois précédent</button>
+        <button class="btn" onclick="nextMonth()">Mois suivant</button>
+    </div>
+    <div id="calendarContainer"></div>
+    <div id="selectedContent"></div>
+    
+    <!-- Bouton de réservation -->
+    <button onclick="reserver()">Réserver</button>
+
+    <script src="js/entretien.js"></script>
 </body>
 </html>
