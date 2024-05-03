@@ -181,7 +181,7 @@
 	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
     margin: 0px;
 	min-height: 15vh;
-	width: 100%;
+	max-width: max-content;
 	background: var(--background);
 	border-radius: 1em;
 }
