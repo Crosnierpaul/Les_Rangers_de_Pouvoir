@@ -36,6 +36,7 @@
     justify-content: center;
 	margin-left: 20px;
   	margin-right: 20px;
+	background-color: #00000000;
 } 
 
 .navbar-toggler {
@@ -178,11 +179,10 @@
 }
 
 .container {
-	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
+	background-image: linear-gradient(270deg, #40c057 5%, #6ae46f 51%, #9775fa 92%);
     margin: 0px;
 	min-height: 15vh;
 	max-width: max-content;
-	background: var(--background);
 	border-radius: 1em;
 }
 
@@ -195,8 +195,7 @@
 	border: 3.5px solid #6600ff;
 	border-radius: 15px;
 	margin-left:  20px;
-	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
-	background: var(--background);
+	background-image: linear-gradient(270deg, #be4bdb 5%, #9775fa 95%);
 	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
 }
 
