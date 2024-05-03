@@ -191,10 +191,11 @@
 }
 
 #logo {
-	width: 50%;
+	width: 20em;
 	border: 3.5px solid #6600ff;
-	border-radius: 15px;
-	margin-left:  20px;
+	border-radius: 1em;
+	margin-left:  1em;
+	margin-right: 19.1em;
 	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
 	background: var(--background);
 	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
