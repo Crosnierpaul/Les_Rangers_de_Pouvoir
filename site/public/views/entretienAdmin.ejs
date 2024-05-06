@@ -3,44 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Entretiens</title>
+    <title>Administration des entretiens</title>
+    <link rel="stylesheet" href="css/entretien.css">
 </head>
 <body>
-    <h1>Liste des Entretiens</h1>
+    <h1>Liste des entretiens</h1>
     <table>
         <thead>
             <tr>
                 <th>Jour</th>
                 <th>Heure</th>
+                <th>Prénom</th>
                 <th>Nom</th>
                 <th>Numéro de téléphone</th>
             </tr>
         </thead>
         <tbody id="entretiensTableBody">
-            <!-- Les entretiens seront générés dynamiquement ici -->
+            <!-- Les entretiens seront ajoutés ici dynamiquement par JavaScript -->
         </tbody>
     </table>
 
-    <script>
-        // Récupérer les entretiens depuis votre backend (par exemple, via une requête AJAX)
-        fetch('/entretiens/liste')
-            .then(response => response.json())
-            .then(entretiens => {
-                const entretiensTableBody = document.getElementById('entretiensTableBody');
-
-                // Parcourir chaque entretien et ajouter une ligne à la table
-                entretiens.forEach(entretien => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${entretien.day}</td>
-                        <td>${entretien.hour}</td>
-                        <td>${entretien.name}</td>
-                        <td>${entretien.phoneNumber}</td>
-                    `;
-                    entretiensTableBody.appendChild(tr);
-                });
-            })
-            .catch(error => console.error('Error fetching entretiens:', error));
-    </script>
+    <script src="/js/entretienAdmin.js"></script>
 </body>
 </html>
