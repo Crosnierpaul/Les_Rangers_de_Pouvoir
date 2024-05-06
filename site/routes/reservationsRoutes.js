@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const Reservation = require('../models/Reservation');
 
-//----------- GET Commande Get Weeks -----------//
+//----------- GET Commande Get Réservation -----------//
 router.get('/', async (req, res) => {
     try {
         const reservations = await Reservation.find();

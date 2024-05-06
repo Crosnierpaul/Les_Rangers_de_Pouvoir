@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Entretien = require('../models/Entretien');
 
+//----------- POST Commande Entretien -----------//
 router.post('/', async (req, res) => {
     try {
         // Récupérer les données de la réservation depuis le corps de la requête
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// Récupérer tous les entretiens
+//----------- GET Commande Entretien -----------//
 router.get('/liste', async (req, res) => {
     try {
         // Récupérer tous les entretiens depuis la base de données

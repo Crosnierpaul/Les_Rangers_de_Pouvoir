@@ -1,6 +1,6 @@
+//----------- Model Article -----------//
 const mongoose = require('mongoose');
 
-// Schéma d'entretien
 const entretienSchema = new mongoose.Schema({
     day: {
         type: String,

@@ -107,7 +107,6 @@ function selectCell(cell) {
     selectedContent.innerHTML += timeSlotSelector;
 }
 
-
 function prevMonth() {
     if (currentMonth === 0) {
         prevYear(); // Si c'est janvier, décrémentez l'année à la place
@@ -188,6 +187,5 @@ function reserver() {
     });
     
 }
-
 
 displayCalendar(currentMonth, currentYear);
