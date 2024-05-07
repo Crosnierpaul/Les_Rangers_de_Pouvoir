@@ -12,8 +12,9 @@ async function loadArticles() {
             const articleDiv = document.createElement('div');
             articleDiv.innerHTML = `
                 <h2>${article.title}</h2>
+                ${article.image ? `<p style="float: left;"><img src="${article.image}" alt="Image de l'article"></p>` : ''}
                 <p>${article.content}</p>
-                ${article.image ? `<img src="${article.image}" alt="Image de l'article">` : ''}
+                <div style="clear: both;"></div>
             `;
             articlesList.appendChild(articleDiv);
         });
