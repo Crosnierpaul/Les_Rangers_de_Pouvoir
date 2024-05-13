@@ -1,74 +1,78 @@
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
-const timeSlots = ['13h - 13h30', '13h30 - 14h']; // Options d'horaires
+document.addEventListener("DOMContentLoaded", function() {
+    const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+    const hours = ['13h00 - 13h30', '13h30 - 14h00'];
 
-function displayCalendar(month, year) {
-    const calendarContainer = document.getElementById('calendarContainer');
-    calendarContainer.innerHTML = '';
+    const calendarBody = document.getElementById('calendarBody');
 
-    const firstDay = new Date(year, month, 1);
-    const monthName = months[firstDay.getMonth()];
-    const yearNum = firstDay.getFullYear();
-
-    // Correction pour obtenir le premier jour correct du mois
-    let firstDayOfWeek = firstDay.getDay(); // Renvoie 0 pour dimanche, 1 pour lundi, etc.
-
-    // Décaler le premier jour vers la gauche si nécessaire
-    if (firstDayOfWeek === 0) {
-        firstDayOfWeek = 6; // Si le premier jour est un dimanche, décaler vers la gauche d'une colonne
-    } else {
-        firstDayOfWeek--; // Décaler d'une colonne vers la gauche
-    }
-
-    const calendarDiv = document.createElement('div');
-    calendarDiv.classList.add('calendar');
-    calendarDiv.innerHTML = `<h2>${monthName} ${yearNum}</h2>`;
-
-    const table = document.createElement('table');
-    const headerRow = document.createElement('tr');
-    const daysOfWeek = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-
-    daysOfWeek.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
+    // Créer une grille pour suivre les réservations
+    const reservations = {};
+    hours.forEach(hour => {
+        reservations[hour] = {};
+        days.forEach(day => {
+            reservations[hour][day] = false; // initialiser toutes les cases comme non réservées
+        });
     });
 
-    table.appendChild(headerRow);
-
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    let currentDay = 1;
-    for (let i = 0; i < 6; i++) {
+    // Générer les créneaux horaires
+    hours.forEach(hour => {
         const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            const cell = document.createElement('td');
-            if (i === 0 && j < firstDayOfWeek) {
-                cell.innerHTML = '&nbsp;'; // Espaces vides pour les premiers jours
-            } else if (currentDay <= daysInMonth) {
-                cell.textContent = currentDay;
-                cell.id = `cell-${currentDay}`; // Ajout d'un ID unique à chaque cellule
-                cell.addEventListener('click', () => selectCell(cell)); // Ajout de l'événement de clic
-                currentDay++;
-            } else {
-                cell.innerHTML = '&nbsp;'; // Espaces vides pour les jours supplémentaires
-            }
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-    }
-    
+        const hourCell = document.createElement('td');
+        hourCell.textContent = hour;
+        row.appendChild(hourCell);
 
-    calendarDiv.appendChild(table);
-    calendarContainer.appendChild(calendarDiv);
-}
+        days.forEach(day => {
+            const timeSlot = document.createElement('td');
+            timeSlot.classList.add('time-slot');
+            timeSlot.setAttribute('data-day', day);
+            timeSlot.setAttribute('data-hour', hour);
+            // Ajouter un gestionnaire d'événements pour la réservation au clic sur chaque créneau horaire
+            timeSlot.addEventListener('click', () => {
+                // Récupérer le jour et l'heure du créneau cliqué
+                const selectedDay = timeSlot.getAttribute('data-day');
+                const selectedHour = timeSlot.getAttribute('data-hour');
 
-function selectCell(cell) {
-    // Supprimer toute sélection précédente
-    const selectedCells = document.querySelectorAll('.selected');
-    selectedCells.forEach(selectedCell => {
-        selectedCell.classList.remove('selected');
+                // Demander à l'utilisateur son nom et son numéro de téléphone
+                const name = prompt("Veuillez saisir votre nom :");
+                let phoneNumber;
+                
+                // Validation du numéro de téléphone avec une expression régulière
+                const phoneNumberPattern = /^0\d{9}$/; // Format : commençant par 0 suivi de 9 chiffres
+
+                do {
+                    phoneNumber = prompt("Veuillez saisir votre numéro de téléphone (10 chiffres commençant par 0 sans espaces) :");
+                } while (!phoneNumberPattern.test(phoneNumber));
+                
+                // Envoyer les détails de la réservation et les informations de l'utilisateur au serveur
+                const reservationDetails = {
+                    day: selectedDay,
+                    hour: selectedHour,
+                    name: name,
+                    phoneNumber: phoneNumber
+                };
+                fetch('/entretiens', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reservationDetails),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to create reservation');
+                    }
+                    // La réservation a été créée avec succès
+                    console.log('Reservation created successfully');
+                    // Vous pouvez ajouter ici des actions supplémentaires, comme mettre à jour l'interface utilisateur, etc.
+                })
+                .catch(error => {
+                    console.error('Error creating reservation:', error.message);
+                    // Gérer l'erreur, par exemple, afficher un message à l'utilisateur
+                });
+            });
+            row.appendChild(timeSlot);
+        });
+
+        calendarBody.appendChild(row);
     });
 
     // Ajouter la classe de sélection à la cellule cliquée

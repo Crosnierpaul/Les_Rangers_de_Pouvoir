@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/entretien.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/button.css">
-    <title>Calendrier</title>
+    <title>Calendrier Interactif</title>
+    <link rel="stylesheet" href="/css/entretien.css">
 </head>
 <body>
-    <%- include('navbar') %>
+    <%- include('navbar') %> 
     
+<<<<<<< Updated upstream
+    <div class="calendar">
+        <div class="calendar-header">
+            <h2>Calendrier Interactif</h2>
+=======
     <section>
         <h1>Calendrier</h1>
         
@@ -45,11 +48,33 @@
                   </span> 
                 </a>
               </div>
+>>>>>>> Stashed changes
         </div>
-        <div id="calendarContainer"></div>
-        <div id="selectedContent"></div>
-    </section>
+        <table class="calendar-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                    <th>Samedi</th>
+                    <th>Dimanche</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBody">
+                <!-- Les créneaux horaires seront générés dynamiquement ici -->
+            </tbody>
+        </table>
+        <!-- Ajout du bouton "Valider" -->
+        
+    </div>
 
+<<<<<<< Updated upstream
+    <script src="/js/entretien.js"></script>
+=======
     <script src="../js/entretien.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>

@@ -27,7 +27,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #9b22ec; 
+    color: #ccc; 
 }
 
 input[type="text"],
@@ -39,8 +39,8 @@ input[type="file"] {
     border: 1px solid #666; 
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #ffffff; 
-    color: #9b22ec; 
+    background-color: #d6d6d6; 
+    color: #eee; 
 }
 
 input[type="submit"],
