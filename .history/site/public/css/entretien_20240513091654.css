@@ -1,4 +1,11 @@
 .calendar {
+<<<<<<< Updated upstream
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+=======
     margin-bottom: 50px;
     width: 80%; /* Réduire la largeur du calendrier */
     margin-left: auto; /* Centrer le calendrier */
@@ -32,29 +39,50 @@ select {
     padding: 10px;
     background-color: #fff;
     color: #333;
+>>>>>>> Stashed changes
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    border: 1px solid #dddddd;
+.calendar-header {
     text-align: center;
+<<<<<<< Updated upstream
+    margin-bottom: 20px;
+=======
     padding: 5px; /* Réduire l'espacement intérieur */
+>>>>>>> Stashed changes
 }
 
-th {
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-table th,
+.calendar-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.day-header {
     background-color: #f2f2f2;
 }
 
+<<<<<<< Updated upstream
+.time-slot {
+    cursor: pointer;
+}
+=======
+>>>>>>> Stashed changes
 
-td:hover {
-    background-color: #f0f0f0; /* Couleur de fond lors du survol */
-    cursor: pointer; /* Changement de curseur pour indiquer qu'il est cliquable */
+.time-slot:hover {
+    background-color: #e0e0e0;
 }
 
+<<<<<<< Updated upstream
+.reserved {
+    background-color: #ffa07a; /* Couleur de marque pour les cases réservées */
+}
+=======
 td.selected {
     background-color: #c99aff; /* Couleur de fond grise pour les cellules sélectionnées */
     cursor: default; /* Désactiver le changement de curseur */
@@ -72,3 +100,5 @@ section {
     border-radius: 1em;
     padding: 1em;
 }
+
+>>>>>>> Stashed changes
