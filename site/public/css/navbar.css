@@ -43,6 +43,7 @@
 	border: none;
 	padding-right: 0;
 	padding-left: 0;
+	
 }
 
 .navbar-toggler:active,
@@ -181,6 +182,7 @@
 	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
     margin: 0px;
 	min-height: 15vh;
+	min-width: 60%;
 	max-width: max-content;
 	background: var(--background);
 	border-radius: 1em;

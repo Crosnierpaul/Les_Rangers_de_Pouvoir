@@ -97,13 +97,11 @@ function selectCell(cell) {
     // Afficher les options d'horaires
     const timeSlotOptions = timeSlots.map(slot => `<option>${slot}</option>`).join('');
     const timeSlotSelector = `
-    <h2>Choisissez un horaire :</h2>
-    <select id="timeSlot">
-        ${timeSlotOptions}
-    </select>
-    <div class="btn-clasic" onclick="reserver()">
-    <a class="btn-content btn-clasiccontent" href="#">
-      <span class="btn-title">Réserver</span>
+        <h2>Choisissez un horaire :</h2>
+        <select id="timeSlot">
+            ${timeSlotOptions}
+        </select>
+        <button onclick="reserver()">Réserver</button>
 
     `;
     selectedContent.innerHTML += timeSlotSelector;

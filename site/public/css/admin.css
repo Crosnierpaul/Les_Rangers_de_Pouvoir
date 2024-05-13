@@ -1,13 +1,3 @@
-.calendar {
-    margin-bottom: 50px;
-    width: 80%; /* Réduire la largeur du calendrier */
-    margin-left: auto; /* Centrer le calendrier */
-    margin-right: auto; /* Centrer le calendrier */
-    background-color:#ffffff;
-    border-radius: 1em;
-    border: 4px solid #7bf7b3;I
-}
-
 /* Style de base pour le selecteur */
 select {
     display: flex;
@@ -36,18 +26,28 @@ select {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 th, td {
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
-    padding: 5px; /* Réduire l'espacement intérieur */
+    width: calc(100% / 3); /* Les cellules prennent chacune 1/3 de la largeur du tableau */
 }
 
 th {
     background-color: #f2f2f2;
 }
+
+tbody tr:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
 
 
 td:hover {
@@ -72,4 +72,3 @@ section {
     border-radius: 1em;
     padding: 1em;
 }
-
