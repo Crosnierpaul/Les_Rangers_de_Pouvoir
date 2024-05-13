@@ -1,0 +1,276 @@
+.start-header {
+	opacity: 1;
+	transform: translateY(0);
+	padding: 20px 0;
+	box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.start-header.scroll-on {
+	box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+	padding: 10px 0;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.start-header.scroll-on .navbar-brand img{
+	height: 24px;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.navigation-wrap{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	-webkit-transition : all 0.3s ease-out;
+	transition : all 0.3s ease-out;
+}
+
+.navbar {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+	margin-left: 1em;
+  	margin-right: 1em;
+} 
+
+.navbar-toggler {
+	float: right;
+	border: none;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus {
+	outline: none;
+}
+
+.navbar-light .navbar-toggler-icon {
+	width: 24px;
+	height: 17px;
+	background-image: none;
+	position: relative;
+	border-bottom: 1px solid #000;
+    transition: all 300ms linear;
+}
+
+.navbar-light .navbar-toggler-icon:after, 
+.navbar-light .navbar-toggler-icon:before{
+	width: 24px;
+	position: absolute;
+	height: 1px;
+	background-color: #000;
+	top: 0;
+	left: 0;
+	content: '';
+	z-index: 2;
+    transition: all 300ms linear;
+}
+
+.navbar-light .navbar-toggler-icon:after{
+	top: 8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+	transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+	transform: translateY(8px) rotate(-45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	border-color: transparent;
+}
+
+.nav-link{
+	color: #212121 !important;
+	font-weight: 500;
+    transition: all 200ms linear;
+}
+
+.nav-item.active .nav-link{
+	color: #7439cc  !important;
+}
+
+/* LIGNE SOUS LIEN APRES SOURIS DESSUS */
+
+.nav-link {
+	position: relative;
+	padding: 5px 0 !important;
+	display: inline-block;
+}
+
+.nav-item:after {
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: #7439cc ;
+	opacity: 0;
+    transition: all 200ms linear;
+}
+
+/* FIN LIGNE SOUS LIEN */
+
+.nav-item:hover:after{
+	bottom: 0;
+	opacity: 1;
+}
+
+.nav-item.active:hover:after{
+	opacity: 0;
+}
+
+.nav-item {
+    position: relative;
+    transition: all 200ms linear;
+    padding: 1em;
+    text-align: center;
+} 
+
+/* .nav-item.active .nav-link {
+    color: #007bff; /* Changez cette couleur pour mettre en évidence l'élément actif 
+} */
+
+.navbar-brand {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Ajoutez ces styles pour supprimer les puces des éléments li */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0; /* Supprime le décalage à gauche de la liste */
+}
+
+.navbar-nav .nav-item {
+    padding: 0 15px;
+    list-style: none; /* Supprime les puces */
+}
+
+.navbar-nav .nav-link {
+    color: #212121 !important;
+    font-weight: 500;
+    transition: all 200ms linear;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #7439cc !important;
+}
+
+/* Modifiez les styles des liens de navigation pour ressembler à du texte normal */
+.nav-link {
+    color: #212121 !important;
+    font-weight: 500;
+    transition: all 200ms linear;
+    text-decoration: none; /* Supprime le soulignement par défaut des liens */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+}
+
+.container {
+	--background: linear-gradient(to right, #917dff 0%, #7ee987 100%);
+    margin: 0px;
+	min-height: 15vh;
+	min-width: 0.9em;
+	max-width: max-content;
+	background: var(--background);
+	border-radius: 1em;
+}
+
+.purple {
+	color: #7439cc;
+}
+
+#logo {
+	width: 20em;
+	border: 3.5px solid #6600ff;
+	border-radius: 1em;
+	margin-left:  1em;
+	margin-right: 19.1em;
+	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
+	background: var(--background);
+	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
+}
+
+#liLogo {
+    list-style: none;
+}
+
+.nav-item.active:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: #7439cc ;
+	opacity: 1;
+}
+
+.rs {
+	margin-left: 18em;
+	display: inherit;
+}
+
+.rs .nav-item {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* Styles pour les écrans plus petits que 768px */
+@media (max-width: 1000px) {
+    .navbar {
+        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    .navbar-toggler {
+        order: -1; /* Mettre le bouton de bascule en haut */
+        margin-bottom: 10px; /* Ajouter un espace entre le bouton de bascule et les liens */
+    }
+
+    .rs {
+        margin-left: 0; /* Réinitialiser la marge pour les icônes de réseaux sociaux */
+        text-align: center; /* Centrer les icônes de réseaux sociaux */
+    }
+}
+
+/*Styles pour les écrans plus petits que 576px */
+@media (max-width: 576px) {
+    .navbar-brand {
+        margin: 0; /* Réinitialiser la marge pour le logo */
+    }
+
+    #logo {
+        width: 98.3%; /* Faire en sorte que le logo occupe toute la largeur */
+        margin: 0; /* Réinitialiser la marge */
+    }
+
+    .rs {
+        display: flex; /* Afficher les icônes de réseaux sociaux en ligne */
+        justify-content: center; /* Centrer les icônes de réseaux sociaux */
+    }
+
+    .rs .nav-item {
+        margin: 0 5px; /* Ajouter un espacement horizontal entre les icônes de réseaux sociaux */
+    }
+}
+
+.tel {
+	margin-top: 5px;
+}

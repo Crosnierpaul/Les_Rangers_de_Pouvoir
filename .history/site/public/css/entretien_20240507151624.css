@@ -1,0 +1,77 @@
+.calendar {
+    margin-bottom: 50px;
+    width: 80%; /* Réduire la largeur du calendrier */
+    margin-left: auto; /* Centrer le calendrier */
+    margin-right: auto; /* Centrer le calendrier */
+    background-color:#ffffff;
+    border-radius: 1em;
+    border: 4px solid #7bf7b3;
+}
+
+/* Style de base pour le selecteur */
+select {
+    display: flex;
+    justify-content: center;
+}
+
+#timeSlot {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    appearance: none; /* Masquer l'apparence native */
+}
+
+/* Style pour les options du selecteur */
+#timeSlot option {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    dis
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px; /* Réduire l'espacement intérieur */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+td:hover {
+    background-color: #f0f0f0; /* Couleur de fond lors du survol */
+    cursor: pointer; /* Changement de curseur pour indiquer qu'il est cliquable */
+}
+
+td.selected {
+    background-color: #c99aff; /* Couleur de fond grise pour les cellules sélectionnées */
+    cursor: default; /* Désactiver le changement de curseur */
+}
+
+p {
+    text-align: center;
+}
+
+section {
+    margin: 1em auto; /* Centrer la section */
+    max-width: 80%; /* Réduire la largeur maximale */
+    --background: linear-gradient(to bottom, #b1ff9c 0%, #79ff84 100%);
+    background: var(--background);
+    border-radius: 1em;
+    padding: 1em;
+}
+

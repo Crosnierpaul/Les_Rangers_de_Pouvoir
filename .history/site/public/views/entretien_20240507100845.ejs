@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/entretien.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calendrier</title>
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <section>
+        <h1>Calendrier</h1>
+        
+        <div class="btn-container">
+            <button class="btn" onclick="prevMonth()">Mois précédent</button>
+            <button class="btn" onclick="nextMonth()">Mois suivant</button>
+        </div>
+        <div id="calendarContainer"></div>
+        <div id="selectedContent"></div>
+    </section>
+
+    <script src="js/entretien.js"></script>
+</body>
+</html>

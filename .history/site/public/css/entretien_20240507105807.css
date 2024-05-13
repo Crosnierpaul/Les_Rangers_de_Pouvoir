@@ -1,0 +1,235 @@
+.calendar {
+    margin-bottom: 50px;
+    width: 80%; /* Réduire la largeur du calendrier */
+    margin-left: auto; /* Centrer le calendrier */
+    margin-right: auto; /* Centrer le calendrier */
+    background-color:#ffffff;
+    border-radius: 1em;
+    border: 4px solid #7bf7b3;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px; /* Réduire l'espacement intérieur */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+td:hover {
+    background-color: #f0f0f0; /* Couleur de fond lors du survol */
+    cursor: pointer; /* Changement de curseur pour indiquer qu'il est cliquable */
+}
+
+td.selected {
+    background-color: #c99aff; /* Couleur de fond grise pour les cellules sélectionnées */
+    cursor: default; /* Désactiver le changement de curseur */
+}
+
+p {
+    text-align: center;
+}
+
+section {
+    margin: 1em auto; /* Centrer la section */
+    max-width: 80%; /* Réduire la largeur maximale */
+    --background: linear-gradient(to bottom, #b1ff9c 0%, #79ff84 100%);
+    background: var(--background);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.btn-reserver{
+    font-size: 2em; /* Réduire la taille de la police de caractères de 25% */
+    margin: 10px; /* Réduire les marges de 25% */
+    display: flex;
+    --color-text: #ffffff;
+    --color-background: #824ad6;
+    --color-outline: rgba(147, 20, 250, 0.502);
+    --color-shadow: #00000080;
+}
+
+btn-reservercontent {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em; /* Réduire l'espacement à l'intérieur des boutons de 25% */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.75em; /* Réduire la taille du texte de 25% */
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.15em 0 var(--color-background); /* Réduire l'ombre de 25% */
+}
+
+
+
+.btn-section {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-container {
+    font-size: 1em; /* Réduire la taille de la police de caractères de 25% */
+    margin: 7.5px; /* Réduire les marges de 25% */
+    display: flex;
+    --color-text: #ffffff;
+    --color-background: #824ad6;
+    --color-outline: rgba(147, 20, 250, 0.502);
+    --color-shadow: #00000080;
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em; /* Réduire l'espacement à l'intérieur des boutons de 25% */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.75em; /* Réduire la taille du texte de 25% */
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.15em 0 var(--color-background); /* Réduire l'ombre de 25% */
+}
+  
+  .btn-content:hover, .btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+  }
+  
+  .btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+  }
+  
+  .btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+  }
+  
+  .icon-arrow {
+    width: 20px;
+    margin-left: 10px;
+    position: relative;
+    top: 6%;
+  }
+    
+  /* SVG */
+  #arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  #arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  /* left version */
+ 
+  .btn-contentleft:hover, .btn-contentleft:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+  }
+  
+  .btn-contentleft .icon-arrowleft {
+    transition: 0.5s;
+    margin-left: 0px; /* Changer margin-left */
+    transform: scale(0.6);
+  }
+  
+  .btn-contentleft:hover .icon-arrowleft {
+    transition: 0.5s;
+    margin-left: 25px; /* Changer margin-left */
+  }
+  
+  .icon-arrowleft {
+    width: 20px; /* Ajuster la largeur */
+    height: 20px; /* Ajuster la hauteur */
+    margin-right: 10px;
+    position: relative;
+    top: 6%;
+  }
+
+  .btn-contentleft:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .btn-contentleft:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .btn-contentleft:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  } 
+
+  .btn-titleleft{
+    margin-left: 10px;
+  }
+
+  /* SVG animations */
+  @keyframes color_anim {
+    0% {
+      fill: white;
+    }
+  
+    50% {
+      fill: var(--color-background);
+    }
+  
+    100% {
+      fill: white;
+    }
+  }
+  
+  /* Button animations */
+  @-webkit-keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }
+  
+  @keyframes btn-content {
+    0% {
+      outline: 0.2em solid var(--color-background);
+      outline-offset: 0;
+    }
+  }

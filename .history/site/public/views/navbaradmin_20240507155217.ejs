@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href="/css/navbar.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <!-- Ajouter le bouton de bascule pour les petits écrans
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex justify-content-start">
+                        <li id="liLogo">
+                            <img id="logo" src="/images/logo.png"/>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/entretien">Réserver</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Administrateur</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Inclure jQuery (requis pour Bootstrap JavaScript)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    Inclure Bootstrap JavaScript
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>
+
+<script>
+    // Attendez que le DOM soit chargé
+    document.addEventListener("DOMContentLoaded", function() {
+        // Récupérez l'URL de la page actuelle
+        var currentLocation = window.location.href.substring("http://localhost:3000".length);
+
+        // Sélectionnez tous les liens de la navbar
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-item');
+
+        // Parcourez chaque lien pour vérifier s'il correspond à la page active
+        navLinks.forEach(function(navItem) {
+            var link = navItem.querySelector('.nav-link');
+            var linkHref = link.getAttribute('href');
+
+            // Vérifiez si l'URL de la page actuelle correspond à l'URL du lien dans la navbar
+            if (currentLocation === linkHref) {
+                // Ajoutez la classe 'active' à l'élément parent (li) correspondant
+                navItem.classList.add('active');
+            }
+        });
+    });
+</script>

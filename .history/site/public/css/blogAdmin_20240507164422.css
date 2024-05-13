@@ -1,0 +1,89 @@
+
+
+/* Style pour le formulaire d'ajout d'article */
+#articleForm {
+    margin-top: 30px;
+}
+
+/* Style pour le formulaire de suppression d'article */
+#deleteArticleForm {
+    margin-top: 30px;
+}
+
+/* Style pour le formulaire de recherche d'article */
+#searchArticleForm {
+    margin-top: 30px;
+}
+
+/* Style pour le formulaire de modification d'article */
+#editArticleForm {
+    margin-top: 30px;
+}
+
+/* Style pour les étiquettes des formulaires */
+label {
+    font-weight: bold;
+}
+/* Styles pour les sections */
+.admin-section,
+.write-article-section,
+.delete-article-section,
+.modify-article-section {
+    margin-bottom: 50px;
+}
+
+/* Style pour les titres des sections */
+h1, h2 {
+    text-align: center;
+}
+
+/* Style pour les champs de saisie et les zones de texte */
+input[type="text"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Style pour les champs de saisie et les zones de texte au survol */
+input[type="text"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    border-color: #7439cc;
+    min width: ;
+}
+
+/* Style pour les boutons */
+input[type="submit"],
+button {
+    background-color: #7439cc;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Style pour les boutons au survol */
+input[type="submit"]:hover,
+button:hover {
+    background-color: #5f2982;
+}
+/* Style pour les boutons de modification */
+#saveChanges {
+    margin-top: 10px;
+}
+
+/* Style pour les messages d'erreur */
+.error {
+    color: red;
+    margin-top: 5px;
+}
+

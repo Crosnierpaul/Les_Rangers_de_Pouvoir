@@ -306,3 +306,47 @@ body {
     font-size: 14px;
     white-space: nowrap;
 }
+<<<<<<< Updated upstream
+=======
+
+@media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
+    .navbarHori {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
+        height: auto;
+        transform: none; /* Supprime la transformation de translation */
+        opacity: 1; /* Rend la barre de navigation toujours visible */
+        background-color: rgb(156, 255, 164); /* Couleur de fond */
+    }
+    
+    .navbarHori:hover,
+    .navbarHori a:hover,
+    .navbarHori a:active {
+        transform: none; /* Supprime la transformation au survol ou à l'activation */
+        opacity: 1; /* Rend la barre de navigation toujours visible */
+    }
+
+    .navbarHori a::before {
+        display: none; /* Cache le texte de section avant le survol */
+    }
+}
+
+#articlesList div {
+    background-color: #f9f9f9;
+    border-radius: 1em;
+    margin: 1em;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+#articlesList p, #articlesList h2 {
+    color: #7439cc;
+}
+
+#articlesList {
+    background-color: transparent;
+}
+>>>>>>> Stashed changes
