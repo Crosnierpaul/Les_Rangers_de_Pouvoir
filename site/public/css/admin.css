@@ -26,7 +26,7 @@ select {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 80%; /* Ajusté pour centrer le tableau */
     margin: 0 auto;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -36,7 +36,8 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    width: calc(100% / 3); /* Les cellules prennent chacune 1/3 de la largeur du tableau */
+    width: 20%; /* Chaque colonne prend 20% de la largeur du tableau */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
 }
 
 th {
@@ -47,8 +48,6 @@ tbody tr:hover {
     background-color: #f0f0f0;
     cursor: pointer;
 }
-
-
 
 td:hover {
     background-color: #f0f0f0; /* Couleur de fond lors du survol */
@@ -72,4 +71,3 @@ section {
     border-radius: 1em;
     padding: 1em;
 }
-
