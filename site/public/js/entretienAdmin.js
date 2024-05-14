@@ -35,11 +35,11 @@ fetch('/entretiens/liste')
         entretiens.forEach(entretien => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>${entretien.day}</td>
-                <td>${entretien.hour}</td>
+            <td>${entretien.lastName}</td>
                 <td>${entretien.firstName}</td>
-                <td>${entretien.lastName}</td>
                 <td>${entretien.phoneNumber}</td>
+                <td>${entretien.hour}</td>
+                <td>${entretien.day}</td>
             `;
             entretiensTableBody.appendChild(tr);
         });
