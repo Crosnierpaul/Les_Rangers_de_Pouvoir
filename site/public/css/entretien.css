@@ -3,9 +3,13 @@
     width: 80%; /* Réduire la largeur du calendrier */
     margin-left: auto; /* Centrer le calendrier */
     margin-right: auto; /* Centrer le calendrier */
-    background-color:#ffffff;
+    background-color: #ffffff;
     border-radius: 1em;
-    border: 4px solid #7bf7b3;I
+    border: 4px solid #7bf7b3;
+}
+
+.left {
+    text-align: left;
 }
 
 /* Style de base pour le selecteur */
@@ -49,7 +53,6 @@ th {
     background-color: #f2f2f2;
 }
 
-
 td:hover {
     background-color: #f0f0f0; /* Couleur de fond lors du survol */
     cursor: pointer; /* Changement de curseur pour indiquer qu'il est cliquable */
@@ -58,6 +61,11 @@ td:hover {
 td.selected {
     background-color: #c99aff; /* Couleur de fond grise pour les cellules sélectionnées */
     cursor: default; /* Désactiver le changement de curseur */
+}
+
+td.inactive {
+    color: #aaa; /* Couleur de texte grise */
+    cursor: not-allowed; /* Curseur non autorisé */
 }
 
 p {
@@ -72,4 +80,3 @@ section {
     border-radius: 1em;
     padding: 1em;
 }
-

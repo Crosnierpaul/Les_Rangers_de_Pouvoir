@@ -49,7 +49,13 @@ function displayCalendar(month, year) {
             } else if (currentDay <= daysInMonth) {
                 cell.textContent = currentDay;
                 cell.id = `cell-${currentDay}`; // Ajout d'un ID unique à chaque cellule
-                cell.addEventListener('click', () => selectCell(cell)); // Ajout de l'événement de clic
+                // Vérification si la date est avant aujourd'hui
+                const currentDate = new Date(year, month, currentDay);
+                if (currentDate < new Date()) {
+                    cell.classList.add('inactive'); // Ajout de la classe inactive
+                } else {
+                    cell.addEventListener('click', () => selectCell(cell)); // Ajout de l'événement de clic
+                }
                 currentDay++;
             } else {
                 cell.innerHTML = '&nbsp;'; // Espaces vides pour les jours supplémentaires
@@ -65,6 +71,14 @@ function displayCalendar(month, year) {
 }
 
 function selectCell(cell) {
+    // Récupérer l'heure actuelle
+    const currentHour = new Date().getHours();
+    // Vérifier si la cellule est inactive ou si c'est après 13h30
+    if (cell.classList.contains('inactive') || (new Date().getHours() >= 13 && new Date().getMinutes() >= 30)) {
+        // Ne rien faire si la cellule est inactive ou si c'est après 13h30
+        return;
+    }
+
     // Supprimer toute sélection précédente
     const selectedCells = document.querySelectorAll('.selected');
     selectedCells.forEach(selectedCell => {
@@ -82,29 +96,29 @@ function selectCell(cell) {
     selectedContent.innerHTML = `<h2>Date sélectionnée :</h2><p>${selectedDate}</p>`;
 
     // Ajouter des champs de saisie pour le nom, prénom et numéro de téléphone
-    
     const inputFields = `
-        <h2>Remplissez vos informations :</h2>
+        <h2 class='left'>Remplissez vos informations :</h2>
         <label for="firstName">Prénom :</label>
         <input type="text" id="firstName" name="firstName" required><br><br>
         <label for="lastName">Nom :</label>
         <input type="text" id="lastName" name="lastName" required><br><br>
         <label for="phoneNumber">Numéro de téléphone :</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>        
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
     `;
     selectedContent.innerHTML += inputFields;
 
     // Afficher les options d'horaires
     const timeSlotOptions = timeSlots.map(slot => `<option>${slot}</option>`).join('');
     const timeSlotSelector = `
-    <h2>Choisissez un horaire :</h2>
-    <select id="timeSlot">
-        ${timeSlotOptions}
-    </select>
-    <div class="btn-clasic" onclick="reserver()">
-    <a class="btn-content btn-clasiccontent" href="#">
-      <span class="btn-title">Réserver</span>
-
+        <h2 class='left'>Choisissez un horaire :</h2>
+        <select id="timeSlot">
+            ${timeSlotOptions}
+        </select>
+        <div class="btn-clasic" onclick="reserver()">
+            <a class="btn-content btn-clasiccontent" href="#">
+                <span class="btn-title">Réserver</span>
+            </a>
+        </div>
     `;
     selectedContent.innerHTML += timeSlotSelector;
 }

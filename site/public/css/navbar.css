@@ -201,7 +201,12 @@
 	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
 	background: var(--background);
 	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
+	transition: transform 0.3s ease-in-out;
 }
+
+#logo:hover {
+	transform: scale(1.05);
+} 
 
 #liLogo {
     list-style: none;

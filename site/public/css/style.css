@@ -9,6 +9,26 @@ body {
     background-attachment: fixed; 
 }
 
+.phraseAccroche {
+    font-family: 'Lato', sans-serif; /* Police principale */
+    font-size: 2.5em;
+    font-weight: bold;
+    font-style: italic;
+    color: #7439cc;
+    background-color: #ccc;
+    border-radius: 1em;
+    padding: 1%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.phraseAccroche:hover {
+    transform: scale(1.05);
+}
+
+
+
 h1, h2 {
     text-align: center;
     margin-bottom: 5px;
@@ -25,20 +45,25 @@ label {
     margin-bottom: 5px;
     color: #7439cc; 
 }
-
 input[type="text"],
-textarea,
-input[type="file"] {
+input[type="file"],
+textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #191919; 
-    border-radius: 4px;
+    padding: 12px;
+    margin: 8px 0;
     box-sizing: border-box;
-    background-color: #fbfbfb; 
-    color: #7439cc; 
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
+/* Style pour les champs de saisie et les zones de texte au survol */
+input[type="text"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    border-color: #7439cc;
+}
 input[type="submit"],
 button[type="submit"] {
     display: inline-block;
@@ -111,7 +136,10 @@ button[type="submit"]:hover {
     background-image: url(../images/blob-scene-haikei.png);
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
+
+
 .row {
     display: flex;
     justify-content: center; /* Espacement égal entre les éléments */
@@ -174,7 +202,7 @@ button[type="submit"]:hover {
     opacity: 0;
 }
 
-.card:hover .card-info {
+.card:hover .card-info .card-info:hover {
     color: #f7ba2b;
     transition: color 1s;
 }
@@ -262,7 +290,7 @@ body {
     justify-content: center;
     padding: 50px;
     margin: 1em;
-    background-image: url(https://www.barnes-international.com/images/titres_personnalises/-titre-lhYBl.jpg); 
+    background-image: url(../images/banierehorizontale.png); 
     height: 60vh;
     border-radius: 1em;
 }
@@ -368,4 +396,10 @@ body {
 #articlesList img {
     width: 10em;
     margin-right: 2em;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

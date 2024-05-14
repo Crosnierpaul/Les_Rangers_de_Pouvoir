@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,33 @@
         <link rel="stylesheet" href="../css/button.css">
     </head>
     <body>
-        
         <h1>Page d'accueil</h1>
         <%- include('navbarAdmin') %>
-        <div class="btn-clasic" onclick="reserver()">
-            <a class="btn-content btn-clasiccontent" href="/adminReservation">
-              <span class="btn-title">Liste des Réservations</span></a>
+    
+        <div class="button-group">
+            <div class="btn-clasic">
+                <a class="btn-content btn-clasiccontent" href="/adminAccueil">
+                    <span class="btn-title">Gestion de la page d'accueil</span>
+                </a>
             </div>
-        <div class="btn-clasic" onclick="reserver()">
-            <a class="btn-content btn-clasiccontent" href="/adminBlog">
-                <span class="btn-title">Gestion du blog</span></a>
+            <div class="btn-clasic">
+                <a class="btn-content btn-clasiccontent" href="/adminBlog">
+                    <span class="btn-title">Gestion du blog</span>
+                </a>
             </div>
-        <div class="btn-clasic" onclick="reserver()">
-            <a class="btn-content btn-clasiccontent" href="/adminEntretien">
-                <span class="btn-title">Liste des Entretiens</span></a>
+        </div>
+    
+        <div class="button-group">
+            <div class="btn-clasic">
+                <a class="btn-content btn-clasiccontent" href="/adminEntretien">
+                    <span class="btn-title">Liste des Entretiens</span>
+                </a>
             </div>
-        <div class="btn-clasic" onclick="reserver()">
-            <a class="btn-content btn-clasiccontent" href="/adminAccueil">
-                <span class="btn-title">Gestion de la page d'accueil</span></a>
+            <div class="btn-clasic">
+                <a class="btn-content btn-clasiccontent" href="/adminReservation">
+                    <span class="btn-title">Liste des Réservations</span>
+                </a>
             </div>
+        </div>
+    </body>
     </html>
