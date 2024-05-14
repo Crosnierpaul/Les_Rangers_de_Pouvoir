@@ -163,6 +163,7 @@
     color: #212121 !important;
     font-weight: 500;
     transition: all 200ms linear;
+	width: max-content;
 }
 
 .navbar-nav .nav-item:hover .nav-link {
@@ -197,7 +198,7 @@
 	border: 3.5px solid #6600ff;
 	border-radius: 1em;
 	margin-left:  1em;
-	margin-right: 19.1em;
+	margin-right: 16.5em;
 	--background: linear-gradient(to right, #948ab1 0%, #b574f6 100%);
 	background: var(--background);
 	box-shadow: 0 0 10px 0 rgb(106, 43, 255);
@@ -224,7 +225,7 @@
 }
 
 .rs {
-	margin-left: 18em;
+	margin-left: 16.5em;
 	display: inherit;
 }
 
