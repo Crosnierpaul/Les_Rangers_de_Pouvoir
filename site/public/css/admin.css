@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 /* Style de base pour le selecteur */
 select {
     display: flex;

@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 .calendar {
     margin-bottom: 50px;
     width: 80%; /* Réduire la largeur du calendrier */
