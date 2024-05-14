@@ -13,20 +13,6 @@ document.querySelectorAll('.navbarHori a').forEach(anchor => {
     });
 });
 
-document.querySelectorAll('#accueil').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'
-        });
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section'); // Sélectionne toutes les sections
     const navbarLinks = document.querySelectorAll('.navbarHori a'); // Sélectionne tous les liens de la barre de navigation
