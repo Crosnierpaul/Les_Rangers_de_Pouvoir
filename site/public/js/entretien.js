@@ -71,14 +71,6 @@ function displayCalendar(month, year) {
 }
 
 function selectCell(cell) {
-    // Récupérer l'heure actuelle
-    const currentHour = new Date().getHours();
-    // Vérifier si la cellule est inactive ou si c'est après 13h30
-    if (cell.classList.contains('inactive') || (new Date().getHours() >= 13 && new Date().getMinutes() >= 30)) {
-        // Ne rien faire si la cellule est inactive ou si c'est après 13h30
-        return;
-    }
-
     // Supprimer toute sélection précédente
     const selectedCells = document.querySelectorAll('.selected');
     selectedCells.forEach(selectedCell => {
