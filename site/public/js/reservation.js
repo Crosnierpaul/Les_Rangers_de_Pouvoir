@@ -1,3 +1,5 @@
+// reservation.js
+
 window.onload = () => {
     fetchWeeks();
     document.getElementById('reservationForm').addEventListener('submit', submitReservation);
@@ -47,7 +49,10 @@ async function submitReservation(event) {
     event.preventDefault();
 
     const form = event.target;
-    const name = form.elements['name'].value;
+    const firstName = form.elements['firstName'].value;
+    const lastName = form.elements['lastName'].value;
+    const phone = form.elements['phone'].value;
+    const email = form.elements['email'].value;
     const weekId = form.elements['week'].value;
 
     // Récupérer les informations de la semaine sélectionnée
@@ -67,13 +72,13 @@ async function submitReservation(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name, startDate, endDate })
+            body: JSON.stringify({ firstName, lastName, phone, email, startDate, endDate })
         });
 
         if (response.status === 201) {
             const data = await response.json();
             console.log(data);
-            alert('Réservation réussie')
+            alert('Réservation réussie');
             // Afficher un message de réussite si nécessaire
         } else if (response.status === 400) {
             const data = await response.json();

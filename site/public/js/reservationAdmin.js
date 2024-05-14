@@ -14,10 +14,14 @@ window.onload = () => {
             // Ajouter chaque réservation au tableau
             data.forEach(reservation => {
                 const row = document.createElement('tr');
+                // reservationAdmin.js
                 row.innerHTML = `
-                    <td>${reservation.name}</td>
-                    <td>${reservation.startDate}</td>
-                    <td>${reservation.endDate}</td>
+                <td>${reservation.firstName}</td>
+                <td>${reservation.lastName}</td>
+                <td>${reservation.phone}</td>
+                <td>${reservation.email}</td>
+                <td>${reservation.startDate}</td>
+                <td>${reservation.endDate}</td>
                 `;
                 reservationsBody.appendChild(row);
             });

@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 //----------- POST Commande Reservation -----------//
 router.post('/reserver', async (req, res) => {
     try {
-        const { name, startDate, endDate } = req.body;
+        const { firstName, lastName, phone, email, startDate, endDate } = req.body;
 
         const formattedStartDate = new Date(startDate).toISOString().split('T')[0];
         const formattedEndDate = new Date(endDate).toISOString().split('T')[0];
@@ -31,7 +31,10 @@ router.post('/reserver', async (req, res) => {
         }
 
         const newReservation = new Reservation({
-            name,
+            firstName,
+            lastName,
+            phone,
+            email,
             startDate: formattedStartDate,
             endDate: formattedEndDate
         });

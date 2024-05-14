@@ -93,7 +93,7 @@ function selectCell(cell) {
 
     // Afficher la date sélectionnée
     const selectedContent = document.getElementById('selectedContent');
-    selectedContent.innerHTML = `<h2>Date sélectionnée :</h2><p>${selectedDate}</p>`;
+    selectedContent.innerHTML = `<h1>Date sélectionnée :</h1><h2>${selectedDate}</h1>`;
 
     // Ajouter des champs de saisie pour le nom, prénom et numéro de téléphone
     const inputFields = `

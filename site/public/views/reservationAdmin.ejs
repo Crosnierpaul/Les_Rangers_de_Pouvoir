@@ -12,10 +12,14 @@
 <body>
     <h1>Administration des Réservations</h1>
     <%- include('navbarAdmin') %>
+    <!-- reservationAdmin.html -->
     <table id="reservationsTable">
         <thead>
             <tr>
+                <th>Prénom</th>
                 <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
                 <th>Date de début</th>
                 <th>Date de fin</th>
             </tr>
@@ -24,6 +28,7 @@
             <!-- Les réservations seront insérées ici -->
         </tbody>
     </table>
+
 
     <script src="../js/reservationAdmin.js"></script>
 </body>
