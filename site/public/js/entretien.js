@@ -53,11 +53,9 @@ async function displayCalendar(month, year) {
                 // Convertir la date en objet Date JavaScript pour la comparaison
                 const currentDate = new Date(year, month, currentDay);
                 const formattedDate = `${currentDay} ${months[month]} ${year}`;
-                console.log(formattedDate)
                 const reservations = await fetch(`/entretiens/liste/${formattedDate}`);
                 // const reservations = await fetch(`/entretiens/liste?day=${formattedDate}`);
                 const reservationsData = await reservations.json();
-                console.log(reservationsData)
                 if (reservationsData.length >= 2 || currentDate < new Date()) {
                     cell.classList.add('inactive');
                 } else {
