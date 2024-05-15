@@ -38,17 +38,18 @@ router.post('/', async (req, res) => {
 
 
 //----------- GET Commande Entretien -----------//
-router.get('/liste', async (req, res) => {
-    try {
-        // Récupérer tous les entretiens depuis la base de données
-        const entretiens = await Entretien.find();
+router.get('/liste/:day', async (req, res) => {
+    const day = req.params.day;
 
-        // Renvoyer les entretiens au format JSON
+    try {
+        const entretiens = await Entretien.find({ day: day });
         res.json(entretiens);
     } catch (error) {
-        // En cas d'erreur, renvoyer un code d'erreur 500 et un message d'erreur
         res.status(500).json({ error: error.message });
     }
 });
+
+
+
 
 module.exports = router;
