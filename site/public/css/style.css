@@ -2,28 +2,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 0;
-    background-image: url(../images/layered-waves-haikei.png);
+    /* background-image: url(../images/layered-waves-haikei.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-attachment: fixed;  */
+    background-image: linear-gradient(90deg, rgba(169, 109, 237, 0.4) 10%, rgba(181, 240, 167, 0.4) 90%);
+}
+
+::selection {
+    background: #9e59f8b7; /* Couleur de fond dorée pour la sélection */
+    color: #000; /* Couleur du texte pour la sélection */
 }
 
 .phraseAccroche {
-    font-family: 'Lato', sans-serif; /* Police principale */
+    font-family: Times, Times New Roman, serif; /* Police principale */
     font-size: 2.5em;
     font-weight: bold;
-    font-style: italic;
     color: #7439cc;
-    background-color: #ccc;
+    background-color: #ddffdfd5;
     border-radius: 1em;
     padding: 1%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.phraseAccroche:hover {
-    transform: scale(1.05);
 }
 
 
@@ -149,7 +149,7 @@ button[type="submit"]:hover {
 .containerindex {
     display: flex;
     flex-direction: column;
-    min-width: 40em;
+    min-width: 70em;
     max-width: 120em;
     align-items: center;
     border-radius: 48px 10px 46px 10px;
@@ -158,7 +158,19 @@ button[type="submit"]:hover {
     background-image: url(../images/blob-scene-haikei.png);
     background-repeat: no-repeat;
     background-size: cover;
-    
+    z-index: -100;
+}
+
+.containerindex::before {
+    position: absolute;
+    content: "";
+    width: 70em;
+    height: 40em;
+    border-radius: 48px 10px 46px 10px;
+    -webkit-border-radius: 48px 10px 46px 10px;
+    -moz-border-radius: 48px 10px 46px 10px;
+    background-color: rgba(36, 140, 158, 0.452);
+    z-index: -99;
 }
 
 
