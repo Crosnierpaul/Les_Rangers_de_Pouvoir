@@ -3,7 +3,7 @@ let currentYear = new Date().getFullYear();
 const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
 const timeSlots = ['13h - 13h30', '13h30 - 14h']; // Options d'horaires
 
-function displayCalendar(month, year) {
+async function displayCalendar(month, year) {
     const calendarContainer = document.getElementById('calendarContainer');
     calendarContainer.innerHTML = '';
 
@@ -45,20 +45,26 @@ function displayCalendar(month, year) {
         for (let j = 0; j < 7; j++) {
             const cell = document.createElement('td');
             if (i === 0 && j < firstDayOfWeek) {
-                cell.innerHTML = '&nbsp;'; // Espaces vides pour les premiers jours
+                cell.innerHTML = '&nbsp;';
             } else if (currentDay <= daysInMonth) {
                 cell.textContent = currentDay;
-                cell.id = `cell-${currentDay}`; // Ajout d'un ID unique à chaque cellule
-                // Vérification si la date est avant aujourd'hui
+                cell.id = `cell-${currentDay}`;
+
+                // Convertir la date en objet Date JavaScript pour la comparaison
                 const currentDate = new Date(year, month, currentDay);
-                if (currentDate < new Date()) {
-                    cell.classList.add('inactive'); // Ajout de la classe inactive
+                const formattedDate = `${currentDay} ${months[month]} ${year}`;
+                const reservations = await fetch(`/entretiens/liste/${formattedDate}`);
+                // const reservations = await fetch(`/entretiens/liste?day=${formattedDate}`);
+                const reservationsData = await reservations.json();
+                if (reservationsData.length >= 2 || currentDate < new Date()) {
+                    cell.classList.add('inactive');
                 } else {
-                    cell.addEventListener('click', () => selectCell(cell)); // Ajout de l'événement de clic
+                    cell.addEventListener('click', () => selectCell(cell));
                 }
+
                 currentDay++;
             } else {
-                cell.innerHTML = '&nbsp;'; // Espaces vides pour les jours supplémentaires
+                cell.innerHTML = '&nbsp;';
             }
             row.appendChild(cell);
         }
