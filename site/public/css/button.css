@@ -3,14 +3,15 @@
     margin: 15px; /* Réduire les marges de 25% */
     display: flex;
     justify-content: center;
-    --color-text: #ffffff;
-    --color-background: #824ad6;
-    --color-outline: rgba(147, 20, 250, 0.502);
+    --color-text: #ebfff0;
+    --color-background: #baafca;
+    --color-outline: rgba(103, 96, 111, 0.502);
     --color-shadow: #00000080;
     transition: transform 0.3s ease-in-out;
 }
 
 .btn-clasic:hover {
+  --color-text: #ebfff0;
   transform: scale(1.2);
 }
 
@@ -40,9 +41,9 @@ btn-clasiccontent {
     font-size: 1em; /* Réduire la taille de la police de caractères de 25% */
     margin: 7.5px; /* Réduire les marges de 25% */
     display: flex;
-    --color-text: #ffffff;
-    --color-background: #824ad6;
-    --color-outline: rgba(147, 20, 250, 0.502);
+    --color-text: #ebfff0;
+    --color-background: #baafca;
+    --color-outline: rgba(103, 96, 111, 0.502);
     --color-shadow: #00000080;
   }
   
@@ -163,7 +164,7 @@ btn-clasiccontent {
   /* SVG animations */
   @keyframes color_anim {
     0% {
-      fill: white;
+      fill: #ebfff0;
     }
   
     50% {

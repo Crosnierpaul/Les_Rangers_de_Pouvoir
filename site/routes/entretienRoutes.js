@@ -51,15 +51,4 @@ router.get('/liste', async (req, res) => {
     }
 });
 
-router.get('/liste/:day', async (req, res) => {
-    const day = req.params.day;
-
-    try {
-        const entretiens = await Entretien.find({ day: day });
-        res.json(entretiens);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
 module.exports = router;

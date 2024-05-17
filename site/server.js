@@ -7,7 +7,7 @@ const entretienRoutes = require('./routes/entretienRoutes');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //----------- Connect to MongoDB -----------//
 mongoose.connect('mongodb://localhost:27017/siteDB', { useNewUrlParser: true, useUnifiedTopology: true })

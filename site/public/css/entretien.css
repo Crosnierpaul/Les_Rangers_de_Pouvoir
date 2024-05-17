@@ -6,7 +6,8 @@
     margin-right: auto; /* Centrer le calendrier */
     background-color: #ffffff;
     border-radius: 1em;
-    border: 4px solid #7bf7b3;
+    border: 4px solid #94a693;
+   
 }
 
 .left {
@@ -60,7 +61,7 @@ td:hover {
 }
 
 td.selected {
-    background-color: #c99aff; /* Couleur de fond grise pour les cellules sélectionnées */
+    background-color: #ddd0f0; /* Couleur de fond grise pour les cellules sélectionnées */
     cursor: default; /* Désactiver le changement de curseur */
 }
 
@@ -73,11 +74,25 @@ p {
     text-align: center;
 }
 
-section {
+.calendarcadre {
     margin: 1em auto; /* Centrer la section */
     max-width: 80%; /* Réduire la largeur maximale */
-    --background: linear-gradient(to bottom, #b1ff9c 0%, #79ff84 100%);
-    background: var(--background);
+    background-image: radial-gradient(circle, #d6ffd3 25%, #b5d7b2 75%);
     border-radius: 1em;
     padding: 1em;
+    border: 4px solid #94a693;
+    
 }
+
+.cadre {
+    padding: 0;
+    margin: 2em auto; /* Centrer la section */
+    max-width: 60%; /* Réduire la largeur maximale */
+    border-radius: 1em;
+    border: 4px solid #94a693;
+    padding: 1em;
+    background-color: #c5ebc2;
+}
+
+
+
