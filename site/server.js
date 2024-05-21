@@ -1,10 +1,16 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const semainesRoutes = require('./routes/semainesRoutes');
 const articleRoutes = require('./routes/articleRoutes');
 const reservationsRoutes = require('./routes/reservationsRoutes');
 const entretienRoutes = require('./routes/entretienRoutes');
+const connectionRoutes = require('./routes/connectionRoutes');
 const path = require('path');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const bcrypt = require('bcryptjs');
+const User = require('./models/User');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,19 +27,36 @@ mongoose.connect('mongodb://localhost:27017/siteDB', { useNewUrlParser: true, us
 
 //----------- Middleware -----------//
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+
+// Session middleware
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/siteDB' })
+}));
 
 //----------- View engine setup -----------//
 app.set('views', path.join(__dirname, 'public', 'views')); 
-
 app.set('view engine', 'ejs');
+
+// Middleware d'authentification
+function isAuthenticated(req, res, next) {
+    if (req.session.userId) {
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+}
 
 //----------- Routes -----------//
 app.use('/semaines', semainesRoutes);
 app.use('/reservations', reservationsRoutes);
 app.use('/articles', articleRoutes);
 app.use('/entretiens', entretienRoutes);
+app.use('/login', connectionRoutes);
 
 app.get('/', (req, res) => {
     res.render('index'); 
@@ -47,15 +70,15 @@ app.get('/reservation', (req, res) => {
     res.render('reservation'); 
 });
 
-app.get('/admin', (req, res) => {
+app.get('/admin', isAuthenticated, (req, res) => {
     res.render('admin'); 
 });
 
-app.get('/adminBlog', (req, res) => {
+app.get('/adminBlog', isAuthenticated, (req, res) => {
     res.render('blogAdmin'); 
 });
 
-app.get('/adminReservation', (req, res) => {
+app.get('/adminReservation', isAuthenticated, (req, res) => {
     res.render('reservationAdmin'); 
 });
 
@@ -63,10 +86,14 @@ app.get('/entretien', (req, res) => {
     res.render('entretien');
 });
 
-app.get('/adminEntretien', (req, res) => {
+app.get('/adminEntretien', isAuthenticated, (req, res) => {
     res.render('entretienAdmin');
 });
 
-app.get('/adminAccueil', (req, res) => {
+app.get('/adminAccueil', isAuthenticated, (req, res) => {
     res.render('accueilAdmin');
+});
+
+app.get('/login', (req, res) => {
+    res.render('login');
 });
