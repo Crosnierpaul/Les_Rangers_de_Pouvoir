@@ -2,15 +2,39 @@ const express = require('express');
 const router = express.Router();
 const Article = require('../models/Article');
 
-//----------- GET Commande Get All articles -----------//
+// Route pour récupérer tous les articles
 router.get('/', async (req, res) => {
     try {
         const articles = await Article.find();
         res.json(articles);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+    } catch (error) {
+        console.error('Erreur lors de la récupération des articles :', error);
+        res.status(500).send('Erreur du serveur');
     }
 });
+
+// Route pour ajouter un commentaire à un article
+// routes/articles.js
+router.post('/:articleId/comments', async (req, res) => {
+    try {
+        const { articleId } = req.params;
+        const { username, text } = req.body;
+
+        const article = await Article.findById(articleId);
+        if (!article) {
+            return res.status(404).send('Article non trouvé');
+        }
+
+        article.comments.push({ username, text });
+        await article.save();
+
+        res.redirect(`/articles/#article-${articleId}`);
+    } catch (error) {
+        console.error('Erreur lors de l\'ajout du commentaire :', error);
+        res.status(500).send('Erreur du serveur');
+    }
+});
+
 
 //----------- POST Commande Create Article -----------//
 router.post('/Create', async (req, res) => {
