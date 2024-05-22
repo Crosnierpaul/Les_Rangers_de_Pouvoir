@@ -1,99 +1,93 @@
-.start-header {
-	opacity: 1;
-	transform: translateY(0);
-	padding: 20px 0;
-	box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
+/* navbar.css */
+
+/* Style de base pour le corps de la page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.start-header.scroll-on {
-	box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
-	padding: 10px 0;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
+/* Container centralisé pour un contenu de largeur maximale de 1200px */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 1em;
 }
 
-.start-header.scroll-on .navbar-brand img{
-	height: 24px;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-
-.navigation-wrap{
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	-webkit-transition : all 0.3s ease-out;
-	transition : all 0.3s ease-out;
-}
-
+/* Style de base pour la barre de navigation */
 .navbar {
-    padding: 10px 0;
     display: flex;
-    justify-content: center;
-	margin-left: 1em;
-  	margin-right: 1em;
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Alignement vertical des éléments */
+    padding: 10px 0; /* Espacement intérieur */
+    background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%); /* Couleur de fond */
+    border-radius: 1em;
+}
+
+/* En-tête de la navbar contenant le logo et le toggler */
+.navbar-header {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+}
+
+/* Style du logo */
+#logo {
+    width: 20em;
+	border: 3.5px solid #baafca;
+	border-radius: 1em;
+	margin-left:  1em;
+	background-color: #ffffff49;
+	box-shadow: 0 0 10px 0 #baafca;
+	transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+	transform: scale(1.05);
 } 
 
-.navbar-toggler {
-	float: right;
-	border: none;
-	padding-right: 0;
-	padding-left: 0;
-	
+/* Bouton de toggler pour la navigation mobile (caché par défaut) */
+#navbar-toggler {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.navbar-toggler:active,
-.navbar-toggler:focus {
-	outline: none;
+/* Conteneur pour les éléments du menu de navigation */
+.navbar-menu {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+    justify-content: center; /* Centre les éléments du menu */
+    flex-grow: 1; /* Permet au conteneur de s'étendre pour occuper l'espace disponible */
+    position: relative;
 }
 
-.navbar-light .navbar-toggler-icon {
-	width: 24px;
-	height: 17px;
-	background-image: none;
-	position: relative;
-	border-bottom: 1px solid #000;
-    transition: all 300ms linear;
+/* Liste non ordonnée pour les éléments de navigation */
+.navbar-nav {
+    display: flex;
+    list-style: none; /* Suppression des puces de la liste */
+    padding: 0;
+    margin: 0;
 }
 
-.navbar-light .navbar-toggler-icon:after, 
-.navbar-light .navbar-toggler-icon:before{
-	width: 24px;
-	position: absolute;
-	height: 1px;
-	background-color: #000;
-	top: 0;
-	left: 0;
-	content: '';
-	z-index: 2;
-    transition: all 300ms linear;
+/* Style pour chaque élément de la liste de navigation */
+.nav-item {
+    margin: 0 10px; /* Espacement horizontal entre les éléments */
 }
 
-.navbar-light .navbar-toggler-icon:after{
-	top: 8px;
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-	transform: rotate(45deg);
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-	transform: translateY(8px) rotate(-45deg);
-}
-
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-	border-color: transparent;
-}
-
-.nav-link{
-	color: #212121 !important;
-	font-weight: 500;
+/* Style pour les liens de navigation */
+.nav-link {
+    text-decoration: none; /* Suppression du soulignement */
+    color: #000; /* Couleur du texte */
     transition: all 200ms linear;
 }
+
+/* Style pour les liens au survol et les liens actifs */
+.nav-link:hover, .nav-item.active .nav-link {
+    color: #81987f; /* Couleur du texte au survol et pour l'élément actif */
+}
+
 
 .nav-item.active .nav-link{
 	color: #81987f  !important;
@@ -126,95 +120,18 @@
 	opacity: 1;
 }
 
-.nav-item.active:hover:after{
+/* .nav-item.active:hover:after{
 	opacity: 0;
-}
+} */
 
 .nav-item {
     position: relative;
     transition: all 200ms linear;
     padding: 1em;
     text-align: center;
+    padding-bottom: 0;
+    padding-top: 0;
 } 
-
-/* .nav-item.active .nav-link {
-    color: #007bff; /* Changez cette couleur pour mettre en évidence l'élément actif 
-} */
-
-.navbar-brand {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* Ajoutez ces styles pour supprimer les puces des éléments li */
-.navbar-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 0; /* Supprime le décalage à gauche de la liste */
-}
-
-.navbar-nav .nav-item {
-    padding: 0 15px;
-    list-style: none; /* Supprime les puces */
-}
-
-.navbar-nav .nav-link {
-    color: #212121 !important;
-    font-weight: 500;
-    transition: all 200ms linear;
-	width: max-content;
-}
-
-.navbar-nav .nav-item:hover .nav-link {
-    color: #81987f !important;
-}
-
-/* Modifiez les styles des liens de navigation pour ressembler à du texte normal */
-.nav-link {
-    color: #212121 !important;
-    font-weight: 500;
-    transition: all 200ms linear;
-    text-decoration: none; /* Supprime le soulignement par défaut des liens */
-    cursor: pointer; /* Change le curseur en pointeur au survol */
-}
-
-#navbarSupportedContent {
-	background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%);
-	/* background-color: #33bbc5be; */
-    margin: 0px;
-	min-height: 15vh;
-	min-width: 60%;
-	max-width: max-content;
-	border-radius: 1em;
-	display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.purple {
-	color: #81987f;
-}
-
-#logo {
-	width: 20em;
-	border: 3.5px solid #baafca;
-	border-radius: 1em;
-	margin-left:  1em;
-	margin-right: 16.5em;
-	background-color: #ffffff49;
-	box-shadow: 0 0 10px 0 #baafca;
-	transition: transform 0.3s ease-in-out;
-}
-
-#logo:hover {
-	transform: scale(1.05);
-} 
-
-#liLogo {
-    list-style: none;
-}
 
 .nav-item.active:after {
 	position: absolute;
@@ -227,61 +144,145 @@
 	opacity: 1;
 }
 
-.rs {
-	margin-left: 16.5em;
-	display: inherit;
-	flex-wrap: wrap;
+
+/* Conteneur pour les éléments de contact dans la navbar */
+.navbar-contact {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+    justify-content: flex-end; /* Alignement à droite des éléments */
+    margin-left: 10em;
 }
 
-.rs .nav-item {
-	margin-left: 5px;
-	margin-right: 5px;
+.navbar-contact .nav-link {
+    margin: 1em;
 }
 
-/* Styles pour les écrans plus petits que 768px */
-@media (max-width: 1000px) {
-    .navbar {
-        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
-        align-items: center; /* Centrer les éléments */
-    }
-
-    .navbar-nav {
-        flex-direction: column; /* Afficher les éléments de la navbar en colonne */
-        align-items: center; /* Centrer les éléments */
-    }
-
-    .navbar-toggler {
-        order: -1; /* Mettre le bouton de bascule en haut */
-        margin-bottom: 10px; /* Ajouter un espace entre le bouton de bascule et les liens */
-    }
-
-    .rs {
-        margin-left: 0; /* Réinitialiser la marge pour les icônes de réseaux sociaux */
-        text-align: center; /* Centrer les icônes de réseaux sociaux */
-    }
+/* Espacement pour l'élément de contact */
+.tel {
+    margin: 0 10px;
 }
 
-/*Styles pour les écrans plus petits que 576px */
-@media (max-width: 576px) {
-    .navbar-brand {
-        margin: 0; /* Réinitialiser la marge pour le logo */
+/* Styles responsives pour les écrans de moins de 768px de large */
+@media (max-width: 768px) {
+    /* Cacher le menu de navigation par défaut sur mobile */
+    .navbar-menu {
+        display: none;
+        flex-direction: column; /* Organisation verticale des éléments */
+        width: 100%; /* Prend toute la largeur */
+        background-color: #dff2e2;
+        background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%);
+        position: absolute; /* Position absolue pour overlay */
+        top: 8.5em; /* Position sous la navbar */
+        left: 0;
+        transform: none;
+        padding: 10px 0;
+        /* border-radius: 1em; */
     }
 
     #logo {
-        width: 98.3%; /* Faire en sorte que le logo occupe toute la largeur */
-        margin: 0; /* Réinitialiser la marge */
+      width: 17em;
+      border: 3.5px solid #baafca;
+      border-radius: 1em;
+      margin-left: 1em;
+      background-color: #ffffff49;
+      box-shadow: 0 0 10px 0 #baafca;
+      transition: transform 0.3s ease-in-out;
     }
 
-    .rs {
-        display: flex; /* Afficher les icônes de réseaux sociaux en ligne */
-        justify-content: center; /* Centrer les icônes de réseaux sociaux */
+    /* Afficher le menu de navigation lorsqu'il est ouvert */
+    .navbar-menu.open {
+        display: flex;
     }
 
-    .rs .nav-item {
-        margin: 0 5px; /* Ajouter un espacement horizontal entre les icônes de réseaux sociaux */
+    /* Organisation verticale des éléments de navigation sur mobile */
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Espacement vertical entre les éléments sur mobile */
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    /* Afficher le bouton de toggler sur mobile */
+    #navbar-toggler {
+        display: block;
+    }
+
+    /* Organisation verticale des éléments de contact sur mobile */
+    .navbar-contact {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .navbar-contact .nav-link {
+        margin: 0;
+    }
+
+    /* Espacement supplémentaire pour les éléments de contact sur mobile */
+    .tel {
+        margin-bottom: 10px;
     }
 }
 
-.tel {
-	margin-top: 5px;
+/* Styles responsives pour les écrans de tablettes (768px à 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-menu {
+        display: flex;
+        flex-direction: column; /* Organisation verticale des éléments */
+        width: 100%; /* Prend toute la largeur */
+        background-color: #dff2e2;
+        background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%);
+        position: absolute; /* Position absolue pour overlay */
+        top: 8.5em; /* Position sous la navbar */
+        left: 0;
+        transform: none;
+        padding: 10px 0;
+        border-radius: 1em;
+    }
+
+    #logo {
+        width: 17em;
+        border: 3.5px solid #baafca;
+        border-radius: 1em;
+        margin-left: 1em;
+        background-color: #ffffff49;
+        box-shadow: 0 0 10px 0 #baafca;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-menu.open {
+        display: flex;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    #navbar-toggler {
+        display: block;
+    }
+
+    .navbar-contact {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .navbar-contact .nav-link {
+        margin: 0;
+    }
+
+    .tel {
+        margin-bottom: 10px;
+    }
 }
