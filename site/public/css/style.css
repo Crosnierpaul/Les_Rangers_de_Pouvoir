@@ -281,6 +281,7 @@ body {
     .navbarHori {
         right: 15px; /* Increase right margin for larger screens */
         width: 25px; /* Slightly wider for larger screens */
+        opacity: 1;
     }
 
     .navbarHori a {
