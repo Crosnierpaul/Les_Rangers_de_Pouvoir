@@ -1,0 +1,71 @@
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.footer-content {
+    display: flex;
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #666;
+    margin-top: 20px;
+}
+
+.highlight-6 {
+    color: rgb(16, 226, 16); /* Couleur pour le chiffre 6 */
+}
+.highlight-5 {
+    color: rgb(0, 140, 255); /* Couleur pour le chiffre 5 */
+}
+.highlight-4 {
+    color: rgb(144, 29, 238); /* Couleur pour le chiffre 4 */
+}
+/* Pas de style pour 9, donc il garde sa couleur par défaut */
