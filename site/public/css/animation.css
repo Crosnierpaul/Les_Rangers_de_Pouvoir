@@ -1,3 +1,11 @@
+
+#calendarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+
 .animationcontainer {
     display: flex;
     justify-content: center;

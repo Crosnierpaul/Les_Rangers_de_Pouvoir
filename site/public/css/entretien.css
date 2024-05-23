@@ -9,6 +9,12 @@
     border: 4px solid #94a693;
 }
 
+.anim{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
 .left {
     text-align: left;
 }
@@ -103,7 +109,7 @@ p {
     }
 
     .calendarcadre {
-        max-width: 90%;
+        max-width: 85%;
     }
 
     #timeSlot {
@@ -119,7 +125,7 @@ p {
 @media (max-width: 480px) {
     .calendar {
         width: 100%;
-        margin: 0;
+        margin: 1em;
     }
 
     .cadre {
@@ -135,6 +141,7 @@ p {
     #timeSlot {
         width: 100%;
     }
+
 
     th, td {
         padding: 5px;

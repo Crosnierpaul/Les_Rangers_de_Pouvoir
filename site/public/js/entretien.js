@@ -3,77 +3,101 @@ let currentYear = new Date().getFullYear();
 const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
 const timeSlots = ['13h - 13h30', '13h30 - 14h']; // Options d'horaires
 
+
+function disableButtons() {
+    document.querySelectorAll('.btn-container').forEach(btn => {
+        btn.classList.add('disabled');
+    });
+}
+
+function enableButtons() {
+    document.querySelectorAll('.btn-container').forEach(btn => {
+        btn.classList.remove('disabled');
+    });
+}
+
 async function displayCalendar(month, year) {
     const calendarContainer = document.getElementById('calendarContainer');
+    const animationcontainer = document.getElementById('animationcontainer');
+    
+    disableButtons();
+
+    // Afficher le animationcontainer
+    animationcontainer.style.display = 'block';
     calendarContainer.innerHTML = '';
 
-    const firstDay = new Date(year, month, 1);
-    const monthName = months[firstDay.getMonth()];
-    const yearNum = firstDay.getFullYear();
+    setTimeout(async () => {
+        const firstDay = new Date(year, month, 1);
+        const monthName = months[firstDay.getMonth()];
+        const yearNum = firstDay.getFullYear();
 
-    // Correction pour obtenir le premier jour correct du mois
-    let firstDayOfWeek = firstDay.getDay(); // Renvoie 0 pour dimanche, 1 pour lundi, etc.
+        // Correction pour obtenir le premier jour correct du mois
+        let firstDayOfWeek = firstDay.getDay(); // Renvoie 0 pour dimanche, 1 pour lundi, etc.
 
-    // Décaler le premier jour vers la gauche si nécessaire
-    if (firstDayOfWeek === 0) {
-        firstDayOfWeek = 6; // Si le premier jour est un dimanche, décaler vers la gauche d'une colonne
-    } else {
-        firstDayOfWeek--; // Décaler d'une colonne vers la gauche
-    }
-
-    const calendarDiv = document.createElement('div');
-    calendarDiv.classList.add('calendar');
-    calendarDiv.innerHTML = `<h2>${monthName} ${yearNum}</h2>`;
-
-    const table = document.createElement('table');
-    const headerRow = document.createElement('tr');
-    const daysOfWeek = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-
-    daysOfWeek.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
-    });
-
-    table.appendChild(headerRow);
-
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    let currentDay = 1;
-    for (let i = 0; i < 6; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            const cell = document.createElement('td');
-            if (i === 0 && j < firstDayOfWeek) {
-                cell.innerHTML = '&nbsp;';
-            } else if (currentDay <= daysInMonth) {
-                cell.textContent = currentDay;
-                cell.id = `cell-${currentDay}`;
-
-                // Convertir la date en objet Date JavaScript pour la comparaison
-                const currentDate = new Date(year, month, currentDay);
-                const formattedDate = `${currentDay} ${months[month]} ${year}`;
-                const reservations = await fetch(`/entretiens/liste/${formattedDate}`);
-                // const reservations = await fetch(`/entretiens/liste?day=${formattedDate}`);
-                const reservationsData = await reservations.json();
-                if (reservationsData.length >= 2 || currentDate < new Date()) {
-                    cell.classList.add('inactive');
-                } else {
-                    cell.addEventListener('click', () => selectCell(cell));
-                }
-
-                currentDay++;
-            } else {
-                cell.innerHTML = '&nbsp;';
-            }
-            row.appendChild(cell);
+        // Décaler le premier jour vers la gauche si nécessaire
+        if (firstDayOfWeek === 0) {
+            firstDayOfWeek = 6; // Si le premier jour est un dimanche, décaler vers la gauche d'une colonne
+        } else {
+            firstDayOfWeek--; // Décaler d'une colonne vers la gauche
         }
-        table.appendChild(row);
-    }
-    
 
-    calendarDiv.appendChild(table);
-    calendarContainer.appendChild(calendarDiv);
+        const calendarDiv = document.createElement('div');
+        calendarDiv.classList.add('calendar');
+        calendarDiv.innerHTML = `<h2>${monthName} ${yearNum}</h2>`;
+
+        const table = document.createElement('table');
+        const headerRow = document.createElement('tr');
+        const daysOfWeek = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+        daysOfWeek.forEach(day => {
+            const th = document.createElement('th');
+            th.textContent = day;
+            headerRow.appendChild(th);
+        });
+
+        table.appendChild(headerRow);
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        let currentDay = 1;
+        for (let i = 0; i < 6; i++) {
+            const row = document.createElement('tr');
+            for (let j = 0; j < 7; j++) {
+                const cell = document.createElement('td');
+                if (i === 0 && j < firstDayOfWeek) {
+                    cell.innerHTML = '&nbsp;';
+                } else if (currentDay <= daysInMonth) {
+                    cell.textContent = currentDay;
+                    cell.id = `cell-${currentDay}`;
+
+                    // Convertir la date en objet Date JavaScript pour la comparaison
+                    const currentDate = new Date(year, month, currentDay);
+                    const formattedDate = `${currentDay} ${months[month]} ${year}`;
+                    const reservations = await fetch(`/entretiens/liste/${formattedDate}`);
+                    // const reservations = await fetch(`/entretiens/liste?day=${formattedDate}`);
+                    const reservationsData = await reservations.json();
+                    if (reservationsData.length >= 2 || currentDate < new Date()) {
+                        cell.classList.add('inactive');
+                    } else {
+                        cell.addEventListener('click', () => selectCell(cell));
+                    }
+
+                    currentDay++;
+                } else {
+                    cell.innerHTML = '&nbsp;';
+                }
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+
+        enableButtons();
+        // Masquer le animationcontainer une fois le calendrier chargé
+        animationcontainer.style.display = 'none';
+        
+        calendarDiv.appendChild(table);
+        calendarContainer.appendChild(calendarDiv);
+    }, 400); // Délai de 2 secondes
 }
 
 function selectCell(cell) {
