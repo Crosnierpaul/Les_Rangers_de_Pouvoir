@@ -281,12 +281,17 @@ body {
     .navbarHori {
         right: 15px; /* Increase right margin for larger screens */
         width: 25px; /* Slightly wider for larger screens */
-        opacity: 1;
     }
 
     .navbarHori a {
         width: 12px; /* Slightly larger dots for larger screens */
         height: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbarHori {
+        opacity: 1;
     }
 }
 
