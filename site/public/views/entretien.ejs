@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/animation.css">
     <link rel="stylesheet" href="../css/entretien.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/button.css">
+    
     <title>Calendrier</title>
 </head>
 <body>
@@ -13,7 +15,7 @@
     
     <section class="cadre">
       <h1>
-        Ici, vous pouvez réserver un entretien téléphonique GRATUIT avec Marie afin d'en apprendre plus !
+        Ici, vous pouvez réserver un entretien téléphonique GRATUIT avec Moi afin d'en apprendre plus !
       </h1>
     </section>
 
@@ -52,8 +54,16 @@
                 </a>
               </div>
         </div>
+        
         <div id="calendarContainer"></div>
         <div id="selectedContent"></div>
+        <div id="animationcontainer" class="animationcontainer">
+          <div class="typewriter">
+              <div class="slide"><i></i></div>
+              <div class="paper"></div>
+              <div class="keyboard"></div>
+          </div>
+      </div>
     </section>
 
     <script src="../js/entretien.js"></script>
