@@ -231,7 +231,7 @@ body {
 /* Styles responsives pour les écrans de tablettes (768px à 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .navbar-menu {
-        display: flex;
+        display: none;
         flex-direction: column; /* Organisation verticale des éléments */
         width: 100%; /* Prend toute la largeur */
         background-color: #dff2e2;
