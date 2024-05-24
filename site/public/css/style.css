@@ -211,6 +211,20 @@ button[type="submit"]:hover {
 }
 
 
+.card-info p {
+    text-align: justify;
+}
+
+.signature {
+    text-align: right;
+}
+
+p {
+    line-height: 2;
+}
+
+
+
 /*------------------------- ONEPAGE ---------------------------------------------*/
 
 body {
