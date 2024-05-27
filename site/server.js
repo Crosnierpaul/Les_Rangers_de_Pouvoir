@@ -97,3 +97,7 @@ app.get('/adminAccueil', isAuthenticated, (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
+
+app.get('/mentions', (req, res) => {
+    res.render('mentions');
+});

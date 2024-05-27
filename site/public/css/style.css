@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine|Great+Vibes|Dancing+Script|Sevillana');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,15 +15,17 @@ body {
 }
 
 .phraseAccroche {
-    font-family: Times, Times New Roman, serif; /* Police principale */
-    font-size: 2.5em;
-    font-weight: bold;
+    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
+    font-size: 4em;
+    text-shadow: 4px 4px 4px #aaa;
     color: #ebfff0;
     background-color: #baafcad7;
     border-radius: 1em;
     padding: 1%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
+    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
 }
 
 
@@ -45,6 +49,18 @@ h1, h2 {
     text-align: center;
     margin-bottom: 5px;
     color: #67606f;
+    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
+    
+    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
+    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
 }
 
 form {
@@ -119,7 +135,20 @@ button[type="submit"]:hover {
     box-sizing: border-box;
 }
 
-
+/* Style pour le bloc de texte important sur la page d'accueil */
+.important-text-block {
+    color: #67606f; /* Couleur du texte sombre pour un bon contraste */
+    font-size: 24px; /* Taille de police plus grande pour mettre en avant le texte */
+    font-weight: bold; /* Texte en gras pour plus d'impact */
+    padding: 10px; /* Espacement intérieur pour aérer le texte */
+    margin: 20px 0; /* Espacement extérieur pour séparer du reste du contenu */
+    border-radius: 8px; /* Coins arrondis pour un aspect moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.151); /* Légère ombre pour un effet de profondeur */
+    text-align: center; /* Centrer le texte */
+    max-width: 90%; /* Limite la largeur pour une meilleure lisibilité */
+    margin-left: auto; /* Centre horizontalement le bloc */
+    margin-right: auto; /* Centre horizontalement le bloc */
+}
 
 .bordertitle {
     border-bottom: 4px solid #baafca;
@@ -130,12 +159,14 @@ button[type="submit"]:hover {
     margin-left: 2em; /* Adjusted for responsiveness */
     padding-left: 1em;
     padding-right: 1em;
+    padding-top: 0.3em;
 }
 
 
 .containerindex {
     display: flex;
     flex-direction: column;
+    min-width: 70%;
     max-width: 100%;
     align-items: center;
     border-radius: 48px 10px 46px 10px;
@@ -184,6 +215,8 @@ button[type="submit"]:hover {
 }
 
 .card-info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
     background: #d8f2d6;
     color: #67606f;
     display: flex;
@@ -387,15 +420,17 @@ body {
 }
 
 .section ul {
-    list-style-type: none;
+    list-style: none; /* Supprime les puces par défaut */
     padding: 0;
     margin: 0;
     width: 100%;
+    padding-left: 1em;
 }
 
 .section ul li {
+    position: relative;
     margin: 0.5em 0;
-    padding-left: 1em;
+    padding-left: 1.5em; /* Ajuste l'espacement pour laisser de la place à la puce */
     font-size: 1em;
     line-height: 1.6;
     color: #67606f;
@@ -403,6 +438,18 @@ body {
     font-weight: 500;
 }
 
+.section ul li::before {
+    
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2em; /* Ajuste verticalement l'alignement de l'image */
+    width: 1em; /* Largeur souhaitée pour l'image */
+    height: 1em; /* Hauteur souhaitée pour l'image */
+    background-image: url('../images/flower.878x1024.png');
+    background-size: contain; /* Ajuste l'image pour qu'elle soit contenue dans les dimensions spécifiées */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
 
 
 /*////////////////////////////////// PAGE BLOG /////////////////////////////////*/

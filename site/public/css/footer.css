@@ -70,3 +70,29 @@ footer {
     color: rgb(144, 29, 238); /* Couleur pour le chiffre 4 */
 }
 /* Pas de style pour 9, donc il garde sa couleur par défaut */
+
+/* Animation pour les liens */
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c6c1d2;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.footer-section a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
