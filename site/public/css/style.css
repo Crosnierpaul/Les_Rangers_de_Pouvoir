@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine|Great+Vibes|Dancing+Script|Sevillana');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #dff2e2;
+
+}
+
+::selection {
+    background: #baafca; /* Couleur de fond dorée pour la sélection */
+    color: #fff; /* Couleur du texte pour la sélection */
+}
+
+.phraseAccroche {
+    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
+    font-size: 4em;
+    text-shadow: 4px 4px 4px #aaa;
+    color: #ebfff0;
+    background-color: #baafcad7;
+    border-radius: 1em;
+    padding: 1%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
+    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
+}
+
+
+.boutonAccueil {
+    font-size: 0.6em !important; 
+    font-style: italic;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.boutonAccueil:hover {
+    color: #ebfff0;
+    background-color: #baafca; /*#4c1f90;*/
+}
+
+.boutonAccueil:active {
+    transform: scale(0.85);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #67606f;
+    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
+    
+    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
+    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #67606f; 
+}
+input[type="text"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #94a693;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Style pour les champs de saisie et les zones de texte au survol */
+input[type="text"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    border-color: #ddd0f0;
+}
+input[type="submit"],
+button[type="submit"] {
+    display: inline-block;
+    background-color: #999;
+    color: #fff; 
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #ccc; 
+    color: #333; 
+}
+
+#clearArticles,
+#deleteArticle {
+    margin-right: 10px;
+}
+
+@media (max-width: 480px) {
+    #deleteArticle,
+    #deleteLastArticle {
+        width: 100%;
+        display: block;
+        margin-right: 0;
+    }
+}
+
+#articlesList {
+    background-color: #333; 
+}
+
+/*------------------------- CONTAINER ET INFOS INFOS ACCUEIL ---------------------------------------------*/
+
+.case {
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+/* Style pour le bloc de texte important sur la page d'accueil */
+.important-text-block {
+    color: #67606f; /* Couleur du texte sombre pour un bon contraste */
+    font-size: 24px; /* Taille de police plus grande pour mettre en avant le texte */
+    font-weight: bold; /* Texte en gras pour plus d'impact */
+    padding: 10px; /* Espacement intérieur pour aérer le texte */
+    margin: 20px 0; /* Espacement extérieur pour séparer du reste du contenu */
+    border-radius: 8px; /* Coins arrondis pour un aspect moderne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.151); /* Légère ombre pour un effet de profondeur */
+    text-align: center; /* Centrer le texte */
+    max-width: 90%; /* Limite la largeur pour une meilleure lisibilité */
+    margin-left: auto; /* Centre horizontalement le bloc */
+    margin-right: auto; /* Centre horizontalement le bloc */
+}
+
+.bordertitle {
+    border-bottom: 4px solid #baafca;
+    border-top: 4px solid #baafca;
+    box-shadow: #c6c1d2 -5px 5px, #c6c1d28c -10px 10px, #c6c1d259 -15px 15px, #c6c1d22d -20px 20px, #c6c1d20e -25px 25px;
+    border-radius: 0.3em;
+    width: max-content;
+    margin-left: 2em; /* Adjusted for responsiveness */
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.3em;
+}
+
+
+.containerindex {
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    max-width: 100%;
+    align-items: center;
+    border-radius: 48px 10px 46px 10px;
+    background-color: #c6c1d2;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.card {
+    --background: linear-gradient(to right, #94a693 0%, #acb9ad 100%); /*linear-gradient(to left, #7439cc 0%, #1ae42b 100%); */
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0.3em;
+    border-radius: 1rem;
+    overflow: visible;
+    background: #f7ba2b;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+    margin: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.card::after {
+    position: absolute;
+    content: "";
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: var(--background);
+    transition: opacity 0.5s;
+}
+
+.card-info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background: #d8f2d6;
+    color: #67606f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1em;
+    border-radius: 0.7rem;
+}
+
+.card-info li {
+    list-style: none;
+    margin: 0.5em 0;
+}
+
+
+
+.card .title {
+    font-weight: bold;
+}
+
+/*Hover*/
+.card:hover::after {
+    opacity: 0;
+}
+
+
+.card-info p {
+    text-align: justify;
+}
+
+.signature {
+    text-align: right;
+}
+
+p {
+    line-height: 2;
+}
+
+
+
+/*------------------------- ONEPAGE ---------------------------------------------*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Empêche le défilement horizontal d'apparaître */
+}
+.navbarHori {
+    position: fixed;
+    top: 50%; /* Positionne la barre de navigation à 50% du haut de la fenêtre */
+    transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
+    right: 10px; /* Ajoute un espace à droite pour éviter le chevauchement avec la barre de défilement */
+    width: 20px; /* Largeur réduite de la barre de navigation */
+    height: calc(100vh - 50vh); /* Hauteur de la barre de navigation (100% de la hauteur moins 50% de la hauteur) */
+    background-color: #c6c1d2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    opacity: 0.2; /* Définit l'opacité initiale à 0 (invisible) */
+    transition: opacity 0.3s ease; /* Ajoute une transition sur l'opacité */
+    z-index: 2;
+}
+
+.navbarHori:hover {
+    opacity: 1; /* Rend la barre de navigation visible au survol */
+}
+
+.navbarHori a {
+    text-decoration: none;
+    margin-bottom: 18px; /* Réduit légèrement l'espacement entre les points */
+    width: 10px; /* Largeur réduite du point */
+    height: 10px; /* Hauteur réduite du point */
+    border-radius: 50%; /* Pour rendre le point rond */
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease; /* Ajoute une transition sur la propriété transform */
+    color: #81987f;
+}
+
+.navbarHori a:hover {
+    transform: scale(0.9); /* Réduit légèrement la taille du point au survol */
+}
+
+.navbarHori a:active {
+    transform: scale(0.8); /* Réduit davantage la taille du point lorsque pressé */
+    opacity: 0;
+}
+
+.navbarHori a:hover::before {
+    content: attr(data-section); /* Affiche le nom de la section */
+    position: absolute;
+    right: 180%; /* Positionne le texte à gauche de la barre de navigation */
+    background-color: rgba(255, 255, 255, 0.9); /* Couleur de fond du texte */
+    padding: 0.5em;
+    border-radius: 5px;
+    font-size: 0.75em;
+    white-space: nowrap;
+}
+
+/* Media query for tablets and larger devices */
+@media (min-width: 768px) {
+    .navbarHori {
+        right: 15px; /* Increase right margin for larger screens */
+        width: 25px; /* Slightly wider for larger screens */
+    }
+
+    .navbarHori a {
+        width: 12px; /* Slightly larger dots for larger screens */
+        height: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbarHori {
+        opacity: 1;
+    }
+}
+
+/* Media query for desktops and larger devices */
+@media (min-width: 992px) {
+    .navbarHori {
+        right: 20px; /* Further increase right margin for larger screens */
+        width: 30px; /* Even wider for larger screens */
+    }
+
+    .navbarHori a {
+        width: 15px; /* Larger dots for larger screens */
+        height: 15px;
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
+    .navbarHori {
+        top: 50%;
+        transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
+        height: auto;
+        transform: none; /* Supprime la transformation de translation */
+        opacity: 1; /* Rend la barre de navigation toujours visible */
+        background-color: #c6c1d2; /* Couleur de fond */
+        right: 5px; /* Reduce right margin for smaller screens */
+        width: 15px; /* Narrower for smaller screens */
+    }
+    
+    .navbarHori:hover,
+    .navbarHori a:hover,
+    .navbarHori a:active {
+        transform: none; /* Supprime la transformation au survol ou à l'activation */
+        opacity: 1; /* Rend la barre de navigation toujours visible */
+    }
+
+    .navbarHori a {
+        margin-bottom: 12px; /* Reduce space between dots for smaller screens */
+        width: 8px; /* Smaller dots for smaller screens */
+        height: 8px;
+        color: #81987f;
+    }
+
+    .navbarHori a::before {
+        display: none; /* Cache le texte de section avant le survol */
+    }
+}
+
+.baniere {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    margin: 1em;
+    background-image: url(../images/banierehorizontale.png); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    margin-top: 80px;
+    background-color: #eeeeee00;
+    max-height: 400vh;
+    min-height: 100vh;
+}
+.section h1 {
+    text-align: center;
+    margin-top: -1em;
+    margin-bottom: 1em;
+    color : #67606f;
+}
+
+.section ul {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding-left: 1em;
+}
+
+.section ul li {
+    position: relative;
+    margin: 0.5em 0;
+    padding-left: 1.5em; /* Ajuste l'espacement pour laisser de la place à la puce */
+    font-size: 1em;
+    line-height: 1.6;
+    color: #67606f;
+    font-family: "Arial", sans-serif;
+    font-weight: 500;
+}
+
+.section ul li::before {
+    
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2em; /* Ajuste verticalement l'alignement de l'image */
+    width: 1em; /* Largeur souhaitée pour l'image */
+    height: 1em; /* Hauteur souhaitée pour l'image */
+    background-image: url('../images/flower.878x1024.png');
+    background-size: contain; /* Ajuste l'image pour qu'elle soit contenue dans les dimensions spécifiées */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
+
+
+/*////////////////////////////////// PAGE BLOG /////////////////////////////////*/
+
+#articlesList div {
+    background-color: #c7c7d4; /*#f9f9f9;*/
+    border-radius: 1em;
+    margin: 1em;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    width: 80%;
+}
+
+#articlesList p, #articlesList h2 {
+    color: #67606f;
+}
+
+#articlesList {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#articlesList img {
+    width: 10em;
+    margin-right: 2em;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.space {
+    margin-left: 2em !important;
+}
+
+/* Media query for tablets and larger devices */
+@media (min-width: 768px) {
+    .bordertitle {
+        margin-left: 4em; /* Increase margin for larger screens */
+    }
+}
+
+/* Media query for desktops and larger devices */
+@media (min-width: 992px) {
+    .bordertitle {
+        margin-left: 7em; /* Further increase margin for larger screens */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .bordertitle {
+        margin-left: 1em; /* Reduce margin for smaller screens */
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        font-size: 0.9em; /* Adjust font size if necessary */
+    }
+}

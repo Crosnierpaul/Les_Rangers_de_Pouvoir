@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Footer</title>
+    <link rel="stylesheet" href="../css/footer.css"> <!-- Assurez-vous d'avoir un fichier CSS pour le style -->
+</head>
+<body>
+    <!-- Contenu de la page -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>À propos</h3>
+                    <p>Nous sommes une équipe de 3 étudiants qui avons réalisé ce site web en guise de stage de fin d'année.</p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact</h3>
+                    <p>Email: lesrangerdepouvoir@gmail.com</p>
+                    <p id="phone">Téléphone: 07 66 55 44 99</p>
+                </div>
+                <div class="footer-section mentions-legales">
+                    <h3>Mentions Légales</h3>
+                    <p><a href="/mentions">Consulter les mentions légales</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <%= new Date().getFullYear() %> Les Rangers de Pouvoirs. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const phoneElement = document.getElementById("phone");
+            const text = phoneElement.innerHTML;
+    
+            function replaceDigitsWithSpans(match) {
+                switch (match) {
+                    case '6':
+                        return '<span class="highlight-6">6</span>';
+                    case '5':
+                        return '<span class="highlight-5">5</span>';
+                    case '4':
+                        return '<span class="highlight-4">4</span>';
+                    default:
+                        return match; // Les autres chiffres gardent leur style par défaut
+                }
+            }
+    
+            const highlightedText = text.replace(/\d/g, replaceDigitsWithSpans);
+    
+            phoneElement.innerHTML = highlightedText;
+        });
+        </script>
+</body>
+</html>

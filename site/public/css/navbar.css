@@ -1,0 +1,288 @@
+/* navbar.css */
+
+/* Style de base pour le corps de la page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container centralisé pour un contenu de largeur maximale de 1200px */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 1em;
+}
+
+/* Style de base pour la barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Alignement vertical des éléments */
+    padding: 10px 0; /* Espacement intérieur */
+    background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%); /* Couleur de fond */
+    border-radius: 1em;
+}
+
+/* En-tête de la navbar contenant le logo et le toggler */
+.navbar-header {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+}
+
+/* Style du logo */
+#logo {
+    width: 20em;
+	border: 3.5px solid #baafca;
+	border-radius: 1em;
+	margin-left:  1em;
+	background-color: #ffffff49;
+	box-shadow: 0 0 10px 0 #baafca;
+	transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+	transform: scale(1.05);
+} 
+
+/* Bouton de toggler pour la navigation mobile (caché par défaut) */
+#navbar-toggler {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Conteneur pour les éléments du menu de navigation */
+.navbar-menu {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+    justify-content: center; /* Centre les éléments du menu */
+    flex-grow: 1; /* Permet au conteneur de s'étendre pour occuper l'espace disponible */
+    position: relative;
+}
+
+/* Liste non ordonnée pour les éléments de navigation */
+.navbar-nav {
+    display: flex;
+    list-style: none; /* Suppression des puces de la liste */
+    padding: 0;
+    margin: 0;
+}
+
+/* Style pour chaque élément de la liste de navigation */
+.nav-item {
+    margin: 0 10px; /* Espacement horizontal entre les éléments */
+}
+
+/* Style pour les liens de navigation */
+.nav-link {
+    text-decoration: none; /* Suppression du soulignement */
+    color: #000; /* Couleur du texte */
+    transition: all 200ms linear;
+}
+
+/* Style pour les liens au survol et les liens actifs */
+.nav-link:hover, .nav-item.active .nav-link {
+    color: #81987f; /* Couleur du texte au survol et pour l'élément actif */
+}
+
+
+.nav-item.active .nav-link{
+	color: #81987f  !important;
+}
+
+/* LIGNE SOUS LIEN APRES SOURIS DESSUS */
+
+.nav-link {
+	position: relative;
+	padding: 5px 0 !important;
+	display: inline-block;
+}
+
+.nav-item:after {
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: #81987f ;
+	opacity: 0;
+    transition: all 200ms linear;
+}
+
+/* FIN LIGNE SOUS LIEN */
+
+.nav-item:hover:after{
+	bottom: 0;
+	opacity: 1;
+}
+
+/* .nav-item.active:hover:after{
+	opacity: 0;
+} */
+
+.nav-item {
+    position: relative;
+    transition: all 200ms linear;
+    padding: 1em;
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 0;
+} 
+
+.nav-item.active:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: #81987f ;
+	opacity: 1;
+}
+
+
+/* Conteneur pour les éléments de contact dans la navbar */
+.navbar-contact {
+    display: flex;
+    align-items: center; /* Alignement vertical des éléments */
+    justify-content: flex-end; /* Alignement à droite des éléments */
+    margin-left: 10em;
+}
+
+.navbar-contact .nav-link {
+    margin: 1em;
+}
+
+/* Espacement pour l'élément de contact */
+.tel {
+    margin: 0 10px;
+}
+
+/* Styles responsives pour les écrans de moins de 768px de large */
+@media (max-width: 768px) {
+    /* Cacher le menu de navigation par défaut sur mobile */
+    .navbar-menu {
+        display: none;
+        flex-direction: column; /* Organisation verticale des éléments */
+        width: 100%; /* Prend toute la largeur */
+        background-color: #dff2e2;
+        background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%);
+        position: absolute; /* Position absolue pour overlay */
+        top: 8.5em; /* Position sous la navbar */
+        left: 0;
+        transform: none;
+        padding: 10px 0;
+        /* border-radius: 1em; */
+    }
+
+    #logo {
+      width: 17em;
+      border: 3.5px solid #baafca;
+      border-radius: 1em;
+      margin-left: 1em;
+      background-color: #ffffff49;
+      box-shadow: 0 0 10px 0 #baafca;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Afficher le menu de navigation lorsqu'il est ouvert */
+    .navbar-menu.open {
+        display: flex;
+    }
+
+    /* Organisation verticale des éléments de navigation sur mobile */
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Espacement vertical entre les éléments sur mobile */
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    /* Afficher le bouton de toggler sur mobile */
+    #navbar-toggler {
+        display: block;
+    }
+
+    /* Organisation verticale des éléments de contact sur mobile */
+    .navbar-contact {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .navbar-contact .nav-link {
+        margin: 0;
+    }
+
+    /* Espacement supplémentaire pour les éléments de contact sur mobile */
+    .tel {
+        margin-bottom: 10px;
+    }
+}
+
+/* Styles responsives pour les écrans de tablettes (768px à 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column; /* Organisation verticale des éléments */
+        width: 100%; /* Prend toute la largeur */
+        background-color: #dff2e2;
+        background-image: linear-gradient(90deg, #c6c1d2 22%, #bfb8cfbe 71%);
+        position: absolute; /* Position absolue pour overlay */
+        top: 8.5em; /* Position sous la navbar */
+        left: 0;
+        transform: none;
+        padding: 10px 0;
+        border-radius: 1em;
+    }
+
+    #logo {
+        width: 17em;
+        border: 3.5px solid #baafca;
+        border-radius: 1em;
+        margin-left: 1em;
+        background-color: #ffffff49;
+        box-shadow: 0 0 10px 0 #baafca;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-menu.open {
+        display: flex;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    #navbar-toggler {
+        display: block;
+    }
+
+    .navbar-contact {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .navbar-contact .nav-link {
+        margin: 0;
+    }
+
+    .tel {
+        margin-bottom: 10px;
+    }
+}
