@@ -146,11 +146,10 @@ button[type="submit"]:hover {
 /* Style pour le bloc de texte important sur la page d'accueil */
 .important-text-block {
     color: #67606f; /* Couleur du texte sombre pour un bon contraste */
-    font-size: 24px; /* Taille de police plus grande pour mettre en avant le texte */
+    font-size: 22.5px; /* Taille de police plus grande pour mettre en avant le texte */
     padding: 10px; /* Espacement intérieur pour aérer le texte */
     margin: 20px 0; /* Espacement extérieur pour séparer du reste du contenu */
     border-radius: 8px; /* Coins arrondis pour un aspect moderne */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.151); /* Légère ombre pour un effet de profondeur */
     text-align: center; /* Centrer le texte */
     max-width: 90%; /* Limite la largeur pour une meilleure lisibilité */
     margin-left: auto; /* Centre horizontalement le bloc */
@@ -538,6 +537,6 @@ body {
     }
 }
 
-
-
-
+.imagesPres {
+    width: 50%;
+}

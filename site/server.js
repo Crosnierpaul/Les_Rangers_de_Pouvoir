@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //----------- Connect to MongoDB -----------//
-mongoose.connect('mongodb://localhost:27017/siteDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://Roll:1vt7jgcn@lamaisondugrandmas.gvocidr.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(PORT, () => {
@@ -35,7 +35,7 @@ app.use(session({
     secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/siteDB' })
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://Roll:1vt7jgcn@lamaisondugrandmas.gvocidr.mongodb.net/' })
 }));
 
 //----------- View engine setup -----------//
