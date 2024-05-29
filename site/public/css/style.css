@@ -14,6 +14,14 @@ body {
     color: #fff; /* Couleur du texte pour la sélection */
 }
 
+hr {
+    border: none;
+    height: 2px;
+    background-color: #c6c1d2;
+    margin: 15px 10%;
+    
+}
+
 .phraseAccroche {
     font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
     font-size: 4em;
@@ -139,7 +147,6 @@ button[type="submit"]:hover {
 .important-text-block {
     color: #67606f; /* Couleur du texte sombre pour un bon contraste */
     font-size: 24px; /* Taille de police plus grande pour mettre en avant le texte */
-    font-weight: bold; /* Texte en gras pour plus d'impact */
     padding: 10px; /* Espacement intérieur pour aérer le texte */
     margin: 20px 0; /* Espacement extérieur pour séparer du reste du contenu */
     border-radius: 8px; /* Coins arrondis pour un aspect moderne */
@@ -514,3 +521,23 @@ body {
         font-size: 0.9em; /* Adjust font size if necessary */
     }
 }
+
+.highlight {
+    animation: glow 1s infinite;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 2px 2px 5px #7800ac;
+    }
+    50% {
+        text-shadow: 2px 2px 20px #ffffff;
+    }
+    100% {
+        text-shadow: 2px 2px 5px #7800ac;
+    }
+}
+
+
+
+

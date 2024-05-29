@@ -101,3 +101,36 @@ app.get('/login', (req, res) => {
 app.get('/mentions', (req, res) => {
     res.render('mentions');
 });
+
+// Route pour traiter la connexion
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        // Recherche de l'utilisateur dans la base de données
+        const user = await User.findOne({ username });
+
+        if (user) {
+            // Vérification du mot de passe
+            const isMatch = await bcrypt.compare(password, user.password);
+
+            if (isMatch) {
+                // Si les informations sont correctes, enregistrer l'ID de l'utilisateur dans la session
+                req.session.userId = user._id;
+                res.redirect('/admin');
+            } else {
+                // Mot de passe incorrect
+                req.session.error = 'Nom d’utilisateur ou mot de passe incorrect.';
+                res.redirect('/login');
+            }
+        } else {
+            // Nom d'utilisateur incorrect
+            req.session.error = 'Nom d’utilisateur ou mot de passe incorrect.';
+            res.redirect('/login');
+        }
+    } catch (err) {
+        console.error('Erreur lors de la connexion:', err);
+        req.session.error = 'Une erreur est survenue. Veuillez réessayer.';
+        res.redirect('/login');
+    }
+});
