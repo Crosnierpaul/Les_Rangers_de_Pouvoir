@@ -580,3 +580,23 @@ body {
         text-shadow: 2px 2px 5px #7800ac;
     }
 }
+
+ /* CSS for the video embed */
+ .video-embed {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Let it fill the container */
+    height: 18em; /* Maintain aspect ratio */
+    max-width: 600px; /* Optional: Limit the maximum width */
+}
+
+/* Responsive container for the iframe */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px; /* Optional: Add padding around the video */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
