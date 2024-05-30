@@ -252,6 +252,7 @@ button[type="submit"]:hover {
     margin-top: 1.5em;
 }
 
+
 .containerPres {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -284,7 +285,7 @@ button[type="submit"]:hover {
 
 .containerPresMarie {
     display: grid;
-    grid-template-columns: 9fr 1fr;
+    grid-template-columns: 1fr 9fr;
     grid-gap: 20px;
 }
 
@@ -316,6 +317,32 @@ body {
     box-sizing: border-box;
     overflow-x: hidden; /* Empêche le défilement horizontal d'apparaître */
 }
+
+.custom-list {
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0; /* Supprime le padding par défaut */
+    position: relative;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.5em; /* Espace pour l'image */
+    margin-bottom: 1em; /* Espacement entre les éléments de liste */
+}
+
+.custom-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 91.5% !important; 
+    transform: translateY(-50%);
+    width: 1em;
+    height: 1em;
+    background-image: url('../images/flower.878x1024.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .navbarHori {
     position: fixed;
     top: 50%; /* Positionne la barre de navigation à 50% du haut de la fenêtre */
@@ -502,6 +529,8 @@ body {
 }
 
 
+
+
 /*////////////////////////////////// PAGE BLOG /////////////////////////////////*/
 
 #articlesList div {
@@ -561,9 +590,70 @@ body {
         margin-left: 1em; /* Reduce margin for smaller screens */
         padding-left: 0.5em;
         padding-right: 0.5em;
-        font-size: 0.9em; /* Adjust font size if necessary */
+        font-size: 1.4em; /* Adjust font size if necessary */
+    }
+    
+    .containerPresMarie {
+        display: grid;
+        grid-template-columns: 1fr; /* Affiche une seule colonne sur les petits écrans */
+        grid-gap: 20px;
+    }
+    .ppMarie  {
+        display: flex;
+        justify-self: center;
+    }
+    
+}
+
+/* Responsivité pour téléphones */
+@media (max-width: 600px) {
+    .card-info img.imagesPres {
+        max-width: 100%;
+        height: auto; /* Assure que les images conservent leur ratio d'aspect */
+    }
+    .containerPres {
+        display: flex;
+        flex-direction: column; /* Arrange les images en une seule colonne */
+        gap: 20px; /* Ajoute de l'espace entre les éléments */
+    }
+    .section {
+        padding: 20px; /* Ajoute du padding pour éviter les chevauchements */
+    }
+    .card, .case {
+        margin-bottom: 20px; /* Ajoute un espace entre les cartes */
+    }
+    .card-info ul {
+        padding: 0;
+        list-style: none;
+    }
+    .card-info ul li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .card-info ul li img {
+        margin-bottom: 10px;
+    }
+
+    .custom-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 60% !important; 
+        transform: translateY(-50%);
+        width: 1em;
+        height: 1em;
+        background-image: url('../images/flower.878x1024.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .Notremaisonestvotremaison {
+        margin-top: 650px; /* Ajoute un margin-top de 20 pixels */
     }
 }
+
 
 .highlight {
     animation: glow 1s infinite;
