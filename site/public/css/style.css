@@ -1,56 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine|Great+Vibes|Dancing+Script|Sevillana');
 
+::selection {
+    background: #baafca; /* Couleur de fond dorée pour la sélection */
+    color: #fff; /* Couleur du texte pour la sélection */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #dff2e2;
-
 }
 
-::selection {
-    background: #baafca; /* Couleur de fond dorée pour la sélection */
-    color: #fff; /* Couleur du texte pour la sélection */
-}
-
-hr {
-    border: none;
-    height: 2px;
-    background-color: #c6c1d2;
-    margin: 15px 10%;
-    
-}
-
-.phraseAccroche {
-    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
-    font-size: 4em;
-    text-shadow: 4px 4px 4px #aaa;
-    color: #ebfff0;
-    background-color: #baafcad7;
-    border-radius: 1em;
-    padding: 1%;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
-    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
-}
-
-
-.boutonAccueil {
-    font-size: 0.6em !important; 
-    font-style: italic;
-    text-align: center;
-    margin: 0.5em;
-}
-
-.boutonAccueil:hover {
-    color: #ebfff0;
-    background-color: #baafca; /*#4c1f90;*/
-}
-
-.boutonAccueil:active {
-    transform: scale(0.85);
+p {
+    line-height: 2;
 }
 
 h1, h2 {
@@ -117,19 +81,91 @@ button[type="submit"]:hover {
     color: #333; 
 }
 
+hr {
+    border: none;
+    height: 2px;
+    background-color: #c6c1d2;
+    margin: 15px 10%;
+    
+}
+
+/* -------------------------  Selecteurs uniques ---------------------------------------------*/
+
+.phraseAccroche {
+    font-family: 'Great Vibes', cursive; /* Assurez-vous d'importer cette police si ce n'est pas déjà fait */
+    font-size: 4em;
+    text-shadow: 4px 4px 4px #aaa;
+    color: #ebfff0;
+    background-color: #baafcad7;
+    border-radius: 1em;
+    padding: 1%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: 300; /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine */
+    line-height: 1.2em; /* Ajoute de l'espace entre les lignes */
+}
+
+.highlight {
+    animation: glow 1s infinite;
+}
+
+ /* CSS for the video embed */
+ .video-embed {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Let it fill the container */
+    height: 18em; /* Maintain aspect ratio */
+    max-width: 600px; /* Optional: Limit the maximum width */
+}
+
+/* Responsive container for the iframe */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px; /* Optional: Add padding around the video */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.ppMarie {
+    max-width: 180px;
+    border-radius: 20em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.containerPresMarie {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-gap: 20px;
+}
+
+.signature {
+    text-align: right;
+}
+
+.boutonAccueil {
+    font-size: 0.6em !important; 
+    font-style: italic;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.boutonAccueil:hover {
+    color: #ebfff0;
+    background-color: #baafca; /*#4c1f90;*/
+}
+
+.boutonAccueil:active {
+    transform: scale(0.85);
+}
+
 #clearArticles,
 #deleteArticle {
     margin-right: 10px;
 }
 
-@media (max-width: 480px) {
-    #deleteArticle,
-    #deleteLastArticle {
-        width: 100%;
-        display: block;
-        margin-right: 0;
-    }
-}
 
 #articlesList {
     background-color: #333; 
@@ -141,6 +177,26 @@ button[type="submit"]:hover {
     width: 100%;
     padding: 1em;
     box-sizing: border-box;
+}
+
+.containerindex {
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    max-width: 100%;
+    align-items: center;
+    border-radius: 48px 10px 46px 10px;
+    background-color: #c6c1d2;
+    padding: 1em;
+    box-sizing: border-box;
+    margin-top: 2em;
+}
+
+.containerPres {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    grid-gap: 10px;
 }
 
 /* Style pour le bloc de texte important sur la page d'accueil */
@@ -169,26 +225,14 @@ button[type="submit"]:hover {
 }
 
 
-.containerindex {
-    display: flex;
-    flex-direction: column;
-    min-width: 70%;
-    max-width: 100%;
-    align-items: center;
-    border-radius: 48px 10px 46px 10px;
-    background-color: #c6c1d2;
-    padding: 1em;
-    box-sizing: border-box;
-    margin-top: 2em;
-}
-
-
 .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 }
+
+/* ----------------------- Cartes -------------------- */
 .card {
     --background: linear-gradient(to right, #94a693 0%, #acb9ad 100%); /*linear-gradient(to left, #7439cc 0%, #1ae42b 100%); */
     max-width: 100%;
@@ -254,15 +298,6 @@ button[type="submit"]:hover {
     margin-top: 1.5em;
 }
 
-
-.containerPres {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr; */
-    grid-gap: 10px;
-}
-
-
 .card .title {
     font-weight: bold;
 }
@@ -272,51 +307,9 @@ button[type="submit"]:hover {
     opacity: 0;
 }
 
-
 .card-info p {
     text-align: justify;
 }
-
-
-
-.ppMarie {
-    max-width: 180px;
-    border-radius: 20em;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.containerPresMarie {
-    display: grid;
-    grid-template-columns: 1fr 9fr;
-    grid-gap: 20px;
-}
-
-.signature {
-    text-align: right;
-}
-
-p {
-    line-height: 2;
-}
-
-
-@media (max-width: 600px) {
-
-    .card-info img.imagesPres {
-        margin-left: 0;
-        margin-top: 10px;
-        max-width: 100%;
-    }
-
-    .section ul {
-        list-style: none; /* Supprime les puces par défaut */
-        padding: 0;
-        margin: 0;
-        width: 98.2%;
-        padding-left: 0.2em;
-    }
-}
-
 
 /*------------------------- ONEPAGE ---------------------------------------------*/
 
@@ -407,44 +400,6 @@ body {
     border-radius: 5px;
     font-size: 0.75em;
     white-space: nowrap;
-}
-/* Media query for tablets and larger devices */
-@media (min-width: 768px) {
-    .navbarHori {
-        right: 15px; /* Increase right margin for larger screens */
-        width: 25px; /* Slightly wider for larger screens */
-    }
-
-    .navbarHori a {
-        width: 12px; /* Slightly larger dots for larger screens */
-        height: 12px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-    .navbarHori {
-        opacity: 1;
-    }
-}
-
-/* Media query for desktops and larger devices */
-@media (min-width: 992px) {
-    .navbarHori {
-        right: 20px; /* Further increase right margin for larger screens */
-        width: 30px; /* Even wider for larger screens */
-    }
-
-    .navbarHori a {
-        width: 15px; /* Larger dots for larger screens */
-        height: 15px;
-    }
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
-    .navbarHori {
-        display: none; /* Masque la barre de navigation pour les petits écrans */
-    }
 }
 
 .baniere {
@@ -554,10 +509,32 @@ body {
     margin-left: 2em !important;
 }
 
+@keyframes glow {
+    0% {
+        text-shadow: 2px 2px 5px #7800ac;
+    }
+    50% {
+        text-shadow: 2px 2px 20px #ffffff;
+    }
+    100% {
+        text-shadow: 2px 2px 5px #7800ac;
+    }
+}
+
+/* ------------------Media queries ----------------------- */
 /* Media query for tablets and larger devices */
 @media (min-width: 768px) {
     .bordertitle {
         margin-left: 4em; /* Increase margin for larger screens */
+    }
+    .card-info img.imagesPres {
+        max-width: 100%;
+        height: auto; /* Assure que les images conservent leur ratio d'aspect */
+    }
+    .containerPres {
+        display: flex;
+        flex-direction: column; /* Arrange les images en une seule colonne */
+        gap: 20px; /* Ajoute de l'espace entre les éléments */
     }
 }
 
@@ -565,6 +542,15 @@ body {
 @media (min-width: 992px) {
     .bordertitle {
         margin-left: 7em; /* Further increase margin for larger screens */
+    }
+    .card-info img.imagesPres {
+        max-width: 100%;
+        height: auto; /* Assure que les images conservent leur ratio d'aspect */
+    }
+    .containerPres {
+        display: flex;
+        flex-direction: column; /* Arrange les images en une seule colonne */
+        gap: 20px; /* Ajoute de l'espace entre les éléments */
     }
 }
 
@@ -636,41 +622,62 @@ body {
     .Notremaisonestvotremaison {
         margin-top: 4em; /* Ajoute un margin-top de 20 pixels */
     }
-}
 
-
-.highlight {
-    animation: glow 1s infinite;
-}
-
-@keyframes glow {
-    0% {
-        text-shadow: 2px 2px 5px #7800ac;
+    .card-info img.imagesPres {
+        margin-left: 0;
+        margin-top: 10px;
+        max-width: 100%;
     }
-    50% {
-        text-shadow: 2px 2px 20px #ffffff;
-    }
-    100% {
-        text-shadow: 2px 2px 5px #7800ac;
+
+    .section ul {
+        list-style: none; /* Supprime les puces par défaut */
+        padding: 0;
+        margin: 0;
+        width: 98.2%;
+        padding-left: 0.2em;
     }
 }
 
- /* CSS for the video embed */
- .video-embed {
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Let it fill the container */
-    height: 18em; /* Maintain aspect ratio */
-    max-width: 600px; /* Optional: Limit the maximum width */
+@media (max-width: 480px) {
+    #deleteArticle,
+    #deleteLastArticle {
+        width: 100%;
+        display: block;
+        margin-right: 0;
+    }
 }
 
-/* Responsive container for the iframe */
-.video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px; /* Optional: Add padding around the video */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
+/* Media query for tablets and larger devices */
+@media (min-width: 768px) {
+    .navbarHori {
+        right: 15px; /* Increase right margin for larger screens */
+        width: 25px; /* Slightly wider for larger screens */
+    }
+
+    .navbarHori a {
+        width: 12px; /* Slightly larger dots for larger screens */
+        height: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbarHori {
+        opacity: 1;
+    }
+}
+
+/* Media query for desktops and larger devices */
+@media (max-width: 992px) {
+    .navbarHori {
+        display: none;
+    }
+
+    
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
+    .navbarHori {
+        display: none; /* Masque la barre de navigation pour les petits écrans */
+    }
 }
