@@ -179,6 +179,7 @@ button[type="submit"]:hover {
     background-color: #c6c1d2;
     padding: 1em;
     box-sizing: border-box;
+    margin-top: 2em;
 }
 
 
@@ -229,8 +230,9 @@ button[type="submit"]:hover {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 1em;
+    padding: 0;
     border-radius: 0.7rem;
+    
 }
 
 .card-info li {
@@ -305,6 +307,14 @@ p {
         margin-top: 10px;
         max-width: 100%;
     }
+
+    .section ul {
+        list-style: none; /* Supprime les puces par défaut */
+        padding: 0;
+        margin: 0;
+        width: 98.2%;
+        padding-left: 0.2em;
+    }
 }
 
 
@@ -356,7 +366,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    opacity: 0.2; /* Définit l'opacité initiale à 0 (invisible) */
+    opacity: 0.4; /* Définit l'opacité initiale à 0 (invisible) */
     transition: opacity 0.3s ease; /* Ajoute une transition sur l'opacité */
     z-index: 2;
 }
@@ -398,7 +408,6 @@ body {
     font-size: 0.75em;
     white-space: nowrap;
 }
-
 /* Media query for tablets and larger devices */
 @media (min-width: 768px) {
     .navbarHori {
@@ -434,32 +443,7 @@ body {
 /* Media query for mobile devices */
 @media (max-width: 768px) { /* Ajout de la règle media query pour les tailles de vue inférieures à 768px, qui est généralement utilisée pour les tablettes et les téléphones */
     .navbarHori {
-        top: 50%;
-        transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
-        height: auto;
-        transform: none; /* Supprime la transformation de translation */
-        opacity: 1; /* Rend la barre de navigation toujours visible */
-        background-color: #c6c1d2; /* Couleur de fond */
-        right: 5px; /* Reduce right margin for smaller screens */
-        width: 15px; /* Narrower for smaller screens */
-    }
-    
-    .navbarHori:hover,
-    .navbarHori a:hover,
-    .navbarHori a:active {
-        transform: none; /* Supprime la transformation au survol ou à l'activation */
-        opacity: 1; /* Rend la barre de navigation toujours visible */
-    }
-
-    .navbarHori a {
-        margin-bottom: 12px; /* Reduce space between dots for smaller screens */
-        width: 8px; /* Smaller dots for smaller screens */
-        height: 8px;
-        color: #81987f;
-    }
-
-    .navbarHori a::before {
-        display: none; /* Cache le texte de section avant le survol */
+        display: none; /* Masque la barre de navigation pour les petits écrans */
     }
 }
 
@@ -499,8 +483,8 @@ body {
     list-style: none; /* Supprime les puces par défaut */
     padding: 0;
     margin: 0;
-    width: 100%;
-    padding-left: 1em;
+    width: 99.6%;
+    padding-left: 0.2em;
 }
 
 .section ul li {
@@ -650,7 +634,7 @@ body {
     }
 
     .Notremaisonestvotremaison {
-        margin-top: 650px; /* Ajoute un margin-top de 20 pixels */
+        margin-top: 4em; /* Ajoute un margin-top de 20 pixels */
     }
 }
 

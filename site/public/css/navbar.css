@@ -38,12 +38,8 @@ body {
 	margin-left:  1em;
 	background-color: #ffffff49;
 	box-shadow: 0 0 10px 0 #baafca;
-	transition: transform 0.3s ease-in-out;
 }
 
-#logo:hover {
-	transform: scale(1.05);
-} 
 
 /* Bouton de toggler pour la navigation mobile (caché par défaut) */
 #navbar-toggler {
@@ -186,7 +182,6 @@ body {
       margin-left: 1em;
       background-color: #ffffff49;
       box-shadow: 0 0 10px 0 #baafca;
-      transition: transform 0.3s ease-in-out;
     }
 
     /* Afficher le menu de navigation lorsqu'il est ouvert */
@@ -251,7 +246,7 @@ body {
         margin-left: 1em;
         background-color: #ffffff49;
         box-shadow: 0 0 10px 0 #baafca;
-        transition: transform 0.3s ease-in-out;
+
     }
 
     .navbar-menu.open {
