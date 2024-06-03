@@ -291,7 +291,7 @@ hr {
     /* margin-left: auto; 
     margin-right: 20px;  */
     /* max-width: 150px; */
-    max-width: 650px;
+    max-width: 32em;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     /* display: flex; */
@@ -352,7 +352,7 @@ body {
     transform: translateY(-50%); /* Déplace la barre de navigation vers le haut de moitié de sa propre hauteur */
     right: 10px; /* Ajoute un espace à droite pour éviter le chevauchement avec la barre de défilement */
     width: 20px; /* Largeur réduite de la barre de navigation */
-    height: calc(100vh - 50vh); /* Hauteur de la barre de navigation (100% de la hauteur moins 50% de la hauteur) */
+    height: calc(100vh - 60vh); /* Hauteur de la barre de navigation (100% de la hauteur moins 50% de la hauteur) */
     background-color: #c6c1d2;
     display: flex;
     flex-direction: column;
@@ -523,7 +523,7 @@ body {
 
 /* ------------------Media queries ----------------------- */
 /* Media query for tablets and larger devices */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .bordertitle {
         margin-left: 4em; /* Increase margin for larger screens */
     }
@@ -539,7 +539,7 @@ body {
 }
 
 /* Media query for desktops and larger devices */
-@media (min-width: 992px) {
+@media (max-width: 992px) {
     .bordertitle {
         margin-left: 7em; /* Further increase margin for larger screens */
     }
