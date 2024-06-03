@@ -30,13 +30,14 @@ label {
 /* Styles pour les sections */
 .containerBlog {
     margin: 50px auto; /* Ajoute une marge en haut et en bas et centre horizontalement */
-    background-color: rgba(46, 214, 226, 0.445);
+    background-color: #d8f2d6;
     width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px; /* Ajoute un peu d'espace intérieur */
     border-radius: 1em;
+    border: 0.3rem solid #96a896;
 }
 
 

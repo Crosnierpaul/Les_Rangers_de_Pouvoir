@@ -8,6 +8,7 @@ form {
     align-content: center;
     align-items: center;
     padding: 2%;
-    background-color: rgba(43, 245, 86, 0.473);
+    background-color: #d8f2d6;
     border-radius: 1em;
+    border: 0.3rem solid #96a896;
 }

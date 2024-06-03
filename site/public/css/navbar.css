@@ -8,7 +8,7 @@ body {
 
 /* Container centralisé pour un contenu de largeur maximale de 1200px */
 .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: 0 20px;
     margin-top: 1em;
