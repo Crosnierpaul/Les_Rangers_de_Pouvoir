@@ -20,12 +20,11 @@ const session = require('express-session');
 
 const MongoStore = require('connect-mongo');
 
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-const MONGODB_URL = "mongodb+srv://Roll:1vt7jgcn@lamaisondugrandmas.gvocidr.mongodb.net/";
+const MONGODB_URL = 'mongodb+srv://Roll:1vt7jgcn@lamaisondugrandmas.gvocidr.mongodb.net/';
 
 //----------- Connect to MongoDB -----------//
 
